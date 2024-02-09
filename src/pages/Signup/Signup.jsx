@@ -71,7 +71,7 @@ const Signup = ({ handleAuthEvt }) => {
     }
   }
 
-  const { name, email, password, passwordConf } = formData
+  const { name, email, password, passwordConf, role } = formData
 
   const isFormInvalid = () => {
     return !(name && email && password && password === passwordConf)
@@ -112,6 +112,19 @@ const Signup = ({ handleAuthEvt }) => {
             name="passwordConf"
             onChange={handleChange}
           />
+        </label>
+        <label className={styles.label}>
+          Select Profile type
+          <select
+            type="role"
+            value={role}
+            name="role"
+            onChange={handleChange} 
+          >
+          <option value="200">Student</option>
+          <option value="500">Mentor</option>
+          <option value="100">Vendor</option>
+          </select>
         </label>
         <label className={styles.label}>
           Upload Photo

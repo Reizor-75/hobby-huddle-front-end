@@ -114,14 +114,15 @@ const Signup = ({ handleAuthEvt }) => {
           />
         </label>
         <label className={styles.label}>
-          Select Profile type
+          Select Profile Type
           <select
             type="role"
             value={role}
             name="role"
             onChange={handleChange} 
           >
-          <option value="200">Student</option>
+          <option value="" selected disabled hidden>Choose Role</option>
+          <option value="200" >Student</option>
           <option value="500">Mentor</option>
           <option value="100">Vendor</option>
           </select>

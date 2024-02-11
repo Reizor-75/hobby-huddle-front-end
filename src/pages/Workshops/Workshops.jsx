@@ -21,7 +21,7 @@ const Workshops = () => {
     <main>
       <h1>Workshop</h1>
       {workshops.map(workshop =>(
-        <h2 key={workshop._id}>{workshop.eventType}</h2>
+        <h2 key={workshop._id}>{workshop.eventType} created by {workshop.mentorName.name}</h2>
       ))}
     </main>
   );

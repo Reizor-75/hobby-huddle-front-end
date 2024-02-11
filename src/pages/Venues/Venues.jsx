@@ -19,14 +19,14 @@ const Venues = () => {
   }, [])
 
   if (!venues.length) {
-    return <main className={styles.container}><h1>Loading...</h1></main>
+    return <main className={styles.container}><h1>No venues have been added</h1></main>
   }
   
   return (
     <main className={styles.container}>
       <h1>Look at all these venues!</h1>
       {venues.map(venue => (
-        <p key={venue._id}>{venue.vendorName}</p>
+        <p key={venue._id}>{venue.vendorName} owned by {venue.venueOwner.name}</p>
       ))}
     </main>
   )

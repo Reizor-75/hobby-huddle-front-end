@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import Venues from './pages/Venues/Venues'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import Workshops from './pages/Workshops/Workshops'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -55,6 +56,14 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+        path="/workshops"
+        element={
+          <ProtectedRoute user={user}>
+            <Workshops />
+          </ProtectedRoute>
+        }
+      />
         <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

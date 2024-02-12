@@ -13,6 +13,8 @@ import Workshops from './pages/Workshops/Workshops'
 import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
 import MyProfile from './pages/MyProfile/MyProfile'
 import EditProfile from './pages/EditProfile/EditProfile'
+
+
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
@@ -74,7 +76,7 @@ function App() {
               <EditProfile />
             </ProtectedRoute>
           }
-        />
+      />
 
         <Route
           path="/workshops"
@@ -84,7 +86,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        
+
         <Route
           path="/workshops/new"
           element={

@@ -84,6 +84,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
         <Route
           path="/workshops/new"
           element={

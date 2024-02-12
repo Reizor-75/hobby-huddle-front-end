@@ -12,7 +12,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
 import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
 import MyProfile from './pages/MyProfile/MyProfile'
-
+import EditProfile from './pages/EditProfile/EditProfile'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
@@ -66,6 +66,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+      <Route
+          path="/editprofile"
+          element={
+            <ProtectedRoute user={user}>
+              <EditProfile />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/workshops"
           element={

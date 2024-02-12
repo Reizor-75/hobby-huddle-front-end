@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import Venues from './pages/Venues/Venues'
+import NewVenue from './pages/NewVenue/NewVenue'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
 import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
@@ -59,6 +60,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/venues/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewVenue />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/myprofile"
           element={

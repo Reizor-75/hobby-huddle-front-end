@@ -13,5 +13,6 @@ async function getAllVenues() {
     throw new Error(err)
   }
 }
-
-export { getAllVenues }
+export { 
+  getAllVenues,
+}

@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react'
 // services
 import * as profileService from '../../services/profileService'
 
+
+//components
+import ProfileCard from '../../components/Profile Card/ProfileCard'
+
 // css
 import styles from './Profiles.module.css'
 
@@ -24,10 +28,15 @@ const Profiles = () => {
   
   return (
     <main className={styles.container}>
-      <h1>Hello. This is a list of all the profiles.</h1>
+      <div>
+        <h1>Hello. This is a list of all the profiles.</h1>
+      </div>
+      <div className={styles.allCards}>
       {profiles.map(profile => (
-        <p key={profile._id}>{profile.name}</p>
+          <ProfileCard key={profile._id} profile={profile}/>
       ))}
+      </div>
+
     </main>
   )
 }

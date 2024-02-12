@@ -20,10 +20,6 @@ const PostCard = ({content, user}) => {
           <div id={styles.signUpButton}> <button>Sign Up</button></div>
           : <></>
         }    
-        {user.profile === content.mentorInfo._id ?
-          <div id={styles.signUpButton}> <button>Delete</button></div>
-          : <></>
-        }
       </div>
     </NavLink>  
   );

@@ -14,6 +14,7 @@ import styles from './Workshops.module.css'
 const Workshops = ({user}) => {
   const [workshops, setWorkshops] = useState([])
 
+
   useEffect(() => {
     const fetchWorkshops = async () => {
       const workshopData = await workshopService.getAllWorkshops()

@@ -8,7 +8,7 @@ import * as workshopService from '../../services/workshopService'
 //css
 import styles from './WorkshopDetails.module.css'
 
-const WorkshopDetails = () => {
+const WorkshopDetails = ({user}, {handleDeleteWorkshop}) => {
   const { workshopId } = useParams()
   const [workshop, setWorkshop] = useState(null)
 
@@ -29,7 +29,7 @@ const WorkshopDetails = () => {
       <h1 className={styles.title}> {workshop.title} </h1>
       <h2> Hosted by {workshop.mentorInfo.name}</h2>
       <h3 className={styles.row}>
-        <div>Venue: {workshop.location.vendorName} </div>
+        <div>Venue: {workshop.location.venueTitle} </div>
         <div>Price: ${workshop.pricePerPerson} </div>
       </h3>
       <h3 className={styles.row}>
@@ -38,7 +38,11 @@ const WorkshopDetails = () => {
       </h3>
       <p> {workshop.description} </p>
       <div id={styles.applyButton}>
-        <button>Apply</button>
+      {user.profile === workshop.mentorInfo._id 
+        ? <button id={styles.signUpButton} onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
+        : <button id={styles.signUpButton}>Apply</button>
+      }
+        
       </div>
     </div>
   );

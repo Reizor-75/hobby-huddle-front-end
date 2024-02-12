@@ -40,9 +40,23 @@ async function showWorkshop(workshopId){
     console.log(error)
   }
 }
+async function deleteWorkshop(workshopId){
+  try {
+    const res = await fetch(`${BASE_URL}/${workshopId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export {
   getAllWorkshops,
   createWorkshop,
-  showWorkshop
+  showWorkshop,
+  deleteWorkshop
 }

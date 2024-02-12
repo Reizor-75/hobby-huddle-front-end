@@ -7,8 +7,13 @@ import * as venueService from '../../services/venueService'
 // css
 import styles from './Venues.module.css'
 
+//components
+import VenueCard from '../../components/VenueCard/VenueCard'
+
 const Venues = () => {
   const [venues, setVenues] = useState([])
+
+  // const [user, setUser]= useState([])
 
   useEffect(() => {
     const fetchVenues = async () => {
@@ -23,12 +28,19 @@ const Venues = () => {
   }
   
   return (
+    <>
     <main className={styles.container}>
       <h1>Look at all these venues!</h1>
+      <div className={styles.venue_container}>
       {venues.map(venue => (
-        <p key={venue._id}>{venue.vendorName} owned by {venue.venueOwner.name}</p>
+        <div key={venue._id}>
+          {/* {venue.vendorName} owned by {venue.venueOwner.name} */}
+        <VenueCard venue={venue} />
+        </div>
       ))}
+      </div>
     </main>
+    </>
   )
 }
 

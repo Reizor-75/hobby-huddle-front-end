@@ -1,0 +1,22 @@
+.card_container{
+  border:2px solid white;
+  height:500px;
+  width: 300px;
+}
+
+.venue_info_container{
+  text-align: center;
+  padding: 20px;
+}
+
+.image_container{
+  background-image: url("https://etimg.etb2bimg.com/photo/96993504.cms");
+  background-size: cover;
+  height:200px;
+  width: 100%;
+}
+
+h2{
+  margin:0;
+}
+

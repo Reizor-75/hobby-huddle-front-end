@@ -60,6 +60,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/venues/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewVenue />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/venues/new"
           element={

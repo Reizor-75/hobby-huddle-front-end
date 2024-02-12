@@ -9,7 +9,7 @@ import * as workshopService from '../../services/workshopService'
 import PosterInfo from "../../components/PosterInfo/PosterInfo";
 import PostDetails from "../../components/PostDetails/PostDetails";
 
-const Workshops = () => {
+const Workshops = ({user}) => {
   const [workshops, setWorkshops] = useState([])
 
   useEffect(() => {
@@ -25,12 +25,18 @@ const Workshops = () => {
   return (  
     <main>
       <h1>Workshop</h1> 
-      <NavLink to="new"><button>Create New Workshop</button></NavLink>
-      
+      {user.role === 500 ?
+        <NavLink to="new"><button>Create New Workshop</button></NavLink>
+        : <></>
+      }
       {workshops.map(workshop =>(
         <div key={workshop._id}>
           <PostDetails content={workshop} />
           <PosterInfo poster={workshop.mentorInfo}/>
+          {user.role === 200 ?
+            <button>Sign Up</button>
+            : <></>
+          }
         </div>
       ))}
     </main>

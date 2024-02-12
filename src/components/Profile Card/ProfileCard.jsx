@@ -8,8 +8,13 @@ const ProfileCard = ({profile}) => {
       <div className="profile-picture">
         <img src="../../../arthur.png" />
       </div>
-      <div >
-        <h1>{profile.name}</h1>
+      <div className="profile-info">
+          <div className="name">{profile.name}</div>
+          <div className="socials">@Socials</div>
+          <div className="stars">profile stars</div>
+      </div>
+      <div className="profile-about-me">
+      <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry.and typesetting industry. </div>
       </div>
     </div>
   );

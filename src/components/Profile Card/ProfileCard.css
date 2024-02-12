@@ -1,7 +1,7 @@
 .profile-card{
-  color: red;
+  color: rgb(139, 228, 101);
   border: white solid 2px;
-  width: 250px;
+  width: 300px;
   height: 300px;
   border-radius: 40px;
   display: flex;
@@ -11,7 +11,6 @@
 }
 
 .profile-picture{
-  color: red;
   border: white solid 2px;
   width: 100px;
   height: 100px;
@@ -21,7 +20,7 @@
   align-items: center;
   align-items: center;
   overflow: hidden;
-  margin: 15px;
+  margin: 5px;
 }
 
 img{
@@ -29,4 +28,43 @@ img{
   height: 100px;
   display: block;
   object-fit: cover;
+}
+
+
+.profile-info{
+  text-align: center;
+  /* border: rgb(0, 255, 89) 1px solid; */
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.name{
+  font-size: 24px;
+  color: orange
+}
+
+.socials{
+  font-size: 16px;
+  color: rgb(170, 0, 255)
+}
+
+.stars{
+  font-size: 16px;
+  color: rgb(0, 132, 255)
+}
+
+
+.profile-about-me{
+  /* border: pink 1px solid; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 0px;
 }

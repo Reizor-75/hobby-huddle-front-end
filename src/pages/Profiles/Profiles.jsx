@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react'
 // services
 import * as profileService from '../../services/profileService'
 
+
+//components
+import ProfileCard from '../../components/Profile Card/ProfileCard'
+
 // css
 import styles from './Profiles.module.css'
 
@@ -28,6 +32,7 @@ const Profiles = () => {
       {profiles.map(profile => (
         <p key={profile._id}>{profile.name}</p>
       ))}
+      <ProfileCard />
     </main>
   )
 }

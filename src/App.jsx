@@ -10,7 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import Venues from './pages/Venues/Venues'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
-
+import NewWorkshop from './pages/newWorkshop/newWorkshop'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
@@ -57,13 +57,21 @@ function App() {
           }
         />
         <Route
-        path="/workshops"
-        element={
-          <ProtectedRoute user={user}>
-            <Workshops />
-          </ProtectedRoute>
-        }
-      />
+          path="/workshops"
+          element={
+            <ProtectedRoute user={user}>
+              <Workshops />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/workshops/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewWorkshop />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

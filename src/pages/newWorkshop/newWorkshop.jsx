@@ -1,0 +1,116 @@
+//npm modules
+import { useState, useEffect } from "react";
+
+// services
+import * as venueService from '../../services/venueService'
+
+// css
+import styles from './newWorkshop.module.css'
+
+
+const NewWorkshop = () => {
+  const [formData, setFormData] = useState([])
+  const [venues, setVenuesData] = useState([])
+
+  useEffect(() => {
+    const fetchVenues = async () => {
+      const venueData = await venueService.getAllVenues()
+      setVenuesData(venueData)
+    }
+    fetchVenues()
+  }, [])
+
+  const handleChange = evt => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
+  }
+
+  if (!venues.length) {
+    return <main className={styles.main}>
+      <h1>Loading</h1>
+    </main>
+  }
+
+  return (  
+    <main className={styles.main}>
+      <h1>Create new Workshop</h1>
+      <form autoComplete="off" className={styles.form} id="workshop-form">
+        <label className={styles.label}>
+          Workshop Title
+          <input type="text"
+            className={styles.input}
+            name="title"
+            onChange={handleChange} />
+        </label>
+        <label className={styles.label}>
+          Date
+          <input type="datetime-local"
+            className={styles.input}
+            name="date"
+            onChange={handleChange} />
+        </label>        
+        <label className={styles.label}>
+          Category
+          <select 
+            className={styles.input}
+            name="catergory" 
+            id={styles.categorySelect}
+            onChange={handleChange}>            
+            <option value="" selected disabled hidden>Choose a Class Category</option>
+            <option value="Craft">Craft</option>
+            <option value="Art">Art</option>
+            <option value="Food">Food</option>
+            <option value="Sport">Sport</option>
+            <option value="Music">Music</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+        <label className={styles.label}>
+          Location
+          <select 
+            className={styles.input}
+            name="location" 
+            id={styles.locationSelect}
+            onChange={handleChange}>
+              <option value="" selected disabled hidden>Choose a Venue</option>
+              {venues.map(venue => (                  
+                <option key={venue._id} value={venue._id}>{venue.vendorName}</option>
+              ))
+            }
+          </select>
+        </label>
+        <label className={styles.label}>
+          Student Fee
+          <input type="Number"          
+            className={styles.input}
+            name="pricePerPerson"
+            min={0}
+            onChange={handleChange}
+            placeholder="Price per Student"/>
+        </label>
+        <label className={styles.label}>
+          Class Size
+          <input type="Number"          
+            className={styles.input}
+            name="workshopLimit"
+            min={1}
+            onChange={handleChange} 
+            placeholder="Max Number of Students"/>
+        </label>
+        <label className={styles.label}>
+          Description
+          <textarea 
+            className={styles.input}
+            name="description"            
+            id={styles.description}
+            onChange={handleChange} 
+            placeholder="Write a brief description of your Workshop"/>
+        </label>
+        <div className={styles.submit}>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </main>
+  );
+}
+
+export default NewWorkshop;

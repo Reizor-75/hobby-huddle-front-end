@@ -1,3 +1,7 @@
+.container{  
+  width: 60%;
+}
+
 .titleBar{
   display: flex;
   justify-content: center;
@@ -13,5 +17,5 @@
 
 .cardContainer{
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }

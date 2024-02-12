@@ -1,5 +1,5 @@
 .profile-card{
-  color: rgb(139, 228, 101);
+  /* color: rgb(139, 228, 101); */
   border: white solid 2px;
   width: 300px;
   height: 350px;
@@ -13,7 +13,7 @@
 .profile-picture{
   border: white solid 2px;
   width: 150px;
-  height: 150px;
+  height: 2000px;
   border-radius: 100px;
   display: flex;
   flex-direction: row;
@@ -34,33 +34,32 @@ img{
 
 .profile-info{
   text-align: center;
-  /* border: rgb(0, 255, 89) 1px solid; */
+  border: red 1px solid;
   width: 100%;
-  height: 90px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 5px;
+  padding-bottom: 0px;
+  font-size: 32px;
 }
 
 .name{
   font-size: 24px;
-  color: orange
+  color: orange;
+  border: solid green 1px
 }
 
 .socials{
   font-size: 16px;
-  color: rgb(170, 0, 255)
+  color: rgb(170, 0, 255);
+  border: solid green 1px
 }
-
-.stars{
-  font-size: 16px;
-  color: rgb(0, 132, 255)
-}
-
 
 .profile-about-me{
   /* border: pink 1px solid; */
+  height: 2000px;
   width: 100%;
   display: flex;
   flex-direction: column;

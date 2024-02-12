@@ -11,6 +11,7 @@ import Venues from './pages/Venues/Venues'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
 import NewWorkshop from './pages/newWorkshop/newWorkshop'
+
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'

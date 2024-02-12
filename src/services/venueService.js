@@ -14,4 +14,23 @@ async function getAllVenues() {
   }
 }
 
-export { getAllVenues }
+async function create(venueFormData) {
+  try {
+    const res = await fetch(BASE_URL, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(venueFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { 
+  getAllVenues,
+  create
+}

@@ -5,7 +5,12 @@ const ProfileCard = ({profile}) => {
 
   return ( 
     <div className="profile-card">
-      <h1>{profile.name}</h1>
+      <div className="profile-picture">
+        <img src="../../../arthur.png" />
+      </div>
+      <div >
+        <h1>{profile.name}</h1>
+      </div>
     </div>
   );
 }

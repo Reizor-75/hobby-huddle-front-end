@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import Venues from './pages/Venues/Venues'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
+import MyProfile from './pages/MyProfile/MyProfile'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -53,6 +54,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <Venues />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/myprofile"
+          element={
+            <ProtectedRoute user={user}>
+              <MyProfile />
             </ProtectedRoute>
           }
         />

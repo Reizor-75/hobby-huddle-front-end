@@ -14,6 +14,23 @@ async function getAllWorkshops() {
   }
 }
 
+async function createWorkshop(workshopFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/newWorkshop`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(workshopFormData)
+    })
+    return res.json()
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
 export {
-  getAllWorkshops
+  getAllWorkshops,
+  createWorkshop
 }

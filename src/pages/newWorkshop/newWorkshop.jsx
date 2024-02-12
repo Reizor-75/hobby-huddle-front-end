@@ -1,8 +1,10 @@
 //npm modules
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
 
 // services
 import * as venueService from '../../services/venueService'
+import * as workShopService from '../../services/workshopService'
 
 // css
 import styles from './newWorkshop.module.css'
@@ -11,6 +13,7 @@ import styles from './newWorkshop.module.css'
 const NewWorkshop = () => {
   const [formData, setFormData] = useState([])
   const [venues, setVenuesData] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchVenues = async () => {
@@ -24,16 +27,26 @@ const NewWorkshop = () => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
+  const handleSubmit = async evt => {
+    evt.preventDefault()
+    try {
+      await workShopService.createWorkshop(formData)
+      navigate('/workshops')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   if (!venues.length) {
     return <main className={styles.main}>
-      <h1>Loading</h1>
+      <h1>Loading...</h1>
     </main>
   }
 
   return (  
     <main className={styles.main}>
       <h1>Create new Workshop</h1>
-      <form autoComplete="off" className={styles.form} id="workshop-form">
+      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form} id={styles.workshopForm}>
         <label className={styles.label}>
           Workshop Title
           <input type="text"
@@ -52,7 +65,7 @@ const NewWorkshop = () => {
           Category
           <select 
             className={styles.input}
-            name="catergory" 
+            name="category" 
             id={styles.categorySelect}
             onChange={handleChange}>            
             <option value="" selected disabled hidden>Choose a Class Category</option>

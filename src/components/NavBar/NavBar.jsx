@@ -15,6 +15,7 @@ const NavBar = ({ user, handleLogout }) => {
           <li><NavLink to="/requests">Requests</NavLink></li>
           <li><NavLink to="/venues">Venues</NavLink></li>
           <li><NavLink to="/myprofile">My Profile</NavLink></li>
+          <li><NavLink to="/editmyprofile">Edit My Profile</NavLink></li>
         </ul>
       :
         <ul>

@@ -1,21 +1,22 @@
-// css
-import "./MyProfile.css"
 
-const MyProfile = () => {
+// css
+import styles from './MyProfile.module.css'
+
+const MyProfile = (props) => {
   return ( 
-    <div className="container">
-      <div className="profile-info">
-        <div className="profile-picture">
+    <div className={styles.container}>
+      <div className={styles.profileInfo}>
+        <div className={styles.profilePicture}>
           <img src="../../../arthur.png" />
         </div>
-        <div className="profile-info">
-            <div className="name"></div>
-            <div className="socials">@Socials</div>
-            <div className="stars">profile stars</div>
+        <div className={styles.profileInfo}>
+            <div className={styles.name}>
+              {props.name}
+            </div>
         </div>
       </div>
-      
-      <div className="reviews">
+
+      <div className={styles.rightContainer}>
         <h1>All Reviews</h1>
       </div>
 

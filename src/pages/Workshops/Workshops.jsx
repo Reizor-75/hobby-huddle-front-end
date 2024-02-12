@@ -33,7 +33,7 @@ const Workshops = ({user}) => {
   }
 
   return (  
-    <main>
+    <main className={styles.container}>
       <div className={styles.titleBar}>
         <div className={styles.title}>Workshops</div> 
         {user.role === 500 ?

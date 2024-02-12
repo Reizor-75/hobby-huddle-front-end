@@ -9,8 +9,8 @@ async function getAllWorkshops() {
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
     })
     return await res.json()
-  } catch (err) {
-    throw new Error(err)
+  } catch (error) {
+    console.log(error)
   }
 }
 
@@ -25,12 +25,24 @@ async function createWorkshop(workshopFormData) {
       body: JSON.stringify(workshopFormData)
     })
     return res.json()
-  } catch (err) {
-    throw new Error(err)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function showWorkshop(workshopId){
+  try {
+    const res = await fetch(`${BASE_URL}/${workshopId}`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
   }
 }
 
 export {
   getAllWorkshops,
-  createWorkshop
+  createWorkshop,
+  showWorkshop
 }

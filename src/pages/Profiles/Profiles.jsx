@@ -30,9 +30,8 @@ const Profiles = () => {
     <main className={styles.container}>
       <h1>Hello. This is a list of all the profiles.</h1>
       {profiles.map(profile => (
-        <p key={profile._id}>{profile.name}</p>
+          <ProfileCard key={profile._id} profile={profile}/>
       ))}
-      <ProfileCard />
     </main>
   )
 }

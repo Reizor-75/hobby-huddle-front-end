@@ -1,11 +1,11 @@
 // css
 import "./ProfileCard.css"
 
-const ProfileCard = () => {
+const ProfileCard = ({profile}) => {
 
   return ( 
     <div className="profile-card">
-      <h1>Hello</h1>
+      <h1>{profile.name}</h1>
     </div>
   );
 }

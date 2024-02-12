@@ -32,3 +32,9 @@ nav > ul {
   padding: 16px 32px;
 }
 
+
+.page-body{  
+  display: flex;
+  flex-direction: row;
+  max-height: 100vh;
+}

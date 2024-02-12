@@ -11,6 +11,7 @@ import Venues from './pages/Venues/Venues'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
 import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
+import WorkshopDetails from './pages/WorkshopDetails/WorkshopDetails'
 import MyProfile from './pages/MyProfile/MyProfile'
 
 // components
@@ -38,7 +39,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className='page-body'>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
@@ -75,6 +76,14 @@ function App() {
           }
         />
         <Route
+          path="/workshops/:workshopId"
+          element={
+            <ProtectedRoute user={user}>
+              <WorkshopDetails />
+            </ProtectedRoute>
+          }
+        />
+        <Route
           path="/workshops/new"
           element={
             <ProtectedRoute user={user}>
@@ -99,7 +108,7 @@ function App() {
           }
         />
       </Routes>
-    </>
+    </div>
   )
 }
 

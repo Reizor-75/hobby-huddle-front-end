@@ -86,7 +86,7 @@ const NewWorkshop = () => {
             onChange={handleChange}>
               <option value="" selected disabled hidden>Choose a Venue</option>
               {venues.map(venue => (                  
-                <option key={venue._id} value={venue._id}>{venue.vendorName}</option>
+                <option key={venue._id} value={venue._id}>{venue.venueTitle}</option>
               ))
             }
           </select>

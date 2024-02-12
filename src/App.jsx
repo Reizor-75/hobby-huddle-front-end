@@ -10,6 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import Venues from './pages/Venues/Venues'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
+import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
 import MyProfile from './pages/MyProfile/MyProfile'
 
 // components
@@ -66,21 +67,21 @@ function App() {
           }
         />
         <Route
-          path="/myprofile"
+          path="/workshops"
           element={
             <ProtectedRoute user={user}>
-              <MyProfile />
+              <Workshops user={user}/>
             </ProtectedRoute>
           }
         />
         <Route
-        path="/workshops"
-        element={
-          <ProtectedRoute user={user}>
-            <Workshops />
-          </ProtectedRoute>
-        }
-      />
+          path="/workshops/new"
+          element={
+            <ProtectedRoute user={user}>
+              <NewWorkshop />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/auth/signup"
           element={<Signup handleAuthEvt={handleAuthEvt} />}

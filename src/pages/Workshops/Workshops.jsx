@@ -1,28 +1,53 @@
 //npm modules
 import { useState, useEffect } from "react";
+import { NavLink } from 'react-router-dom'
 
 //services
 import * as workshopService from '../../services/workshopService'
 
-const Workshops = () => {
+//components
+import PostCard from "../../components/PostCard/PostCard";
+
+//css
+import styles from './Workshops.module.css'
+
+const Workshops = ({user}) => {
   const [workshops, setWorkshops] = useState([])
 
   useEffect(() => {
-    const fetchVenues = async () => {
+    const fetchWorkshops = async () => {
       const workshopData = await workshopService.getAllWorkshops()
       setWorkshops(workshopData)
     }
-    fetchVenues()
+    fetchWorkshops()
   }, [])
 
-  if(!workshops.length) return <h1>No Workshops Available</h1>
+  if(!workshops.length) { 
+    return <div className={styles.titleBar}>
+            <div className={styles.title}>No Workshops available</div> 
+            {user.role === 500 ?
+              <NavLink to="new"><button>Create New Workshop</button></NavLink>
+              : <></>
+            }
+          </div>
+  }
 
   return (  
     <main>
-      <h1>Workshop</h1>
-      {workshops.map(workshop =>(
-        <h2 key={workshop._id}>{workshop.eventType} created by {workshop.mentorName.name}</h2>
-      ))}
+      <div className={styles.titleBar}>
+        <div className={styles.title}>Workshops</div> 
+        {user.role === 500 ?
+          <NavLink to="new"><button>Create New Workshop</button></NavLink>
+          : <></>
+        }
+      </div>
+      <div className={styles.cardContainer}>
+        {workshops.map(workshop =>(
+          <div key={workshop._id}>
+            <PostCard content={workshop} user={user}/>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }

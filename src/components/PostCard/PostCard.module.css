@@ -1,0 +1,16 @@
+.card{
+  display: flex;
+  flex-direction: column;
+  background-color: #64663e;
+  width: 350px;
+  height: 250px;
+  padding:8px;
+  border-radius: 8px ;
+  margin:8px
+}
+
+#signUpButton{
+  display: flex;
+  justify-content: right;
+  margin-top: auto;
+}

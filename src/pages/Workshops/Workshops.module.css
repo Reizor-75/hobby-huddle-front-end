@@ -1,0 +1,17 @@
+.titleBar{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 8px;
+}
+
+.title{
+  font-size: xx-large;
+  font-weight: 800;
+  margin: 0 8px;
+}
+
+.cardContainer{
+  display: flex;
+  flex-wrap: wrap;
+}

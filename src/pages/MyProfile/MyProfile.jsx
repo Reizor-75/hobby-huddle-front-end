@@ -2,7 +2,7 @@
 // css
 import styles from './MyProfile.module.css'
 
-const MyProfile = (props) => {
+const MyProfile = () => {
   return ( 
     <div className={styles.container}>
       
@@ -17,7 +17,7 @@ const MyProfile = (props) => {
       <div className={styles.bottomContainer}>
         <div className={styles.bottomLeft}></div>
         <div className={styles.bottomRight}>
-          
+
         </div>
       </div>
 

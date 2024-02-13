@@ -80,7 +80,7 @@ const EditVenue = (props) => {
         </div>
       </form>
     </main>
-  );
+  )
 }
 
 export default EditVenue

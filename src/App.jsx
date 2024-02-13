@@ -134,6 +134,15 @@ function App() {
         />
 
         <Route
+          path="/profiles/myProfile"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfilePage user={user} />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/editprofile"
           element={
             <ProtectedRoute user={user}>

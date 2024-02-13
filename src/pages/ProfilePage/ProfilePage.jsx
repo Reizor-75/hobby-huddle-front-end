@@ -39,7 +39,10 @@ const ProfilePage = () => {
         </div>
       </div>
       <div className={styles.bottomContainer}>
-        <div className={styles.bottomLeft}></div>
+        <div className={styles.bottomLeft}>
+          <h1>Reviews</h1>
+          <div></div>
+        </div>
         <div className={styles.bottomRight}>
 
         </div>

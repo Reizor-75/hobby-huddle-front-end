@@ -43,10 +43,27 @@ async function show(profileId) {
   }
 }
 
+async function createReview (profileId, reviewFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/reviews`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reviewFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 export { 
   getAllProfiles, 
   addPhoto,
-  show
+  show,
+  createReview
   
 }

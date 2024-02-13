@@ -33,6 +33,8 @@ const Venues = () => {
     const deletedVenue = await venueService.deleteVenue(venueId)
     setVenues(venues.filter(v => v._id !== deletedVenue._id))
   }
+
+  
   
   return (
     <>

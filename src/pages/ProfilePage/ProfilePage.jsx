@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 //services
-import * as profileService from '../../services/workshopService'
+import * as profileService from '../../services/profileService'
 
 // css
 import styles from './ProfilePage.module.css'
 
-const ProfilePage = ({user}) => {
+
+const ProfilePage = () => {
   const { profileId } = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -21,16 +22,20 @@ const ProfilePage = ({user}) => {
     }, [profileId])
 
     console.log('Profile State:', profile)
-  return ( 
+    if (!profile) {
+      return <h1>Loading...</h1>
+    }
+  
+    return ( 
     <div className={styles.container}>
       
       <div className={styles.topContainer}>
         <div className={styles.profilePic}>
           <img className={styles.profileImg} src="../../../arthur.png"/></div>
         <div className={styles.profileBio}>
-          <h1>{user.name}</h1>
-          <p>{user.AboutMe}</p>
-          <p> {user.skills}</p>
+          <h1>{profile.name}</h1>
+          <p>{profile.aboutMe}</p>
+          <p> {profile.skills}</p>
         </div>
       </div>
       <div className={styles.bottomContainer}>

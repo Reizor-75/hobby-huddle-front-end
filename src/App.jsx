@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import Venues from './pages/Venues/Venues'
 import NewVenue from './pages/NewVenue/NewVenue'
+import EditVenue from './pages/EditVenue/EditVenue'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
 import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
@@ -71,6 +72,25 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/venues/:venueId"
+          element={
+            <ProtectedRoute user={user}>
+              <Venues />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/venues/:venueId/edit"
+          element={
+            <ProtectedRoute user={user}>
+              <EditVenue />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/myprofile"
           element={

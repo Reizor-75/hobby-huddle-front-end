@@ -1,4 +1,4 @@
-.profile-card{
+.profileCard{
   /* color: rgb(139, 228, 101); */
   border: white solid 2px;
   width: 300px;
@@ -10,7 +10,7 @@
   margin: 20px;
 }
 
-.profile-picture{
+.profilePicture{
   border: white solid 2px;
   width: 150px;
   height: 2000px;
@@ -32,7 +32,7 @@ img{
 }
 
 
-.profile-info{
+.profileInfo{
   text-align: center;
   border: red 1px solid;
   width: 100%;
@@ -42,7 +42,6 @@ img{
   align-items: center;
   padding-top: 5px;
   padding-bottom: 0px;
-  font-size: 32px;
 }
 
 .name{
@@ -57,14 +56,16 @@ img{
   border: solid green 1px
 }
 
-.profile-about-me{
+.profileAboutMe{
   /* border: pink 1px solid; */
   height: 2000px;
-  width: 100%;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

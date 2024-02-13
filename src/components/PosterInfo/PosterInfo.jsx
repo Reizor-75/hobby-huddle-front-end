@@ -11,7 +11,7 @@ const PosterInfo = ({poster}) => {
     return vendorHand
   }
 
-  const photo = poster.photo? poster.photo:setPhoto()
+  const photo = poster.photo ? poster.photo:setPhoto()
 
   console.log(photo)
   return (  

@@ -1,21 +1,32 @@
 // css 
 import styles from './VenueCard.module.css'
 
-const VenueCard = ({venue}) => {
+
+// services
+
+
+const VenueCard = (props) => {
 
   return ( 
     <div className={styles.card_container}>
       <div className={styles.info}>
         <div className={styles.image_container}>
-        {/* <img className={styles.venue_image} src="https://etimg.etb2bimg.com/photo/96993504.cms"/> */}
         </div>
         <div className={styles.venue_info_container}>
-          <h2>{venue.venueTitle}</h2>
-          <p>Owned by: {venue.venueOwner.name}</p>
-          <p>{venue.phoneNumber}</p>
-          <p>{venue.address}</p>
-          <p>{venue.email}</p>   
-        </div>       
+          <h2>{props.venue.venueTitle}</h2>
+          <p>Owned by: {props.venue.venueOwner.name}</p>
+          <p>{props.venue.phoneNumber}</p>
+          <p>{props.venue.address}</p>
+          <p>{props.venue.email}</p>   
+        </div>  
+        <div className={styles.venue_option_buttons}>
+        <button className={styles.deleteButton} onClick={() => props.deleteVenue(props.venue._id)}>
+          Delete Venue
+        </button>
+        <button className={styles.editButton}>
+          Edit Venue
+        </button>
+        </div>
       </div>
       <div className={styles.categories_container}>
       </div>

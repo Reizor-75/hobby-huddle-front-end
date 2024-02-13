@@ -69,6 +69,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/venues/:venueId"
+          element={
+            <ProtectedRoute user={user}>
+              <Venues />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/myprofile"
           element={

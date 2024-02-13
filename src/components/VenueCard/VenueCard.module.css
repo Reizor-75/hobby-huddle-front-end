@@ -2,6 +2,14 @@
   border:2px solid white;
   height:500px;
   width: 300px;
+  
+}
+
+.venue_option_buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-evenly;
 }
 
 .venue_info_container{

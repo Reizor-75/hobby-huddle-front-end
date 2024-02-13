@@ -1,56 +1,34 @@
 //npm modules
-import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom'
-
-// services
-import * as venueService from '../../services/venueService'
+import { useState } from "react";
+import { useLocation } from "react-router-dom"
 
 // css
-import styles from './newVenue.module.css'
+import styles from './EditVenue.module.css'
 
 
-const NewVenue = () => {
-  const [formData, setFormData] = useState([])
-  const [venues, setVenuesData] = useState([])
-  const navigate = useNavigate()
+const EditVenue = (props) => {
+  const { state } = useLocation()
+  const [formData, setFormData] = useState(state) 
 
-  useEffect(() => {
-    const fetchVenues = async () => {
-      const venueData = await venueService.getAllVenues()
-      setVenuesData(venueData)
-    }
-    fetchVenues()
-  }, [])
+  const handleSubmit = evt => {
+    evt.preventDefault()
+    props.handleUpdateVenue(formData)
+  }
 
   const handleChange = evt => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
-  }
-
-  const handleSubmit = async evt => {
-    evt.preventDefault()
-    try {
-      await venueService.create(formData)
-      navigate('/venues')
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  if (!venues.length) {
-    return <main className={styles.main}>
-      <h1>Loading...</h1>
-    </main>
+    setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
   return (  
     <main className={styles.main}>
-      <h1>Create new Venue</h1>
+      <h1>Edit Venue {formData.venueTitle}</h1>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form} id={styles.venueForm}>
         <label className={styles.label}>
           Venue Name
           <input type="text"
             className={styles.input}
             name="venueTitle"
+            value={formData.venueTitle}
             onChange={handleChange} />
         </label>
         <label className={styles.label}>
@@ -58,6 +36,7 @@ const NewVenue = () => {
           <input type="text"
             className={styles.input}
             name="phoneNumber"
+            value={formData.phoneNumber}
             onChange={handleChange} />
         </label>
         <label className={styles.label}>
@@ -65,6 +44,7 @@ const NewVenue = () => {
           <input type="text"
             className={styles.input}
             name="email"
+            value={formData.email}
             onChange={handleChange} />
         </label>              
         <label className={styles.label}>
@@ -72,6 +52,7 @@ const NewVenue = () => {
           <input type="text"          
             className={styles.input}
             name="website"
+            value={formData.website}
             onChange={handleChange}
             placeholder="mybusiness.com"/>
         </label>
@@ -80,6 +61,7 @@ const NewVenue = () => {
           <input type="text"          
             className={styles.input}
             name="address"
+            value={formData.address}
             onChange={handleChange}
             placeholder="123 Main Street Chicago, IL 123456"/>
         </label>
@@ -89,6 +71,7 @@ const NewVenue = () => {
             className={styles.input}
             name="capacity"
             min={1}
+            value={formData.capacity}
             onChange={handleChange} 
             placeholder="Max Number of guests"/>
         </label>
@@ -100,4 +83,4 @@ const NewVenue = () => {
   );
 }
 
-export default NewVenue
+export default EditVenue

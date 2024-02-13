@@ -59,11 +59,25 @@ async function createReview (profileId, reviewFormData) {
   }
 }
 
+const deleteReview = async (profileId, reviewId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/reviews/${reviewId}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export { 
   getAllProfiles, 
   addPhoto,
   show,
-  createReview
+  createReview,
+  deleteReview,
   
 }

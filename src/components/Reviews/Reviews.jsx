@@ -12,7 +12,8 @@ const Reviews = (props) => {
           <ReviewCard
           key={idx}
           review={review}
-          // user={props.user}
+          user={props.user}
+          handleDeleteReview={props.handleDeleteReview}
           />
         </>
         

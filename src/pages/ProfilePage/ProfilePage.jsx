@@ -29,6 +29,11 @@ const ProfilePage = (props) => {
       setProfile({ ...profile, reviews: [...profile.reviews, newReview] })
     }
 
+    const handleDeleteReview = async (profileId, reviewId) => {
+      await profileService.deleteReview(profileId, reviewId)
+      setProfile({ ...profile, reviews: profile.reviews.filter((c) => c._id !== reviewId) })
+    }
+
     console.log('Profile State:', profile)
     if (!profile) {
       return <h1>Loading...</h1>
@@ -52,7 +57,12 @@ const ProfilePage = (props) => {
         <div className={styles.bottomLeft}>
           <h1>Reviews</h1>
           <NewReview handleAddReview={handleAddReview} />
-          <Reviews reviews={profile.reviews} user={props.user} />
+          <Reviews 
+            reviews={profile.reviews} 
+            user={props.user} 
+            handleDeleteReview={handleDeleteReview}
+            profileId={profileId}
+          />
         </div>
         <div className={styles.bottomRight}>
 

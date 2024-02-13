@@ -14,7 +14,7 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import Workshops from './pages/Workshops/Workshops'
 import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
 import WorkshopDetails from './pages/WorkshopDetails/WorkshopDetails'
-import MyProfile from './pages/MyProfile/MyProfile'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
 import EditProfile from './pages/EditProfile/EditProfile'
 
 
@@ -87,6 +87,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        
         <Route
           path="/venues"
           element={
@@ -124,22 +125,22 @@ function App() {
         />
 
         <Route
-          path="/myprofile"
+          path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <MyProfile />
+              <ProfilePage user={user} />
             </ProtectedRoute>
           }
         />
 
-      <Route
+        <Route
           path="/editprofile"
           element={
             <ProtectedRoute user={user}>
               <EditProfile />
             </ProtectedRoute>
           }
-      />
+        />
 
         <Route
           path="/workshops"

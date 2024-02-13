@@ -1,0 +1,53 @@
+.container{
+  border: red solid 2px;
+  height: 100vh;
+}
+
+.topContainer{
+  border: red solid 2px;
+  width: 96%;
+  display:flex;
+  margin: 20px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilePic{
+  border: solid rgb(95, 218, 121) 2px;
+  width: 200px;
+  height: 200px;
+}
+
+.profileImg{
+  border: solid white 2px;
+  border-radius: 50px;
+  width: 200px;
+  height: 200px;
+}
+
+.profileBio{
+  padding: 20px;
+}
+
+.bottomContainer{
+  border: solid white 2px;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  flex-direction: row;
+}
+
+.bottomLeft{
+  border: solid rgb(123, 189, 18) 2px;
+  width: 50%;
+  height: 100%;
+}
+
+.bottomRight{
+  border: solid rgb(18, 123, 189) 2px;
+  width: 50%;
+  height: 100%;
+
+}

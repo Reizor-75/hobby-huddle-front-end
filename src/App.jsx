@@ -1,5 +1,5 @@
 // npm modules
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
 // pages
@@ -21,13 +21,29 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 
 // services
 import * as authService from './services/authService'
+import * as workshopService from './services/workshopService'
 
 // styles
 import './App.css'
 
 function App() {
   const [user, setUser] = useState(authService.getUser())
+  const [workshops, setWorkshops] = useState([])  
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchWorkshops = async () => {
+      const workshopData = await workshopService.getAllWorkshops()
+      setWorkshops(workshopData)
+    }
+    fetchWorkshops()
+  }, [])
+
+  const handleDeleteWorkshop = async (workshopId) => {
+    const deletedWorkshop = await workshopService.deleteWorkshop(workshopId)
+    setWorkshops(workshops.filter(workshop => workshop._id !== deletedWorkshop._id))
+    navigate('/workshops')
+  }
 
   const handleLogout = () => {
     authService.logout()
@@ -81,7 +97,7 @@ function App() {
           path="/workshops"
           element={
             <ProtectedRoute user={user}>
-              <Workshops user={user}/>
+              <Workshops user={user} workshops={workshops}/>
             </ProtectedRoute>
           }
         />
@@ -89,7 +105,7 @@ function App() {
           path="/workshops/:workshopId"
           element={
             <ProtectedRoute user={user}>
-              <WorkshopDetails user={user}/>
+              <WorkshopDetails user={user} handleDeleteWorkshop={handleDeleteWorkshop}/>
             </ProtectedRoute>
           }
         />

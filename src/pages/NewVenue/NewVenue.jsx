@@ -11,13 +11,12 @@ import styles from './newVenue.module.css'
 
 const NewVenue = () => {
   const [formData, setFormData] = useState([])
-  const [venues, setVenuesData] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
     const fetchVenues = async () => {
       const venueData = await venueService.getAllVenues()
-      setVenuesData(venueData)
+      setFormData(venueData)
     }
     fetchVenues()
   }, [])
@@ -34,12 +33,6 @@ const NewVenue = () => {
     } catch (error) {
       console.log(error)
     }
-  }
-
-  if (!venues.length) {
-    return <main className={styles.main}>
-      <h1>Loading...</h1>
-    </main>
   }
 
   return (  
@@ -97,7 +90,7 @@ const NewVenue = () => {
         </div>
       </form>
     </main>
-  );
+  )
 }
 
 export default NewVenue

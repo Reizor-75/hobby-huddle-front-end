@@ -12,7 +12,7 @@ const EditVenue = (props) => {
 
   const handleSubmit = evt => {
     evt.preventDefault()
-    props.handleUpdateVenue(formData)
+    props.updateVenue(formData)
   }
 
   const handleChange = evt => {
@@ -21,7 +21,7 @@ const EditVenue = (props) => {
 
   return (  
     <main className={styles.main}>
-      <h1>Edit Venue {formData.venueTitle}</h1>
+      <h1>Edit Venue </h1>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form} id={styles.venueForm}>
         <label className={styles.label}>
           Venue Name

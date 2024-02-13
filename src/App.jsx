@@ -25,6 +25,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 // services
 import * as authService from './services/authService'
 import * as workshopService from './services/workshopService'
+import * as venueService from './services/venueService'
 
 // styles
 import './App.css'
@@ -32,6 +33,7 @@ import './App.css'
 function App() {
   const [user, setUser] = useState(authService.getUser())
   const [workshops, setWorkshops] = useState([])  
+  const [venues, setVenues] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -42,10 +44,24 @@ function App() {
     fetchWorkshops()
   }, [])
 
+  useEffect(() => {
+    const fetchVenues = async () => {
+      const venueData = await venueService.getAllVenues()
+      setVenues(venueData)
+    }
+    fetchVenues()
+  }, [])
+
   const handleDeleteWorkshop = async (workshopId) => {
     const deletedWorkshop = await workshopService.deleteWorkshop(workshopId)
     setWorkshops(workshops.filter(workshop => workshop._id !== deletedWorkshop._id))
     navigate('/workshops')
+  }
+
+  const handleUpdateVenue = async (venueFormData) => {
+    const updatedVenue = await venueService.update(venueFormData)
+    setVenues(venues.map(venue => venue._id === updatedVenue._id ? updatedVenue : venue))
+    navigate('/venues')
   }
 
   const handleLogout = () => {
@@ -103,7 +119,7 @@ function App() {
           path="/venues/:venueId/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditVenue />
+              <EditVenue updateVenue={handleUpdateVenue} />
             </ProtectedRoute>
           }
         />

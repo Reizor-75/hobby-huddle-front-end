@@ -8,6 +8,8 @@ import * as profileService from '../../services/profileService'
 // css
 import styles from './ProfilePage.module.css'
 
+// compontents
+import NewReview from "../../components/NewReview/NewReview"
 
 const ProfilePage = () => {
   const { profileId } = useParams()
@@ -20,6 +22,11 @@ const ProfilePage = () => {
       }
       fetchProfile()
     }, [profileId])
+
+    const handleAddReview = async (reviewFormData) => {
+      const newReview = await profileService.createReview(profileId, reviewFormData)
+      setProfile({ ...profile, reviews: [...profile.reviews, newReview] })
+    }
 
     console.log('Profile State:', profile)
     if (!profile) {
@@ -41,7 +48,7 @@ const ProfilePage = () => {
       <div className={styles.bottomContainer}>
         <div className={styles.bottomLeft}>
           <h1>Reviews</h1>
-          <div></div>
+          <NewReview handleAddReview={handleAddReview} />
         </div>
         <div className={styles.bottomRight}>
 

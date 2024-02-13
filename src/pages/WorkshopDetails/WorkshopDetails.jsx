@@ -7,11 +7,11 @@ import * as workshopService from '../../services/workshopService'
 
 //css
 import styles from './WorkshopDetails.module.css'
+import PostDetails from "../../components/PostDetails/PostDetails";
 
-const WorkshopDetails = () => {
+const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
   const { workshopId } = useParams()
   const [workshop, setWorkshop] = useState(null)
-
 
   useEffect(() =>{
     const fetchWorkshop= async () => {
@@ -21,24 +21,36 @@ const WorkshopDetails = () => {
     fetchWorkshop()
   }, [workshopId])
 
+  const handleApply = async () => {
+    console.log("pew")
+    const data = await workshopService.applyToWorkshop(workshopId)
+    setWorkshop(data)
+  }
+
 
   if(!workshop) return <h1>Loading...</h1>
 
   return (  
     <div className={styles.container}>
-      <h1 className={styles.title}> {workshop.title} </h1>
-      <h2> Hosted by {workshop.mentorInfo.name}</h2>
-      <h3 className={styles.row}>
-        <div>Venue: {workshop.location.vendorName} </div>
+      <PostDetails content={workshop}/>
+      <div>Venue: {workshop.location.venueTitle} </div>
+      <h5 className={styles.row}>
         <div>Price: ${workshop.pricePerPerson} </div>
-      </h3>
-      <h3 className={styles.row}>
-        <div>{workshop.date}</div>
-        <div>Spots remaining: {workshop.workshopLimit - 0} </div>
-      </h3>
-      <p> {workshop.description} </p>
+        <div>Spots remaining: {workshop.workshopLimit - workshop.studentsAttending.length} </div>
+      </h5>
+      {/* <p> {workshop.description} </p> */}
+      <h3> Hosted by {workshop.mentorInfo.name}</h3>
       <div id={styles.applyButton}>
-        <button>Apply</button>
+      {user.profile === workshop.mentorInfo._id 
+        ? <button id={styles.signUpButton} onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
+        : <></>
+      }
+      {user.role === 200 && workshop.workshopLimit - workshop.studentsAttending.length
+        ?<button id={styles.signUpButton} onClick={handleApply} >Apply</button>
+        : <button id={styles.signUpButton} disabled>Apply</button>
+      }
+    
+        
       </div>
     </div>
   );

@@ -1,9 +1,5 @@
 //npm modules
-import { useState, useEffect } from "react";
-import { NavLink } from 'react-router-dom'
-
-//services
-import * as workshopService from '../../services/workshopService'
+import { NavLink  } from 'react-router-dom'
 
 //components
 import PostCard from "../../components/PostCard/PostCard";
@@ -11,17 +7,7 @@ import PostCard from "../../components/PostCard/PostCard";
 //css
 import styles from './Workshops.module.css'
 
-const Workshops = ({user}) => {
-  const [workshops, setWorkshops] = useState([])
-
-  useEffect(() => {
-    const fetchWorkshops = async () => {
-      const workshopData = await workshopService.getAllWorkshops()
-      setWorkshops(workshopData)
-    }
-    fetchWorkshops()
-  }, [])
-
+const Workshops = ({user , workshops}) => {  
   if(!workshops.length) { 
     return <div className={styles.titleBar}>
             <div className={styles.title}>No Workshops available</div> 
@@ -31,7 +17,7 @@ const Workshops = ({user}) => {
             }
           </div>
   }
-
+  
   return (  
     <main className={styles.container}>
       <div className={styles.titleBar}>
@@ -44,7 +30,7 @@ const Workshops = ({user}) => {
       <div className={styles.cardContainer}>
         {workshops.map(workshop =>(
           <div key={workshop._id}>
-            <PostCard content={workshop} user={user}/>
+            <PostCard content={workshop} />
           </div>
         ))}
       </div>

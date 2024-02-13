@@ -5,10 +5,10 @@ const ReviewCard = ({ review }) => {
   return (
     <article>
       <header>
-        <AuthorInfo content={review} />
+        <AuthorInfo review={review} />
       </header>
       <h2> {review.title} </h2>
-      <p> {review.content} </p>
+      <p> {review.content} this the content </p>
     </article>
   )
 }

@@ -12,7 +12,7 @@ import styles from './ProfilePage.module.css'
 import NewReview from "../../components/NewReview/NewReview"
 import Reviews from "../../components/Reviews/Reviews"
 
-const ProfilePage = () => {
+const ProfilePage = (props) => {
   const { profileId } = useParams()
   const [profile, setProfile] = useState(null)
 
@@ -33,7 +33,9 @@ const ProfilePage = () => {
     if (!profile) {
       return <h1>Loading...</h1>
     }
-  
+    
+    console.log(profile.user)
+
     return ( 
     <div className={styles.container}>
       

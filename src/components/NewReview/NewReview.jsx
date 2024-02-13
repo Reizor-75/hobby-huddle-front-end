@@ -14,15 +14,22 @@ const NewReview = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault()
     props.handleAddReview(formData)
-    setFormData({ text: '' })
+    setFormData({ title: '', content: '' })
   }
 
   return (
     <form className={styles.container} onSubmit={handleSubmit}>
       <textarea
         required
-        name="text"
-        value={formData.text}
+        name="title"
+        value={formData.title}
+        placeholder="Title"
+        onChange={handleChange}
+      />
+      <textarea
+        required
+        name="content"
+        value={formData.content}
         placeholder="Add Review"
         onChange={handleChange}
       />

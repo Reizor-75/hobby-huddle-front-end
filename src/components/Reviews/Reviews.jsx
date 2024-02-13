@@ -5,15 +5,20 @@ const Reviews = (props) => {
   if (!props.reviews.length) return <h4>No Reviews</h4>
 
   return (
-    <>
-      {props.reviews.map((review) => (
-        <ReviewCard
-          key={review._id}
+    <div>
+      {console.log(props.reviews)}
+      {props.reviews.map((review, idx) => (
+        <>
+          <ReviewCard
+          key={idx}
           review={review}
-          user={props.user}
-        />
-      ))}
-    </>
+          // user={props.user}
+          />
+        </>
+        
+        ))}
+        
+    </div>
   )
 }
 

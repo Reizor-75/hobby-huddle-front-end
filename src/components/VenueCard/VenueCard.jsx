@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import styles from './VenueCard.module.css'
 
 const VenueCard = (props) => {
+  
 
   return ( 
     <>
@@ -22,7 +23,7 @@ const VenueCard = (props) => {
         <button className={styles.deleteButton} onClick={() => props.deleteVenue(props.venue._id)}>
           Delete Venue
         </button>
-        <Link to={`/venues/${props.venue._id}/edit`} state={props.venue}>
+        <Link to={`/venues/${props.venue._id}/edit`} state={props.venue}>   
         <button className={styles.editButton}>Edit Venue</button>
           </Link>
         </div>

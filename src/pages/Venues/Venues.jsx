@@ -25,14 +25,22 @@ const Venues = () => {
     fetchVenues()
   }, [])
 
+  
   if (!venues.length) {
     return <main className={styles.container}><h1>No venues have been added</h1></main>
+  }
+
+  const handleUpdateVenue = async (venueFormData) => {
+    const updatedVenue = await venueService.update(venueFormData)
+    setVenues(venues.map(venue => venue._id === updatedVenue._id ? updatedVenue : venue))
   }
 
   const handleDeleteVenue = async (venueId) => {
     const deletedVenue = await venueService.deleteVenue(venueId)
     setVenues(venues.filter(v => v._id !== deletedVenue._id))
   }
+
+  
   
   return (
     <>
@@ -41,7 +49,8 @@ const Venues = () => {
       <div className={styles.venue_container}>
       {venues.map(venue => (
         <div key={venue._id}>
-        <VenueCard venue={venue} deleteVenue = {handleDeleteVenue}/>
+        <VenueCard venue={venue} deleteVenue = {handleDeleteVenue} updateVenue={handleUpdateVenue}
+        />
         </div>
       ))}
       </div>

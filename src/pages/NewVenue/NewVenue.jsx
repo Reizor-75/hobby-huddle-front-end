@@ -36,11 +36,11 @@ const NewVenue = () => {
     }
   }
 
-  if (!venues.length) {
-    return <main className={styles.main}>
-      <h1>Loading...</h1>
-    </main>
-  }
+  // if (!venues.length) {
+  //   return <main className={styles.main}>
+  //     <h1>Loading...</h1>
+  //   </main>
+  // }
 
   return (  
     <main className={styles.main}>
@@ -97,7 +97,7 @@ const NewVenue = () => {
         </div>
       </form>
     </main>
-  );
+  )
 }
 
 export default NewVenue

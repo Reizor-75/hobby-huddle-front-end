@@ -10,6 +10,7 @@ import styles from './ProfilePage.module.css'
 
 // compontents
 import NewReview from "../../components/NewReview/NewReview"
+import Reviews from "../../components/Reviews/Reviews"
 
 const ProfilePage = () => {
   const { profileId } = useParams()
@@ -49,6 +50,7 @@ const ProfilePage = () => {
         <div className={styles.bottomLeft}>
           <h1>Reviews</h1>
           <NewReview handleAddReview={handleAddReview} />
+          <Reviews reviews={profile.reviews} user={props.user} />
         </div>
         <div className={styles.bottomRight}>
 

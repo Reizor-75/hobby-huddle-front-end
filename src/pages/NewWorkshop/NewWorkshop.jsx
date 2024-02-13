@@ -10,7 +10,7 @@ import * as workShopService from '../../services/workshopService'
 import styles from './newWorkshop.module.css'
 
 
-const NewWorkshop = () => {
+const NewWorkshop = ({user}) => {
   const [formData, setFormData] = useState([])
   const [venues, setVenuesData] = useState([])
   const navigate = useNavigate()
@@ -35,6 +35,10 @@ const NewWorkshop = () => {
     } catch (error) {
       console.log(error)
     }
+  }
+
+  if(user.role !== 500){    
+    navigate('/workshops')
   }
 
   if (!venues.length) {
@@ -67,14 +71,15 @@ const NewWorkshop = () => {
             className={styles.input}
             name="category" 
             id={styles.categorySelect}
-            onChange={handleChange}>            
-            <option value="" selected disabled hidden>Choose a Class Category</option>
-            <option value="Craft">Craft</option>
-            <option value="Art">Art</option>
-            <option value="Food">Food</option>
-            <option value="Sport">Sport</option>
-            <option value="Music">Music</option>
-            <option value="Other">Other</option>
+            onChange={handleChange}
+            defaultValue={""}>            
+              <option value="" disabled hidden>Choose a Class Category</option>
+              <option value="Craft">Craft</option>
+              <option value="Art">Art</option>
+              <option value="Food">Food</option>
+              <option value="Sport">Sport</option>
+              <option value="Music">Music</option>
+              <option value="Other">Other</option>
           </select>
         </label>
         <label className={styles.label}>
@@ -83,8 +88,9 @@ const NewWorkshop = () => {
             className={styles.input}
             name="location" 
             id={styles.locationSelect}
-            onChange={handleChange}>
-              <option value="" selected disabled hidden>Choose a Venue</option>
+            onChange={handleChange}
+            defaultValue={""}>
+              <option value="" disabled hidden>Choose a Venue</option>
               {venues.map(venue => (                  
                 <option key={venue._id} value={venue._id}>{venue.venueTitle}</option>
               ))

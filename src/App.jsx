@@ -113,7 +113,7 @@ function App() {
           path="/workshops/new"
           element={
             <ProtectedRoute user={user}>
-              <NewWorkshop />
+              <NewWorkshop user={user}/>
             </ProtectedRoute>
           }
         />

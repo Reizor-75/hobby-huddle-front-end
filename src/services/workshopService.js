@@ -1,7 +1,7 @@
 // services
 import * as tokenService from './tokenService'
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/workshop/`
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/workshop`
 
 async function getAllWorkshops() {
   try {
@@ -54,9 +54,25 @@ async function deleteWorkshop(workshopId){
   }
 }
 
+async function applyToWorkshop(workshopId){
+  try {
+    const res = await fetch(`${BASE_URL}/${workshopId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)    
+  }
+}
+
 export {
   getAllWorkshops,
   createWorkshop,
   showWorkshop,
-  deleteWorkshop
+  deleteWorkshop,
+  applyToWorkshop
 }

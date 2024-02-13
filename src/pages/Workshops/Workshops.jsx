@@ -30,7 +30,7 @@ const Workshops = ({user , workshops}) => {
       <div className={styles.cardContainer}>
         {workshops.map(workshop =>(
           <div key={workshop._id}>
-            <PostCard content={workshop} user={user}/>
+            <PostCard content={workshop} />
           </div>
         ))}
       </div>

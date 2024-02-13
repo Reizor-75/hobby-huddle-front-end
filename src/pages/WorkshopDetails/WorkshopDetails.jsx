@@ -13,7 +13,6 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
   const { workshopId } = useParams()
   const [workshop, setWorkshop] = useState(null)
 
-
   useEffect(() =>{
     const fetchWorkshop= async () => {
       const data = await workshopService.showWorkshop(workshopId)
@@ -21,6 +20,12 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
     }
     fetchWorkshop()
   }, [workshopId])
+
+  const handleApply = async () => {
+    console.log("pew")
+    const data = await workshopService.applyToWorkshop(workshopId)
+    setWorkshop(data)
+  }
 
 
   if(!workshop) return <h1>Loading...</h1>
@@ -31,7 +36,7 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
       <div>Venue: {workshop.location.venueTitle} </div>
       <h5 className={styles.row}>
         <div>Price: ${workshop.pricePerPerson} </div>
-        <div>Spots remaining: {workshop.workshopLimit - 0} </div>
+        <div>Spots remaining: {workshop.workshopLimit - workshop.studentsAttending.length} </div>
       </h5>
       {/* <p> {workshop.description} </p> */}
       <h3> Hosted by {workshop.mentorInfo.name}</h3>
@@ -40,10 +45,11 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
         ? <button id={styles.signUpButton} onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
         : <></>
       }
-      {user.role === 200
-        ?<button id={styles.signUpButton}>Apply</button>
-        : <></>
+      {user.role === 200 && workshop.workshopLimit - workshop.studentsAttending.length
+        ?<button id={styles.signUpButton} onClick={handleApply} >Apply</button>
+        : <button id={styles.signUpButton} disabled>Apply</button>
       }
+    
         
       </div>
     </div>

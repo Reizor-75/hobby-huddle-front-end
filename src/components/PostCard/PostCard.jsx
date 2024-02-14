@@ -10,19 +10,19 @@ import hhLogo from '../../assets/HobbyHuddleLogo.png'
 // css
 import './PostCard.css'
 
-const PostCard = ({content}) => {
+const PostCard = ({user, content}) => {
   
   return (  
     <NavLink to={`/workshops/${content._id}`}>
       {content.mentorInfo ? 
         <div className='card'> 
           <div className="image-crop"><img src={hhLogo} alt="Workshop Image" className="workshop-image"/></div>
-          <PostDetails content={content} />
+          <PostDetails user={user} content={content} />
         </div>
       : 
         <div className='card student'> 
           <div className="image-crop"><img src={hhLogo} alt="Workshop Image" className="workshop-image"/></div>
-          <PostDetails content={content} />
+          <PostDetails user={user} content={content} />
         </div>
       }
     </NavLink>  

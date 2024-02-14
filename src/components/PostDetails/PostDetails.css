@@ -15,8 +15,7 @@
 .row{
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  overflow: hidden;
+  align-items: flex-start;
 }
 
 .row-right{  
@@ -28,4 +27,8 @@
 .bottom-row{
   display: flex;
   justify-content: right;
+}
+
+.description{
+  overflow: hidden;
 }

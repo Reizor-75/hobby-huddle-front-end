@@ -9,7 +9,13 @@ import * as requestService from '../../services/requestService'
 import './NewRequest.css'
 
 const NewWorkshop = ({user}) => {
-  const [formData, setFormData] = useState([])
+  const [formData, setFormData] = useState({
+    title: '',
+    category: '',
+    lowestPayment: '',
+    highestPayment: '',
+    description: '',
+  })
   const navigate = useNavigate()
 
 
@@ -21,7 +27,7 @@ const NewWorkshop = ({user}) => {
     evt.preventDefault()
     try {
       await requestService.createRequest(formData)
-      navigate('/myRequests')
+      navigate('/requests')
     } catch (error) {
       console.log(error)
     }

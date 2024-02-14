@@ -29,7 +29,7 @@ const Requests = ({user, requests}) => {
       </div>
       <div className='cardContainer'>
         {requests.map(request =>(
-          <PostCard key={request._id} content={request}/>
+          <PostCard key={request._id} content={request} user={user}/>
         ))}
       </div>
     </main>

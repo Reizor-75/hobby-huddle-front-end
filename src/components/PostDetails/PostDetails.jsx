@@ -1,10 +1,11 @@
 
+import { NavLink } from 'react-router-dom';
 import PosterInfo from '../PosterInfo/PosterInfo';
 
 //css
 import './PostDetails.css'
 
-const PostDetails = ({content}) => {
+const PostDetails = ({user, content}) => {
   const date = new Date(content.date).toDateString()
   const time = new Date(content.date).toLocaleTimeString()
 
@@ -30,11 +31,24 @@ const PostDetails = ({content}) => {
           </div>
         }
       </div>
-      <div className='row'>
+      <div className='row description'>
         {content.description}
       </div>
       <div className='bottom-row'>
-        {content.mentorInfo ? <PosterInfo poster={content.mentorInfo}/> : <PosterInfo poster={content.student}/>   }
+        {content.mentorInfo 
+          ? <>
+              <button className='a-button'>Place Bid</button>
+              <PosterInfo poster={content.mentorInfo}/>
+            </> 
+          : <>
+            {user.profile === content.student._id && 
+              <NavLink to="editRequest">
+                <button className='edit-button'>Edit</button>
+              </NavLink>
+            }
+            <PosterInfo poster={content.student}/>
+          </>
+        }
       </div>
     </div>
   )

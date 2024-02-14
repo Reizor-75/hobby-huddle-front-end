@@ -119,7 +119,13 @@ const NavBar = ({ user, handleLogout }) => {
 <li><NavLink to="/profiles">All Profiles</NavLink></li>
 <li><NavLink to="/profile">Profile Page</NavLink></li>
 <li><NavLink to="/editprofile">Edit My Profile</NavLink></li>
-</ul> */}
+
+
+  <li><NavLink to="/profiles">Mentor Profiles</NavLink></li>
+  <li><NavLink to={`/profile/${user.profile}`}>My Profile</NavLink></li>
+  <li><NavLink to={`/profile/${user.profile}/edit`}>Edit My Profile</NavLink></li>
+</ul> 
+*/}
     
     </div>
     </>

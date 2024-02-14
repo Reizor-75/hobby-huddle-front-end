@@ -11,7 +11,7 @@ const ProfileCard = ({profile}) => {
         <img src="../../../arthur.png" />
       </div>
       <div className={styles.profileInfo}>
-          <Link to={`/profiles/${profile._id}`}>
+          <Link to={`/profile/${profile._id}`}>
             <h2>{profile.name}</h2>
           </Link>
           <p>{profile.skills}</p>

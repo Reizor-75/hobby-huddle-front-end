@@ -38,4 +38,9 @@ nav > ul {
   display: flex;
   flex-direction: row;
   max-height: 100vh;
+  
+}
+
+main.container{
+  padding: 20px;
 }

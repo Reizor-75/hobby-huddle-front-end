@@ -13,20 +13,23 @@ import './PostCard.css'
 const PostCard = ({user, content}) => {
   
   return (  
-    <NavLink to={`/workshops/${content._id}`}>
-      {content.mentorInfo ? 
-        <div className='card'> 
-          <div className="image-crop"><img src={hhLogo} alt="Workshop Image" className="workshop-image"/></div>
-          <PostDetails user={user} content={content} />
-        </div>
+    <>
+    {content.mentorInfo 
+      ? 
+        <NavLink to={`/workshops/${content._id}`}>
+          <div className='card'> 
+            <div className="image-crop"><img src={hhLogo} alt="Workshop Image" className="workshop-image"/></div>
+            <PostDetails user={user} content={content} />
+          </div>
+        </NavLink>  
       : 
         <div className='card student'> 
           <div className="image-crop"><img src={hhLogo} alt="Workshop Image" className="workshop-image"/></div>
           <PostDetails user={user} content={content} />
         </div>
       }
-    </NavLink>  
-  );
+    </>
+  )
 }
 
 export default PostCard;

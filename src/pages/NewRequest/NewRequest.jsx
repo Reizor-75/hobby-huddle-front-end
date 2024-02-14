@@ -8,7 +8,7 @@ import * as requestService from '../../services/requestService'
 // css
 import './NewRequest.css'
 
-const NewWorkshop = ({user}) => {
+const NewRequest = ({user}) => {
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -100,4 +100,4 @@ const NewWorkshop = ({user}) => {
   );
 }
 
-export default NewWorkshop;
+export default NewRequest;

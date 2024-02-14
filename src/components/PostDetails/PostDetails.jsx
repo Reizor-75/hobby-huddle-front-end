@@ -1,5 +1,5 @@
 
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PosterInfo from '../PosterInfo/PosterInfo';
 
 //css
@@ -42,9 +42,9 @@ const PostDetails = ({user, content}) => {
             </> 
           : <>
             {user.profile === content.student._id && 
-              <NavLink to="editRequest">
+              <Link to={`/editRequest/${content._id}`} state={content}>
                 <button className='edit-button'>Edit</button>
-              </NavLink>
+              </Link>
             }
             <PosterInfo poster={content.student}/>
           </>

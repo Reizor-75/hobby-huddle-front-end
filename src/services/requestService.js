@@ -41,8 +41,25 @@ async function createRequest(requestFormData) {
   }
 }
 
+async function updateRequest(requestFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/myRequests/${requestFormData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getAllRequests,
   getMyRequests,
   createRequest,
+  updateRequest,
 }

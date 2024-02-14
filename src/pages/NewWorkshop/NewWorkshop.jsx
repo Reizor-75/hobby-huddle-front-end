@@ -43,7 +43,7 @@ const NewWorkshop = ({user}) => {
 
   if (!venues.length) {
     return <main className='container'>
-      <h1>Loading...</h1>
+      <h1>No Venues available for Hosting...</h1>
     </main>
   }
   return (  

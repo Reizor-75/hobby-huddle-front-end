@@ -1,0 +1,27 @@
+// components
+import ReviewCard from '../ReviewCard/ReviewCard'
+
+const Reviews = (props) => {
+  if (!props.reviews?.length) return <h4>No Reviews</h4>
+
+  return (
+    <div>
+      {console.log(props.reviews)}
+      {props.reviews.map((review, idx) => (
+        <>
+          <ReviewCard
+          key={idx}
+          review={review}
+          user={props.user}
+          handleDeleteReview={props.handleDeleteReview}
+          profileId={props.profileId}
+          />
+        </>
+        
+        ))}
+        
+    </div>
+  )
+}
+
+export default Reviews

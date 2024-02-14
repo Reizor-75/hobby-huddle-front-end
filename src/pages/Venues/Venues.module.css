@@ -1,17 +1,26 @@
 .container {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-
 }
 
 .venue_container {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap:30px;
-  
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-self:center;
+  gap:30px 50px;
+  margin: auto;
+  padding: 50px 0px;
+}
+
+h1{
+  color:#000;
+  font-size: 3em;
+}
+
+p{
+  color:#000;
 }
 
 .container > p {

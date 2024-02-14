@@ -11,7 +11,7 @@ import styles from './Venues.module.css'
 //components
 import VenueCard from '../../components/VenueCard/VenueCard'
 
-const Venues = () => {
+const Venues = (props) => {
   const [venues, setVenues] = useState([])
   const navigate = useNavigate()
 
@@ -22,7 +22,6 @@ const Venues = () => {
     }
     fetchVenues()
   }, [])
-
   
   if (!venues.length) {
     return <main className={styles.container}><h1>No venues have been added</h1></main>
@@ -38,6 +37,10 @@ const Venues = () => {
     setVenues(venues.filter((v) => v._id !== deletedVenue._id))
     navigate('/venues')
   }
+
+ const user=props.user
+ console.log("USER")
+ console.dir(user)
   
   return (
     <>
@@ -46,7 +49,7 @@ const Venues = () => {
       <div className={styles.venue_container}>
       {venues.map((venue) => (
         <div key={venue._id}>
-        <VenueCard venue={venue} deleteVenue = {handleDeleteVenue} updateVenue={handleUpdateVenue}
+        <VenueCard venue={venue} deleteVenue = {handleDeleteVenue} updateVenue={handleUpdateVenue} user={user}
         />
         </div>
       ))}

@@ -42,9 +42,14 @@ const PostDetails = ({user, content}) => {
             </> 
           : <>
             {user.profile === content.student._id && 
-              <Link to={`/editRequest/${content._id}`} state={content}>
-                <button className='edit-button'>Edit</button>
-              </Link>
+              <>
+                <Link to={`/editRequest/${content._id}`} state={content}>
+                  <div className='student edit button'>✏️</div>
+                </Link>
+                <Link to={`/${content._id}`} state={content}>
+                  <div className='student delete button'>🗑️</div>
+                </Link>
+              </>
             }
             <PosterInfo poster={content.student}/>
           </>

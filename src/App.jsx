@@ -105,6 +105,13 @@ function App() {
     setWorkshops(workshops.filter(workshop => workshop._id !== deletedWorkshop._id))
     navigate('/workshops')
   }
+  
+  const handleDeleteRequest = async (requestId) => {
+    const deletedRequest = await requestService.deleteWorkshop(requestId)
+    setWorkshops(requests.filter(request => request._id !== deletedRequest._id))
+    navigate('/requests')
+  }
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -220,7 +227,7 @@ function App() {
           path="/requests"
           element={
             <ProtectedRoute user={user}>
-              <Requests user={user} requests={requests}/>
+              <Requests user={user} requests={requests} handleDeleteRequest={handleDeleteRequest}/>
             </ProtectedRoute>
           }
         />

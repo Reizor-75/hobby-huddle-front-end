@@ -22,11 +22,9 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
   }, [workshopId])
 
   const handleApply = async () => {
-    console.log("pew")
     const data = await workshopService.applyToWorkshop(workshopId)
     setWorkshop(data)
   }
-
 
   if(!workshop) return <h1>Loading...</h1>
 

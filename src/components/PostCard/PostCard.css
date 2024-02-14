@@ -1,7 +1,7 @@
 .card{
   display: flex;
   flex-direction: column;
-  background-color: #df6d29;
+  background-color: var(--mentor-color);
   width: 300px;
   height: 400px;
   padding:8px;
@@ -11,8 +11,8 @@
 }
 
 .student{
-  background-color: #fbc043;
-  color: #df6d29;
+  background-color: var(--student-color);
+  color: var(--mentor-color);
 }
 
 #signUpButton{

@@ -8,6 +8,7 @@ import PostCard from "../../components/PostCard/PostCard";
 import './Requests.css'
 
 const Requests = ({user, requests}) => {
+
   if(!requests.length) { 
     return <div className='titleBar'>
             <div className='title'>No Student Requests Available</div> 

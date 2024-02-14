@@ -3,11 +3,17 @@
   flex-direction: column;
   background-color: var(--mentor-color);
   width: 500px;
-  height: 400px;
-  padding:8px;
+  height: 450px;
+  padding: 16px;
   border-radius: 16px;
-  margin:8px;  
+  margin: 16px;  
   color: white;
+}
+
+.Post-title{
+  font-size: x-large;
+  font-weight: 700;
+  margin: 8px 0;
 }
 
 .student{
@@ -23,14 +29,18 @@
 }
 
 .image-crop{  
-  height: 45%;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; 
+  max-width: 100%;
+  margin: 0;
 }
 
 .workshop-image{
-  background-color: #ffd9bc;
+  height: 100%;
   width: 100%;
+  background-color: #ffd9bc;
   border-radius: 16px;
+  margin: 0;
 }

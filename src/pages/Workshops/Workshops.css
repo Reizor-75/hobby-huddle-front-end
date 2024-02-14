@@ -10,9 +10,6 @@ button{
   align-items: flex-end;
 }
 
-.container{  
-  margin: 0px;
-}
 
 .titleBar{
   display: flex;

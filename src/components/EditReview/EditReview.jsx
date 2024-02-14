@@ -18,7 +18,7 @@ const EditReview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await profileService.updateReview(profileId, reviewId, formData)
-    navigate(`/profiles/${profileId}`)
+    navigate(`/profile/${profileId}`)
   }
   console.log(formData)
   return (

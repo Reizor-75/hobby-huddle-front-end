@@ -51,7 +51,7 @@ const ProfilePage = (props) => {
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
           <p> {profile.skills}</p>
-          <Link to={`/proflies/${profileId}/edit`} state={profile}>Edit</Link>
+          <Link to={`/profile/${profileId}/edit`} state={profile}>Edit</Link>
         </div>
       </div>
       <div className={styles.bottomContainer}>

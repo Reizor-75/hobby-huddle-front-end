@@ -46,21 +46,19 @@ function App() {
       setWorkshops(workshopData)
     }
     fetchWorkshops()
-    
+
     const fetchRequests = async () => {
-      const requestpData = user.role === 500 ?  await requestService.getAllRequests() : await requestService.getMyRequests() 
+      const requestpData = user.role === 500 ? await requestService.getAllRequests() : await requestService.getMyRequests() 
       setRequests(requestpData)
     }
     fetchRequests()
-  }, [user.role])
 
-  useEffect(() => {
     const fetchVenues = async () => {
       const venueData = await venueService.getAllVenues()
       setVenues(venueData)
     }
     fetchVenues()
-  }, [])
+  }, [user])
 
   const handleDeleteWorkshop = async (workshopId) => {
     const deletedWorkshop = await workshopService.deleteWorkshop(workshopId)
@@ -83,6 +81,7 @@ function App() {
   const handleAuthEvt = () => {
     setUser(authService.getUser())
   }
+
 
   return (
     <div className='page-body'>

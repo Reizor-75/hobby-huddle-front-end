@@ -9,6 +9,13 @@ a:hover{
 
 button{  
   margin: 0px;
+  font-weight: 600;;
+}
+
+.button-container{
+  height: auto;
+  display: flex;
+  align-items: flex-end;
 }
 
 .container{  

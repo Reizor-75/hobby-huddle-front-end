@@ -10,13 +10,17 @@
   color: white;
 }
 
+.student{
+  background-color: #fbc043;
+  color: #df6d29;
+}
+
 #signUpButton{
   display: flex;
   justify-content: right;
   margin: 0;
   margin-top: auto;
 }
-
 
 .image-crop{  
   height: 45%;

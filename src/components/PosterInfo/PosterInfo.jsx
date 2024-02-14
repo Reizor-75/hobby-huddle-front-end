@@ -13,7 +13,6 @@ const PosterInfo = ({poster}) => {
 
   const photo = poster.photo ? poster.photo:setPhoto()
 
-  console.log(photo)
   return (  
     <div className="poster-container"> 
       <div className="hosting-line">Hosted By {poster.name}</div>

@@ -7,12 +7,12 @@ import PostCard from "../../components/PostCard/PostCard";
 //css
 import './Requests.css'
 
-const Request = ({user, requests}) => {
+const Requests = ({user, requests}) => {
   if(!requests.length) { 
     return <div className='titleBar'>
             <div className='title'>No Student Requests Available</div> 
             {user.role === 200 ?
-              <NavLink to="/new"><button>Create New Request</button></NavLink>
+              <NavLink to="/newRequest"><button>Create New Request</button></NavLink>
               : <></>
             }
           </div>
@@ -23,7 +23,7 @@ const Request = ({user, requests}) => {
       <div className='titleBar'>
         <div className='title'>Student Requests</div> 
         {user.role === 200 ?
-          <NavLink to="new"><button>Create New Request</button></NavLink>
+          <NavLink to="/newRequest"><button>Create New Request</button></NavLink>
           : <></>
         }
       </div>
@@ -36,5 +36,5 @@ const Request = ({user, requests}) => {
   );
 }
 
-export default Request;
+export default Requests;
 

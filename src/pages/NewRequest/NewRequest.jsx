@@ -1,27 +1,17 @@
 //npm modules
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 // services
-import * as venueService from '../../services/venueService'
-import * as workShopService from '../../services/workshopService'
+import * as requestService from '../../services/requestService'
 
 // css
-import './newWorkshop.css'
-
+import './NewRequest.css'
 
 const NewWorkshop = ({user}) => {
   const [formData, setFormData] = useState([])
-  const [venues, setVenuesData] = useState([])
   const navigate = useNavigate()
 
-  useEffect(() => {
-    const fetchVenues = async () => {
-      const venueData = await venueService.getAllVenues()
-      setVenuesData(venueData)
-    }
-    fetchVenues()
-  }, [])
 
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -30,40 +20,28 @@ const NewWorkshop = ({user}) => {
   const handleSubmit = async evt => {
     evt.preventDefault()
     try {
-      await workShopService.createWorkshop(formData)
-      navigate('/workshops')
+      await requestService.createRequest(formData)
+      navigate('/myRequests')
     } catch (error) {
       console.log(error)
     }
   }
 
-  if(user.role !== 500){    
-    navigate('/workshops')
+  if(user.role !== 200){    
+    navigate('/requests')
   }
 
-  if (!venues.length) {
-    return <main className='container'>
-      <h1>Loading...</h1>
-    </main>
-  }
   return (  
     <main className='container'>
-      <h1>Create new Workshop</h1>
+      <h1>Create New Student Request</h1>
       <form autoComplete="off" onSubmit={handleSubmit} className='form'>
         <label className='label'>
-          Workshop Title
+          Title
           <input type="text"
             className='input'
             name="title"
             onChange={handleChange} />
-        </label>
-        <label className='label'>
-          Date
-          <input type="datetime-local"
-            className='input'
-            name="date"
-            onChange={handleChange} />
-        </label>        
+        </label> 
         <label className='label'>
           Category
           <select 
@@ -82,37 +60,22 @@ const NewWorkshop = ({user}) => {
           </select>
         </label>
         <label className='label'>
-          Location
-          <select 
-            className='input'
-            name="location" 
-            id='locationSelect'
-            onChange={handleChange}
-            defaultValue={""}>
-              <option value="" disabled hidden>Choose a Venue</option>
-              {venues.map(venue => (                  
-                <option key={venue._id} value={venue._id}>{venue.venueTitle}</option>
-              ))
-            }
-          </select>
-        </label>
-        <label className='label'>
-          Student Fee
+          Minimum Payment
           <input type="Number"          
             className='input'
-            name="pricePerPerson"
+            name="lowestPayment"
             min={0}
             onChange={handleChange}
-            placeholder="Price per Student"/>
+            placeholder="Minimum Payment Range"/>
         </label>
         <label className='label'>
-          Class Size
+          Max Payment
           <input type="Number"          
             className='input'
-            name="workshopLimit"
+            name="highestPayment"
             min={1}
             onChange={handleChange} 
-            placeholder="Max Number of Students"/>
+            placeholder="Maximum Payment Range"/>
         </label>
         <label className='label'>
           Description
@@ -121,7 +84,7 @@ const NewWorkshop = ({user}) => {
             name="description"            
             id='description'
             onChange={handleChange} 
-            placeholder="Write a brief description of your Workshop"/>
+            placeholder="Write a brief description of what you are looking to be taught"/>
         </label>
         <div className='submit'>
           <button type="submit">Submit</button>

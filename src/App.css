@@ -43,4 +43,6 @@ nav > ul {
 
 main.container{
   padding: 20px;
+  width: auto;
+  margin: 0 auto;
 }

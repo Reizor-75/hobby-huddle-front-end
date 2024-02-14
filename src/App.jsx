@@ -17,6 +17,7 @@ import WorkshopDetails from './pages/WorkshopDetails/WorkshopDetails'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import EditProfile from './pages/EditProfile/EditProfile'
 import Requests from './pages/Requests/Requests'
+import NewRequest from './pages/NewRequest/NewRequest'
 
 
 // components
@@ -47,11 +48,11 @@ function App() {
     fetchWorkshops()
     
     const fetchRequests = async () => {
-      const requestpData = await requestService.getAllRequests()
+      const requestpData = user.role === 500 ?  await requestService.getAllRequests() : await requestService.getMyRequests() 
       setRequests(requestpData)
     }
     fetchRequests()
-  }, [])
+  }, [user.role])
 
   useEffect(() => {
     const fetchVenues = async () => {
@@ -181,6 +182,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <Requests user={user} requests={requests}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/newRequest"
+          element={
+            <ProtectedRoute user={user}>
+              <NewRequest user={user} />
             </ProtectedRoute>
           }
         />

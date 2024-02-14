@@ -14,6 +14,17 @@ async function getAllRequests() {
   }
 }
 
+async function getMyRequests() {
+  try {
+    const res = await fetch(`${BASE_URL}/myRequests`, {
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` },
+    })
+    return await res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 async function createRequest(requestFormData) {
   try {
     const res = await fetch(`${BASE_URL}/newRequest`, {
@@ -32,5 +43,6 @@ async function createRequest(requestFormData) {
 
 export {
   getAllRequests,
+  getMyRequests,
   createRequest,
 }

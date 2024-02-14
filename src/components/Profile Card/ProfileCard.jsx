@@ -5,16 +5,22 @@ import styles from "./ProfileCard.module.css"
 
 const ProfileCard = ({profile}) => {
 
+const skills = profile
+console.log(skills)
+// const skillsArray = skills.split(',').map(skill => skill.trim())
+
   return ( 
     <div className={styles.profileCard}>
       <div className={styles.profilePicture}>
-        <img src="../../../arthur.png" />
+        <img src={profile.photo} />
       </div>
       <div className={styles.profileInfo}>
           <Link to={`/profile/${profile._id}`}>
             <h2>{profile.name}</h2>
           </Link>
-          <p>{profile.skills}</p>
+          <p> 
+          {/* {skillsArray.map((skill) => <tags>#{skill}</tags>)} */}
+          </p>
       </div>
       <div className={styles.profileAboutMe}>
         <p> {profile.aboutMe} </p>

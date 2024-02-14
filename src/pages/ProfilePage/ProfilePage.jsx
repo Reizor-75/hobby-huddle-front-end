@@ -40,8 +40,6 @@ const ProfilePage = (props) => {
     
     const skills = profile.skills[0]
     const skillsArray = skills.split(',').map(skill => skill.trim())
-    console.log(skillsArray)
-
 
     return ( 
     <div className={styles.container}>
@@ -53,9 +51,7 @@ const ProfilePage = (props) => {
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
           <p> 
-          {console.log(profile.skills)}
           {skillsArray.map((skill) => <tags>#{skill}</tags>)}
-          
           </p>
           {props.user.profile === `${profileId}` ?
             <Link to={`/profile/${profileId}/edit`} state={profile}><button>Edit</button></Link>

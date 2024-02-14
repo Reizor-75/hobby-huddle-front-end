@@ -60,7 +60,10 @@ const ProfilePage = (props) => {
       <div className={styles.bottomContainer}>
         <div className={styles.bottomLeft}>
           <h1>Reviews</h1>
+          {props.user === `${profileId}` ?
           <NewReview handleAddReview={handleAddReview} />
+          : <></>
+          } 
           <Reviews 
             reviews={profile.reviews} 
             user={props.user} 

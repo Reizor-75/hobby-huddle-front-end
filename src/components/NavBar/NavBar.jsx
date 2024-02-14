@@ -15,7 +15,7 @@ const NavBar = ({ user, handleLogout }) => {
           <li><NavLink to="/venues">All Venues</NavLink></li>
           <li><NavLink to="/venues">Venues</NavLink></li>
           <li><NavLink to="/venues/new">Create a Venue</NavLink></li>
-          <li><NavLink to="/profiles">All Profiles</NavLink></li>
+          <li><NavLink to="/profiles">Mentor Profiles</NavLink></li>
           <li><NavLink to="/profile/myProfile">My Profile</NavLink></li>
           <li><NavLink to="/editprofile">Edit My Profile</NavLink></li>
         </ul>

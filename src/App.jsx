@@ -16,7 +16,7 @@ import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
 import WorkshopDetails from './pages/WorkshopDetails/WorkshopDetails'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import EditProfile from './pages/EditProfile/EditProfile'
-
+import EditReview from './components/EditReview/EditReview'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -26,6 +26,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as workshopService from './services/workshopService'
 import * as venueService from './services/venueService'
+import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
@@ -34,6 +35,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser())
   const [workshops, setWorkshops] = useState([])  
   const [venues, setVenues] = useState([])
+  const [profiles, setProfiles] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -72,6 +74,12 @@ function App() {
 
   const handleAuthEvt = () => {
     setUser(authService.getUser())
+  }
+
+  const handleUpdateProfile = async (profileFormData) => {
+    const updatedProfile = await profileService.updateProfile(profileFormData)
+    setProfiles(profiles.map((profile) => updatedProfile._id === profile._id ? updatedProfile : profile))
+    navigate('/profiles/:profileId')
   }
 
   return (
@@ -134,7 +142,7 @@ function App() {
         />
 
         <Route
-          path="/profiles/myProfile"
+          path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
               <ProfilePage user={user} />
@@ -142,14 +150,21 @@ function App() {
           }
         />
 
+          <Route path="/profiles/:profileId/reviews/:reviewId" element={
+            <ProtectedRoute user={user}>
+              <EditReview />
+            </ProtectedRoute>
+          } />
+
         <Route
-          path="/editprofile"
+          path="/profiles/:profileId/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditProfile />
+              <EditProfile handleUpdateProfile={handleUpdateProfile}/>
             </ProtectedRoute>
           }
         />
+
 
         <Route
           path="/workshops"

@@ -43,10 +43,43 @@ async function show(profileId) {
   }
 }
 
+async function updateProfile(profileFormData) {
+  console.log(profileFormData._id)
+  try {
+    const res = await fetch(`${BASE_URL}/${profileFormData._id}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(profileFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 async function createReview (profileId, reviewFormData) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/reviews`, {
       method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reviewFormData)
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const updateReview = async (profileId, reviewId, reviewFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/reviews/${reviewId}`, {
+      method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
@@ -77,7 +110,8 @@ export {
   getAllProfiles, 
   addPhoto,
   show,
+  updateProfile,
   createReview,
+  updateReview,
   deleteReview,
-  
 }

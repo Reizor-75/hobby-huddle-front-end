@@ -55,29 +55,30 @@ function App() {
       setWorkshops(workshopData)
     }
     fetchWorkshops()
-
+  }, [])
+    
+  useEffect (()=>{
     const fetchRequests = async () => {
+      if(!user) return
       const requestpData = user.role === 500 ? await requestService.getAllRequests() : await requestService.getMyRequests() 
       setRequests(requestpData)
     }
     fetchRequests()
-  }, [user])
-  
-  useEffect(() => {
+    
     const fetchVenues = async () => {
-      const venueData = await venueService.getAllVenues()
+      if(!user) return
+      const venueData = await venueService.getAllVenues() 
       setVenues(venueData)
     }
     fetchVenues()
-  }, [])
 
-  useEffect(() => {
-    const fetchProfiles = async () => {
+    const fetchProfiles = async () => {      
+      if(!user) return
       const profileData = await profileService.getAllProfiles()
       setVenues(profileData)
     }
     fetchProfiles()
-  }, [])
+  }, [user])
 
   const handleUpdateProfile = async (profileFormData, user) => {
     const updatedProfile = await profileService.updateProfile(profileFormData, user)

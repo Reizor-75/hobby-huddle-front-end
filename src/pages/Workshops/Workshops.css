@@ -1,15 +1,7 @@
-a,
-a:hover{
-  background-color: transparent;
-  padding: 0px;
-  margin: 0px;
-  border-radius: 0; 
-  font-weight: 400;
-}
-
 button{  
+  background-color: var(--mentor-color);
   margin: 0px;
-  font-weight: 600;;
+  font-weight: 600;
 }
 
 .button-container{
@@ -25,11 +17,12 @@ button{
 .titleBar{
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   margin: 8px;
 }
 
 .title{
+  color: var(--mentor-color);
   font-size: xx-large;
   font-weight: 800;
   margin: 0 8px;

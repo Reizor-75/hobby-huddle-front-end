@@ -37,11 +37,11 @@ const PostDetails = ({user, content, handleDeleteRequest}) => {
       <div className='bottom-row'>
         {content.mentorInfo 
           ? <>
-              <button className='a-button'>Place Bid</button>
               <PosterInfo poster={content.mentorInfo}/>
             </> 
           : <>
-            {user.profile === content.student._id && 
+            {user.profile === content.student._id 
+              ?
               <>
                 <Link to={`/editRequest/${content._id}`} state={content}>
                   <div className='student edit button'>✏️</div>
@@ -49,6 +49,8 @@ const PostDetails = ({user, content, handleDeleteRequest}) => {
                 {console.log(content._id)}
                 <div className='student delete button' onClick={() => handleDeleteRequest(content._id)}>🗑️</div>
               </>
+              :              
+              <div className='student button'>Place Bid</div>
             }
             <PosterInfo poster={content.student}/>
           </>

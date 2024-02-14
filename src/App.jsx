@@ -53,6 +53,14 @@ function App() {
     }
     fetchVenues()
   }, [])
+  
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      const profileData = await profileService.getAllProfiles()
+      setVenues(profileData)
+    }
+    fetchProfiles()
+  }, [])
 
   const handleDeleteWorkshop = async (workshopId) => {
     const deletedWorkshop = await workshopService.deleteWorkshop(workshopId)
@@ -79,7 +87,7 @@ function App() {
   const handleUpdateProfile = async (profileFormData) => {
     const updatedProfile = await profileService.updateProfile(profileFormData)
     setProfiles(profiles.map((profile) => updatedProfile._id === profile._id ? updatedProfile : profile))
-    navigate('/profiles/:profileId')
+    navigate(`/profiles/${profileFormData._id}`)
   }
 
   return (

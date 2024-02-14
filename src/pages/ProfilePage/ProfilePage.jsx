@@ -1,6 +1,6 @@
 //npm modules
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 //services
 import * as profileService from '../../services/profileService'
@@ -51,6 +51,7 @@ const ProfilePage = (props) => {
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
           <p> {profile.skills}</p>
+          <Link to={`/proflies/${profileId}/edit`} state={profile}>Edit</Link>
         </div>
       </div>
       <div className={styles.bottomContainer}>

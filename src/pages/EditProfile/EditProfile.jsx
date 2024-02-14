@@ -11,17 +11,16 @@ const EditProfile = (props) => {
   const [formData, setFormData] = useState(state)
   // const [value, setValue] = useState(evt.target.value)
   // setValue(Number(evt.target.value))
-
-  const handleChange = (evt) => {
-    console.log(evt.target.value)
-    console.log(formData)
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
-  }
-
+  
   const handleSubmit = (evt) => {
     evt.preventDefault()
     props.handleUpdateProfile(formData)
   }
+
+  const handleChange = (evt) => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
+  }
+
 
   return ( 
     <div>
@@ -42,6 +41,7 @@ const EditProfile = (props) => {
           <input type="text"
             className={styles.input}
             name="email"
+            onChange={handleChange}
             />
         </label><br/> 
         

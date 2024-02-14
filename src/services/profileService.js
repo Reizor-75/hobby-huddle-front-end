@@ -43,10 +43,10 @@ async function show(profileId) {
   }
 }
 
-async function updateProfile(profileFormData) {
+async function updateProfile(profileFormData, user) {
   console.log(profileFormData._id)
   try {
-    const res = await fetch(`${BASE_URL}/${profileFormData._id}`, {
+    const res = await fetch(`${BASE_URL}/${user.profile}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`,

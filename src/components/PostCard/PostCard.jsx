@@ -10,7 +10,7 @@ import hhLogo from '../../assets/HobbyHuddleLogo.png'
 // css
 import './PostCard.css'
 
-const PostCard = ({user, content}) => {
+const PostCard = ({user, content, handleDeleteRequest}) => {
   
   return (  
     <>
@@ -25,7 +25,11 @@ const PostCard = ({user, content}) => {
       : 
         <div className='card student'> 
           <div className="image-crop"><img src={hhLogo} alt="Workshop Image" className="workshop-image"/></div>
-          <PostDetails user={user} content={content} />
+          <PostDetails 
+            user={user} 
+            content={content} 
+            handleDeleteRequest={handleDeleteRequest}
+          />
         </div>
       }
     </>

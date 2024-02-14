@@ -7,7 +7,7 @@ import PostCard from "../../components/PostCard/PostCard";
 //css
 import './Requests.css'
 
-const Requests = ({user, requests}) => {
+const Requests = ({user, requests, handleDeleteRequest}) => {
 
   if(!requests.length) { 
     return <div className='titleBar'>
@@ -30,7 +30,12 @@ const Requests = ({user, requests}) => {
       </div>
       <div className='cardContainer'>
         {requests.map(request =>(
-          <PostCard key={request._id} content={request} user={user}/>
+          <PostCard 
+            key={request._id} 
+            content={request} 
+            user={user} 
+            handleDeleteRequest={handleDeleteRequest}
+          />
         ))}
       </div>
     </main>

@@ -2,13 +2,10 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
-// services
-import * as requestService from '../../services/requestService'
-
 // css
 import './NewRequest.css'
 
-const NewRequest = ({user}) => {
+const NewRequest = ({user, handleAddBlog}) => {
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -25,12 +22,7 @@ const NewRequest = ({user}) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault()
-    try {
-      await requestService.createRequest(formData)
-      navigate('/requests')
-    } catch (error) {
-      console.log(error)
-    }
+    handleAddBlog(formData)
   }
 
   if(user.role !== 200){    

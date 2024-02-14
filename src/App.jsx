@@ -106,9 +106,16 @@ function App() {
     navigate('/workshops')
   }
   
+
+  const handleAddRequest = async (requestFormData) => {
+    const newRequest = await requestService.createRequest(requestFormData)
+    setRequests([newRequest, ...requests])
+    navigate('/requests')
+  }
+
   const handleDeleteRequest = async (requestId) => {
-    const deletedRequest = await requestService.deleteWorkshop(requestId)
-    setWorkshops(requests.filter(request => request._id !== deletedRequest._id))
+    const deletedRequest = await requestService.deleteRequest(requestId)
+    setRequests(requests.filter(request => request._id !== deletedRequest._id))
     navigate('/requests')
   }
 
@@ -235,7 +242,7 @@ function App() {
           path="/newRequest"
           element={
             <ProtectedRoute user={user}>
-              <NewRequest user={user} />
+              <NewRequest user={user} handleAddRequest={handleAddRequest} />
             </ProtectedRoute>
           }
         />

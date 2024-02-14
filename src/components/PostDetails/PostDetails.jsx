@@ -5,7 +5,7 @@ import PosterInfo from '../PosterInfo/PosterInfo';
 //css
 import './PostDetails.css'
 
-const PostDetails = ({user, content}) => {
+const PostDetails = ({user, content, handleDeleteRequest}) => {
   const date = new Date(content.date).toDateString()
   const time = new Date(content.date).toLocaleTimeString()
 
@@ -46,9 +46,8 @@ const PostDetails = ({user, content}) => {
                 <Link to={`/editRequest/${content._id}`} state={content}>
                   <div className='student edit button'>✏️</div>
                 </Link>
-                <Link to={`/${content._id}`} state={content}>
-                  <div className='student delete button'>🗑️</div>
-                </Link>
+                {console.log(content._id)}
+                <div className='student delete button' onClick={() => handleDeleteRequest(content._id)}>🗑️</div>
               </>
             }
             <PosterInfo poster={content.student}/>

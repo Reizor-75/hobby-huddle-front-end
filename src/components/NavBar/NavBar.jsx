@@ -8,7 +8,7 @@ const NavBar = ({ user, handleLogout }) => {
   return (
     <>
     <div className={styles.nav_container}>
-     <div className={styles.nav_welcome}>
+    <div className={styles.nav_welcome}>
       <img className={styles.logo} src="https://media.istockphoto.com/id/1197904085/vector/pink-h-smile-vector-template.jpg?s=612x612&w=0&k=20&c=6SpIFvz2oaR0UeZVD_47c_KaotSSHuOROoUD9owqvpU=" alt="Hobby Huddle Logo"/>
       </div>
   
@@ -104,22 +104,6 @@ const NavBar = ({ user, handleLogout }) => {
         <></>
       
       }
-
-
-{/* <ul>
-<li>Welcome, {user.name}</li>
-<li><NavLink to="/profiles">Profiles</NavLink></li>
-<li><NavLink to="" onClick={handleLogout}>LOG OUT</NavLink></li>
-<li><NavLink to="/auth/change-password">Change Password</NavLink></li>
-<li><NavLink to="/workshops">Workshops</NavLink></li>
-<li><NavLink to="/requests">Requests</NavLink></li>
-<li><NavLink to="/venues">All Venues</NavLink></li>
-<li><NavLink to="/venues">Venues</NavLink></li>
-<li><NavLink to="/venues/new">Create a Venue</NavLink></li>
-<li><NavLink to="/profiles">All Profiles</NavLink></li>
-<li><NavLink to="/profile">Profile Page</NavLink></li>
-<li><NavLink to="/editprofile">Edit My Profile</NavLink></li>
-</ul> */}
     
     </div>
     </>

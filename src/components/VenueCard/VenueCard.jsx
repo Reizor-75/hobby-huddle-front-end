@@ -18,7 +18,8 @@ const VenueCard = (props) => {
           <p>{props.venue.phoneNumber}</p>
           <p>{props.venue.address}</p>
           <p>{props.venue.email}</p>   
-        </div>  
+        </div> 
+        {props.user.role === 100 && props.user.profile=== props.venue.venueOwner._id ?
         <div className={styles.venue_option_buttons}>
         <button className={styles.deleteButton} onClick={() => props.deleteVenue(props.venue._id)}>
           Delete Venue
@@ -26,11 +27,13 @@ const VenueCard = (props) => {
         <Link to={`/venues/${props.venue._id}/edit`} state={props.venue}>   
         <button className={styles.editButton}>Edit Venue</button>
           </Link>
-        </div>
+        </div> :
+        
+        <></>}
       </div>
       <div className={styles.categories_container}>
       </div>
-    </div>
+    </div> 
     </>
   )
 }

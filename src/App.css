@@ -34,13 +34,14 @@ nav > ul {
 }
 
 
+
 .page-body{  
   display: flex;
   flex-direction: row;
-  max-height: 100vh;
-  
+  height: 100%;
 }
 
-main.container{
-  padding: 20px;
+
+main{
+  padding: 20px 100px;
 }

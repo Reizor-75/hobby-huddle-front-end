@@ -30,9 +30,9 @@ const Profiles = () => {
     <main className={styles.container}>
       <h1>Hello. This is a list of all the profiles.</h1>
       <div className={styles.allCards}>
-      {profiles.map(profile => (
+        {profiles.map(profile => (
           <ProfileCard key={profile._id} profile={profile}/>
-      ))}
+        ))}
       </div>
 
     </main>

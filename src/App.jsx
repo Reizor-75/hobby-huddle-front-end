@@ -18,7 +18,7 @@ import ProfilePage from './pages/ProfilePage/ProfilePage'
 import EditProfile from './pages/EditProfile/EditProfile'
 import Requests from './pages/Requests/Requests'
 import NewRequest from './pages/NewRequest/NewRequest'
-
+import EditReview from './components/EditReview/EditReview'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -29,6 +29,7 @@ import * as authService from './services/authService'
 import * as workshopService from './services/workshopService'
 import * as venueService from './services/venueService'
 import * as requestService from './services/requestService'
+import * as profileService from './services/profileService'
 
 // styles
 import './App.css'
@@ -38,6 +39,7 @@ function App() {
   const [workshops, setWorkshops] = useState([])  
   const [venues, setVenues] = useState([])
   const [requests, setRequests] = useState([])
+  const [profiles, setProfiles] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -52,13 +54,15 @@ function App() {
       setRequests(requestpData)
     }
     fetchRequests()
-
-    const fetchVenues = async () => {
-      const venueData = await venueService.getAllVenues()
-      setVenues(venueData)
+  },[])
+  
+  useEffect(() => {
+    const fetchProfiles = async () => {
+      const profileData = await profileService.getAllProfiles()
+      setVenues(profileData)
     }
-    fetchVenues()
-  }, [user])
+    fetchProfiles()
+  }, [])
 
   const handleDeleteWorkshop = async (workshopId) => {
     const deletedWorkshop = await workshopService.deleteWorkshop(workshopId)
@@ -82,6 +86,12 @@ function App() {
     setUser(authService.getUser())
   }
 
+  const handleUpdateProfile = async (profileFormData, user) => {
+    const updatedProfile = await profileService.updateProfile(profileFormData, user)
+    console.log("this is the UPDATED PROFILE ", updatedProfile)
+    setProfiles(profiles.map((profile) => updatedProfile._id === profile._id ? updatedProfile : profile))
+    navigate(`/profiles/${updatedProfile._id}`)
+  }
 
   return (
     <div className='page-body'>
@@ -143,13 +153,30 @@ function App() {
         />
 
         <Route
-          path="/editprofile"
+          path="/profile/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <EditProfile />
+              <ProfilePage user={user} />
             </ProtectedRoute>
           }
         />
+
+          <Route
+            path="/profile/:profileId/edit"
+            element={
+              <ProtectedRoute user={user}>
+                <EditProfile user={user} handleUpdateProfile={handleUpdateProfile}/>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="/profile/:profileId/reviews/:reviewId" element={
+            <ProtectedRoute user={user}>
+              <EditReview />
+            </ProtectedRoute>
+          } />
+
+
 
         <Route
           path="/workshops"

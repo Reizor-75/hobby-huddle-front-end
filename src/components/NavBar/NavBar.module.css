@@ -1,10 +1,16 @@
+:root {
+  --vendor-color: #76bdab;
+  --student-color: #fbc043;
+  --mentor-color: #df6d29;
+  --cream: #ffd9bc;
+}
 .nav_container{
   display: flex;
   flex-direction: column;
   padding: 20px;
-  height: 100vh;
-  justify-content: center;
-
+  min-width: 350px;
+ 
+  /* justify-content: center; */
   background-color: #76bdab;
   background-color: #76bdab;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='105' viewBox='0 0 80 105'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='death-star' fill='%23bce0d7' fill-opacity='0.07'%3E%3Cpath d='M20 10a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm15 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zM20 75a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zm30-65a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V10zm0 65a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V75zM35 10a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zM5 45a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10zm60 35a5 5 0 0 1 10 0v50a5 5 0 0 1-10 0V45zm0-35a5 5 0 0 1 10 0v20a5 5 0 0 1-10 0V10z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -23,14 +29,22 @@
 }
 
 .logo{
-  margin: 20px 0px;
+  margin: 30px 0px;
+  height:150px;
+  width: auto;
+  background: var(--cream);
+  border-radius: 100px;
+  padding: 20px 40px;
+  border: solid 2px #df6d29;
 }
 
 h2.welcome_name{
   padding: 10px 30px;
-  background-color: #df6d29;
+  /* background-color: #df6d29; */
+  background-color: var(--cream);
   border-radius: 30px;
   font-size: 1.25em;
+  color: #000;;
 }
 
 ul{
@@ -47,8 +61,9 @@ a:hover{
 }
 
 li,a, a:visited{
-  margin: 20px 0 !important;
+  margin: 30px 0 !important;
   color:#000000 !important;
+  font-size: 1.05em;;
 }
 
 

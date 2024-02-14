@@ -3,11 +3,23 @@ import { NavLink } from 'react-router-dom'
 
 // css
 import styles from './NavBar.module.css'
-import logo from '../../assets/HobbyHuddleLogo.png'
+
+//assests
+import logo from '../../assets/HobbyHuddleLogo.svg'
+
+
 const NavBar = ({ user, handleLogout }) => {
   return (
     <>
     <div className={styles.nav_container}>
+      <div className={styles.nav_welcome}>
+        <img className={styles.logo} src={logo} alt="Hobby Huddle Logo"/>
+      </div>
+  
+      {/* Vendor nav */}
+      
+      {user && user.role===100 ?
+      <>
       <div className={styles.nav_welcome}>
         <img className={styles.logo} src={logo} alt="Hobby Huddle Logo"/>
         </div>
@@ -39,7 +51,6 @@ const NavBar = ({ user, handleLogout }) => {
         }
 
        {/* Student nav */}
-      
       {user && user.role===200 ?
       <>
       <div className={styles.nav_welcome}>

@@ -27,7 +27,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as workshopService from './services/workshopService'
 import * as venueService from './services/venueService'
-import * as requestService from './services/venueService'
+import * as requestService from './services/requestService'
 
 // styles
 import './App.css'
@@ -47,7 +47,7 @@ function App() {
     fetchWorkshops()
     
     const fetchRequests = async () => {
-      const requestpData = await requestService.getAllRequest()
+      const requestpData = await requestService.getAllRequests()
       setRequests(requestpData)
     }
     fetchRequests()

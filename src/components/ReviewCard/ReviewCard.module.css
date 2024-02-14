@@ -1,51 +1,66 @@
+/* Cream : ffd9bc
+Teal: 76bdab
+Orange: df6d29
+yellow: fbc043 */
+
 .reviewCard{
-  border: solid 1px red;
+  border: solid 1px #df6d29;
+  background-color: #76bdab;
+  padding: 10px;
+  height: 225px;
+  width: 500px;
+  border-radius: 20px;
+  margin: 10px;
 }
 
 .buttons{
 padding: 10px;
-display:flex;
+display: flex;
 justify-content: flex-end;
+/* border: solid 1px red; */
+/* height: 40px; */
 }
 
-.editBtn, .deleteBtn {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+
+/* CSS */
+.deleteBtn, .editBtn {
+  background-color: #df6d29;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
   box-sizing: border-box;
-  color: #41403e;
+  color: #39739d;
   cursor: pointer;
   display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 5px;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
   outline: none;
-  padding: .75rem;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
   text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  height: 30px;
-  
+  vertical-align: baseline;
+  white-space: nowrap;
 }
 
-.editBtn, .deleteBtn:hover {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
+.deleteBtn, .editBtn:hover,
+.deleteBtn, .editBtn:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
 }
 
-.editBtn, .deleteBtn:focus {
-  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+.deleteBtn, .editBtn:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.deleteBtn, .editBtn:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
 }

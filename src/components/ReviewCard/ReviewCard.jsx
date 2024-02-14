@@ -9,21 +9,22 @@ import styles from "./ReviewCard.module.css"
 
 const ReviewCard = ({ review, profileId, handleDeleteReview }) => {
   return (
-    <article className={styles.reviewCard}>
-      <header>
-        <AuthorInfo review={review} />
-      </header>
+    <div className={styles.reviewCard}>
+        <AuthorInfo review={review} /> 
       <h2> {review.title} </h2>
       <p> {review.content} </p>
+
       <div className={styles.buttons}>
-        <Link to={`/profile/${profileId}/reviews/${review._id}`} state={review}>
-          <button className={styles.editBtn}>EDIT</button>
-        </Link>
+        <button className={styles.editBtn} > 
+          <Link to={`/profile/${profileId}/reviews/${review._id}`} state={review}>
+            EDIT 
+          </Link> 
+        </button>
         <button className={styles.deleteBtn} onClick={()=> handleDeleteReview(profileId, review._id)}>
           DELETE
         </button>
       </div>
-    </article>
+    </div>
   )
 }
 

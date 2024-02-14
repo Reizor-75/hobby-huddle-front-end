@@ -1,0 +1,17 @@
+.poster-container{
+  display: flex;
+  align-items: center;
+}
+
+.profile-photo{
+  width: 50px;
+  height: 50px;
+  background-color: #ffd9bc;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.hosting-line{
+  text-align: right;
+  margin: 0 8px;
+}

@@ -3,19 +3,21 @@ import { NavLink } from "react-router-dom";
 
 //components
 import PostDetails from "../PostDetails/PostDetails";
-import PosterInfo from "../PosterInfo/PosterInfo";
+
+//assets
+import hhLogo from '../../assets/HobbyHuddleLogo.png'
 
 // css
-import styles from './PostCard.module.css'
+import './PostCard.css'
 
 const PostCard = ({content}) => {
 
   
   return (  
     <NavLink to={`/workshops/${content._id}`}>
-      <div className={styles.card}>
+      <div className='card'>
+        <div className="image-crop"><img src={hhLogo} alt="Workshop Image" className="workshop-image"/></div>
         <PostDetails content={content} />
-        <PosterInfo poster={content.mentorInfo}/>  
       </div>
     </NavLink>  
   );

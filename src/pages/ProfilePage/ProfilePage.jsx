@@ -51,7 +51,10 @@ const ProfilePage = (props) => {
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
           <p> {profile.skills}</p>
-          <Link to={`/profile/${profileId}/edit`} state={profile}>Edit</Link>
+          {props.user.role === 500 ?
+            <Link to={`/profile/${profileId}/edit`} state={profile}><button>Edit</button></Link>
+            : <></>
+          }          
         </div>
       </div>
       <div className={styles.bottomContainer}>

@@ -16,6 +16,7 @@ import NewWorkshop from './pages/NewWorkshop/NewWorkshop'
 import WorkshopDetails from './pages/WorkshopDetails/WorkshopDetails'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import EditProfile from './pages/EditProfile/EditProfile'
+import Requests from './pages/Requests/Requests'
 
 
 // components
@@ -26,6 +27,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import * as authService from './services/authService'
 import * as workshopService from './services/workshopService'
 import * as venueService from './services/venueService'
+import * as requestService from './services/venueService'
 
 // styles
 import './App.css'
@@ -34,6 +36,7 @@ function App() {
   const [user, setUser] = useState(authService.getUser())
   const [workshops, setWorkshops] = useState([])  
   const [venues, setVenues] = useState([])
+  const [requests, setRequests] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -42,6 +45,12 @@ function App() {
       setWorkshops(workshopData)
     }
     fetchWorkshops()
+    
+    const fetchRequests = async () => {
+      const requestpData = await requestService.getAllRequest()
+      setRequests(requestpData)
+    }
+    fetchRequests()
   }, [])
 
   useEffect(() => {
@@ -164,6 +173,14 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <NewWorkshop user={user}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/requests"
+          element={
+            <ProtectedRoute user={user}>
+              <Requests user={user} requests={requests}/>
             </ProtectedRoute>
           }
         />

@@ -32,7 +32,7 @@ const NavBar = ({ user, handleLogout }) => {
             <li><NavLink to="/venues">All Venues</NavLink></li>
             <li><NavLink to="/venues/new">Create a Venue</NavLink></li>
             <li><NavLink to="/workshops">Workshops</NavLink></li>
-            <li><NavLink to="/profiles">All Profiles</NavLink></li>
+            <li><NavLink to="/profiles">Mentor Profiles</NavLink></li>
             <li><NavLink to="/workshops">Workshops</NavLink></li>
             <li><NavLink to="/requests">Requests</NavLink></li>
           </ul>

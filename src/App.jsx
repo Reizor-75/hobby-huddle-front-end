@@ -84,10 +84,11 @@ function App() {
     setUser(authService.getUser())
   }
 
-  const handleUpdateProfile = async (profileFormData) => {
-    const updatedProfile = await profileService.updateProfile(profileFormData)
+  const handleUpdateProfile = async (profileFormData, user) => {
+    const updatedProfile = await profileService.updateProfile(profileFormData, user)
+    console.log("this is the UPDATED PROFILE ", updatedProfile)
     setProfiles(profiles.map((profile) => updatedProfile._id === profile._id ? updatedProfile : profile))
-    navigate(`/profiles/${profileFormData._id}`)
+    navigate(`/profiles/${updatedProfile._id}`)
   }
 
   return (
@@ -150,7 +151,7 @@ function App() {
         />
 
         <Route
-          path="/profiles/:profileId"
+          path="/profile/:profileId"
           element={
             <ProtectedRoute user={user}>
               <ProfilePage user={user} />
@@ -158,20 +159,21 @@ function App() {
           }
         />
 
-          <Route path="/profiles/:profileId/reviews/:reviewId" element={
+          <Route
+            path="/profile/:profileId/edit"
+            element={
+              <ProtectedRoute user={user}>
+                <EditProfile user={user} handleUpdateProfile={handleUpdateProfile}/>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="/profile/:profileId/reviews/:reviewId" element={
             <ProtectedRoute user={user}>
               <EditReview />
             </ProtectedRoute>
           } />
 
-        <Route
-          path="/profiles/:profileId/edit"
-          element={
-            <ProtectedRoute user={user}>
-              <EditProfile handleUpdateProfile={handleUpdateProfile}/>
-            </ProtectedRoute>
-          }
-        />
 
 
         <Route

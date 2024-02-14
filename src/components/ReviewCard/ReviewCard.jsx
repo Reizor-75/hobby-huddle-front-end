@@ -4,9 +4,12 @@ import { Link } from "react-router-dom"
 // components
 import AuthorInfo from "../AuthorInfo/AuthorInfo"
 
+//css
+import styles from "./ReviewCard.module.css"
+
 const ReviewCard = ({ review, profileId, handleDeleteReview }) => {
   return (
-    <article>
+    <article className={styles.reviewCard}>
       <header>
         <AuthorInfo review={review} />
       </header>

@@ -2,7 +2,7 @@ import mentorHand from '../../assets/MentorHand.png'
 import studentHand from '../../assets/StudentHand.png'
 import vendorHand from '../../assets/VendorHand.png'
 
-import styles from './PosterInfo.module.css'
+import './PosterInfo.css'
 
 const PosterInfo = ({poster}) => {  
   const setPhoto = () => {
@@ -11,13 +11,12 @@ const PosterInfo = ({poster}) => {
     return vendorHand
   }
 
-  const photo = poster.photo? poster.photo:setPhoto()
+  const photo = poster.photo ? poster.photo:setPhoto()
 
-  console.log(photo)
   return (  
-    <div className=""> 
-      <img src={photo} alt="Profile Photo" className={styles.profilephoto} />
+    <div className="poster-container"> 
       <div className="hosting-line">Hosted By {poster.name}</div>
+      <img src={photo} alt="Profile Photo" className="profile-photo" />
     </div>
   );
 }

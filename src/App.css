@@ -41,8 +41,13 @@ nav > ul {
   background-color: #efefef;;
 }
 
-
 main{
   padding: 20px 100px;
   width: 100%;
+}
+
+main.container{
+  padding: 20px;
+  width: auto;
+  margin: 0 auto;
 }

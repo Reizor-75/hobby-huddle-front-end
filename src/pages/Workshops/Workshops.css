@@ -1,0 +1,42 @@
+a,
+a:hover{
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 0; 
+  font-weight: 400;
+}
+
+button{  
+  margin: 0px;
+  font-weight: 600;;
+}
+
+.button-container{
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+}
+
+.container{  
+  margin: 0px;
+}
+
+.titleBar{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin: 8px;
+}
+
+.title{
+  font-size: xx-large;
+  font-weight: 800;
+  margin: 0 8px;
+}
+
+.cardContainer{
+  display: flex;
+  align-items: center;
+}
+

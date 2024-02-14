@@ -4,12 +4,16 @@ import { NavLink } from 'react-router-dom'
 // css
 import styles from './NavBar.module.css'
 
+
+//assests
+import logo from '../../assets/HobbyHuddleLogo.svg'
+
 const NavBar = ({ user, handleLogout }) => {
   return (
     <>
     <div className={styles.nav_container}>
     <div className={styles.nav_welcome}>
-      <img className={styles.logo} src="https://media.istockphoto.com/id/1197904085/vector/pink-h-smile-vector-template.jpg?s=612x612&w=0&k=20&c=6SpIFvz2oaR0UeZVD_47c_KaotSSHuOROoUD9owqvpU=" alt="Hobby Huddle Logo"/>
+      <img className={styles.logo} src={logo} alt="Hobby Huddle Logo"/>
       </div>
   
       {/* Vendor nav */}

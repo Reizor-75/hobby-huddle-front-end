@@ -6,9 +6,9 @@
 
 body {
   box-sizing: border-box;
-
   margin: 0;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100%;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
@@ -33,15 +33,16 @@ nav > ul {
   padding: 16px 32px;
 }
 
-
-
 .page-body{  
   display: flex;
   flex-direction: row;
+  min-height: 100vh;
   height: 100%;
+  background-color: #efefef;;
 }
 
 
 main{
   padding: 20px 100px;
+  width: 100%;
 }

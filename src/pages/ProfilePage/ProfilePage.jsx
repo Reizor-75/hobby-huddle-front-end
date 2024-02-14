@@ -39,8 +39,8 @@ const ProfilePage = (props) => {
       return <h1>Loading...</h1>
     }
     
-    console.log(profile.user)
-
+    console.log(props.user._id)
+    console.log(`${profileId}`)
     return ( 
     <div className={styles.container}>
       
@@ -51,7 +51,7 @@ const ProfilePage = (props) => {
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
           <p> {profile.skills}</p>
-          {props.user.role === 500 ?
+          {props.user.profile === `${profileId}` ?
             <Link to={`/profile/${profileId}/edit`} state={profile}><button>Edit</button></Link>
             : <></>
           }          
@@ -60,7 +60,7 @@ const ProfilePage = (props) => {
       <div className={styles.bottomContainer}>
         <div className={styles.bottomLeft}>
           <h1>Reviews</h1>
-          {props.user === `${profileId}` ?
+          {props.user.profile !== `${profileId}` ?
           <NewReview handleAddReview={handleAddReview} />
           : <></>
           } 

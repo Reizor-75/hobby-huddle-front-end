@@ -15,12 +15,14 @@ const ReviewCard = ({ review, profileId, handleDeleteReview }) => {
       </header>
       <h2> {review.title} </h2>
       <p> {review.content} </p>
-      <Link to={`/profile/${profileId}/reviews/${review._id}`} state={review}>
-        EDIT
-      </Link>
-      <button onClick={()=> handleDeleteReview(profileId, review._id)}>
-        DELETE
-      </button>
+      <div className={styles.buttons}>
+        <Link to={`/profile/${profileId}/reviews/${review._id}`} state={review}>
+          <button className={styles.editBtn}>EDIT</button>
+        </Link>
+        <button className={styles.deleteBtn} onClick={()=> handleDeleteReview(profileId, review._id)}>
+          DELETE
+        </button>
+      </div>
     </article>
   )
 }

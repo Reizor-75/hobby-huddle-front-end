@@ -34,13 +34,15 @@ const ProfilePage = (props) => {
       setProfile({ ...profile, reviews: profile.reviews.filter((c) => c._id !== reviewId) })
     }
 
-    console.log('Profile State:', profile)
     if (!profile) {
       return <h1>Loading...</h1>
     }
     
-    console.log(props.user._id)
-    console.log(`${profileId}`)
+    const skills = profile.skills[0]
+    const skillsArray = skills.split(',').map(skill => skill.trim())
+    console.log(skillsArray)
+
+
     return ( 
     <div className={styles.container}>
       
@@ -50,7 +52,11 @@ const ProfilePage = (props) => {
         <div className={styles.profileBio}>
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
-          <p> {profile.skills}</p>
+          <p> 
+          {console.log(profile.skills)}
+          {skillsArray.map((skill) => <tags>#{skill}</tags>)}
+          
+          </p>
           {props.user.profile === `${profileId}` ?
             <Link to={`/profile/${profileId}/edit`} state={profile}><button>Edit</button></Link>
             : <></>

@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
+//Trust but verify
+
 // pages
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'

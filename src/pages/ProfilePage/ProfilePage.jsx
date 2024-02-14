@@ -48,7 +48,7 @@ const ProfilePage = (props) => {
       
       <div className={styles.topContainer}>
         <div className={styles.profilePic}>
-          <img className={styles.profileImg} src="../../../arthur.png"/></div>
+          <img className={styles.profileImg} src={profile.photo}/></div>
         <div className={styles.profileBio}>
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>

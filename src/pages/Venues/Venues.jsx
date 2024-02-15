@@ -38,23 +38,20 @@ const Venues = (props) => {
     navigate('/venues')
   }
 
- const user=props.user
- console.log("USER")
- console.dir(user)
-  
+  const user=props.user
   return (
     <>
-    <main className={styles.container}>
-      <h1>Look at all these venues!</h1>
-      <div className={styles.venue_container}>
-      {venues.map((venue) => (
-        <div key={venue._id}>
-        <VenueCard venue={venue} deleteVenue = {handleDeleteVenue} updateVenue={handleUpdateVenue} user={user}
-        />
+      <main className={styles.container}>
+        <h1>Look at all these venues!</h1>
+        <div className={styles.venue_container}>
+          {venues.map((venue) => (
+            <div key={venue._id}>
+              <VenueCard venue={venue} deleteVenue = {handleDeleteVenue} updateVenue={handleUpdateVenue} user={user}
+              />
+            </div>
+          ))}
         </div>
-      ))}
-      </div>
-    </main>
+      </main>
     </>
   )
 }

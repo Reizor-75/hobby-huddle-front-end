@@ -16,45 +16,41 @@ const ProfilePage = (props) => {
   const { profileId } = useParams()
   const [profile, setProfile] = useState(null)
   
-    console.log(profile)
-
-    useEffect(() => {
-      const fetchProfile = async () => {
-        const data = await profileService.show(profileId)
-        setProfile(data)
-      }
-      fetchProfile()
-    }, [profileId])
-
-    const handleAddReview = async (reviewFormData) => {
-      const newReview = await profileService.createReview(profileId, reviewFormData)
-      setProfile({ ...profile, reviews: [...profile.reviews, newReview] })
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const data = await profileService.show(profileId)
+      setProfile(data)
     }
+    fetchProfile()
+  }, [profileId])
 
-    const handleDeleteReview = async (profileId, reviewId) => {
-      await profileService.deleteReview(profileId, reviewId)
-      setProfile({ ...profile, reviews: profile.reviews.filter((c) => c._id !== reviewId) })
-    }
+  const handleAddReview = async (reviewFormData) => {
+    const newReview = await profileService.createReview(profileId, reviewFormData)
+    setProfile({ ...profile, reviews: [...profile.reviews, newReview] })
+  }
 
-    if (!profile) {
-      return <h1>Loading...</h1>
-    }
-    
-    const skills = profile.skills[0]
-    const skillsArray = skills?.split(',').map(skill => skill.trim())
-    console.log(skillsArray)
-    return ( 
-    <div className={styles.container}>
-      
+  const handleDeleteReview = async (profileId, reviewId) => {
+    await profileService.deleteReview(profileId, reviewId)
+    setProfile({ ...profile, reviews: profile.reviews.filter((c) => c._id !== reviewId) })
+  }
+
+  if (!profile) {
+    return <h1>Loading...</h1>
+  }
+  
+  const skills = profile.skills[0]
+  const skillsArray = skills?.split(',').map(skill => skill.trim())
+  console.log(skillsArray)
+  return ( 
+    <div className={styles.container}>    
       <div className={styles.topContainer}>
         <div className={styles.profilePic}>
-          <img className={styles.profileImg} src={profile.photo}/></div>
+          <img className={styles.profileImg} src={profile.photo}/>
+        </div>
         <div className={styles.profileBio}>
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
-          <p> {skillsArray?.length ? skillsArray.map((skill) => <tags key={skill}>#{skill} </tags>) : <></> }
-          
-          </p>
+          <p> {skillsArray?.length ? skillsArray.map((skill) => <tags key={skill}>#{skill} </tags>) : <></> }</p>
           {props.user.profile === `${profileId}` ?
             <Link to={`/profile/${profileId}/edit`} state={profile}><button>Edit Profile</button></Link>
             : <></>
@@ -65,8 +61,8 @@ const ProfilePage = (props) => {
         <div className={styles.bottomLeft}>
           <h1>Reviews</h1>
           {props.user.profile !== `${profileId}` ?
-          <NewReview handleAddReview={handleAddReview} />
-          : <></>
+            <NewReview handleAddReview={handleAddReview} />
+            : <></>
           } 
           <Reviews 
             reviews={profile.reviews} 
@@ -77,19 +73,15 @@ const ProfilePage = (props) => {
         </div>
         <div className={styles.bottomRight}>
           {props.user.profile === `${profileId}` ?
-          <div className={styles.myWorkshops}>
-            <h4>My Profile: show upcoming workshops and completed workshops</h4>
-          </div>
-
-          : <></>
+            <div className={styles.myWorkshops}>
+              <h4>My Profile: show upcoming workshops and completed workshops</h4>
+            </div>
+            : <></>
           } 
-
         </div>
       </div>
-
-
     </div>
-  );
+  )
 }
 
 export default ProfilePage;

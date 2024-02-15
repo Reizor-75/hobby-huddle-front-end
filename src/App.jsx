@@ -100,12 +100,17 @@ function App() {
     navigate(`/requests`)
   }
 
+  const handdleAddWorkshop = async (workshopFormData) => {
+    const newWorkshop = await  workshopService.createWorkshop(workshopFormData)
+    setWorkshops({ ...workshops,  newWorkshop })
+    navigate('/workshops')
+  }
+  
   const handleDeleteWorkshop = async (workshopId) => {
     const deletedWorkshop = await workshopService.deleteWorkshop(workshopId)
     setWorkshops(workshops.filter(workshop => workshop._id !== deletedWorkshop._id))
     navigate('/workshops')
-  }
-  
+  }  
 
   const handleAddRequest = async (requestFormData) => {
     const newRequest = await requestService.createRequest(requestFormData)
@@ -162,7 +167,10 @@ function App() {
           path="/profile/:profileId/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditProfile profiles={profiles} user={user} handleUpdateProfile={handleUpdateProfile}/>
+              <EditProfile 
+                profiles={profiles} 
+                user={user} 
+                handleUpdateProfile={handleUpdateProfile}/>
             </ProtectedRoute>
           }
         />
@@ -230,7 +238,7 @@ function App() {
           path="/workshops/new"
           element={
             <ProtectedRoute user={user}>
-              <NewWorkshop user={user}/>
+              <NewWorkshop user={user} handdleAddWorkshop={handdleAddWorkshop}/>
             </ProtectedRoute>
           }
         />

@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom"
 // css
 import styles from './EditVenue.module.css'
 
-
 const EditVenue = (props) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state) 

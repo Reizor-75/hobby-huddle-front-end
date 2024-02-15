@@ -57,7 +57,7 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
         </div>
       </div>
     </main>
-  );
+  )
 }
 
-export default WorkshopDetails;
+export default WorkshopDetails

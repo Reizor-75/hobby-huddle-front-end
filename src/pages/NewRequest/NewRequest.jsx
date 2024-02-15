@@ -15,7 +15,6 @@ const NewRequest = ({user, handleAddBlog}) => {
   })
   const navigate = useNavigate()
 
-
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
@@ -89,7 +88,7 @@ const NewRequest = ({user, handleAddBlog}) => {
         </div>
       </form>
     </main>
-  );
+  )
 }
 
-export default NewRequest;
+export default NewRequest

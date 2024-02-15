@@ -86,7 +86,7 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default EditProfile;
+export default EditProfile

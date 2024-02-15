@@ -4,13 +4,11 @@ import { useNavigate } from 'react-router-dom'
 
 // services
 import * as venueService from '../../services/venueService'
-import * as workShopService from '../../services/workshopService'
 
 // css
 import './newWorkshop.css'
 
-
-const NewWorkshop = ({user}) => {
+const NewWorkshop = ({user, handdleAddWorkshop}) => {
   const [formData, setFormData] = useState([])
   const [venues, setVenuesData] = useState({
     title: '',
@@ -40,12 +38,7 @@ const NewWorkshop = ({user}) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault()
-    try {
-      await workShopService.createWorkshop(formData)
-      navigate('/workshops')
-    } catch (error) {
-      console.log(error)
-    }
+    handdleAddWorkshop(formData)
   }
 
   if(user.role !== 500){    
@@ -57,6 +50,7 @@ const NewWorkshop = ({user}) => {
       <h1>No Venues available for Hosting...</h1>
     </main>
   }
+
   return (  
     <main className='container'>
       <h1>Create new Workshop</h1>
@@ -139,7 +133,7 @@ const NewWorkshop = ({user}) => {
         </div>
       </form>
     </main>
-  );
+  )
 }
 
-export default NewWorkshop;
+export default NewWorkshop

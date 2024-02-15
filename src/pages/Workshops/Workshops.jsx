@@ -17,7 +17,7 @@ const Workshops = ({user , workshops}) => {
             }
           </div>
   }
-  
+
   return (  
     <main className='container'>
       <div className='titleBar'>
@@ -35,7 +35,7 @@ const Workshops = ({user , workshops}) => {
         ))}
       </div>
     </main>
-  );
+  )
 }
 
-export default Workshops;
+export default Workshops

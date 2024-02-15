@@ -18,14 +18,15 @@ Soundarya Nattuva - [GitHub profile](https://github.com/SoundaryaNattuva)
 
 ### Attributions and Technologies used 💻
 <ul>
-<li>Decoupled MERN Stack with JWT Auth Template</li>
+<li>Decoupled MERN Stack with JWT Auth Template from General Assembly</li>
   <ul>
   <li>[Front End](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end)</li>
   <li>[Back End](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end)</li>
   </ul>
-<li>Mongoose</li>
-<li>React.js</li>
 <li>Mongo DB</li>
+<li>Mongoose</li>
+<li>Node.js</li>
+<li>React.js</li>
 <li>Inkspace - app used to design assests</li>
 <li>Background Patterns from [Hero Patterns](https://heropatterns.com/)</li>
 </ul>

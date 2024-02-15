@@ -29,6 +29,11 @@ const ProfilePage = (props) => {
     const newReview = await profileService.createReview(profileId, reviewFormData)
     setProfile({ ...profile, reviews: [...profile.reviews, newReview] })
   }
+  
+  const handleDeleteReview = async (profileId, reviewId) => {
+    await profileService.deleteReview(profileId, reviewId)
+    setProfile({ ...profile, reviews: profile.reviews.filter((c) => c._id !== reviewId) })
+  }
 
     if (!profile) {
       return <h1>Loading...</h1>

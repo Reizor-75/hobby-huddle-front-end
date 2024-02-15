@@ -134,7 +134,7 @@ function App() {
           path="/profile/:profileId/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditProfile user={user} handleUpdateProfile={handleUpdateProfile}/>
+              <EditProfile profiles={profiles} user={user} handleUpdateProfile={handleUpdateProfile}/>
             </ProtectedRoute>
           }
         />

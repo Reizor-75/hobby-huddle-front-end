@@ -31,7 +31,7 @@ const VenueCard = (props) => {
         <button className={styles.editButton}>Edit Venue</button>
           </Link>
         </div>
-         :
+        :
         
         <></>}
         </div>

@@ -15,6 +15,8 @@ import Reviews from "../../components/Reviews/Reviews"
 const ProfilePage = (props) => {
   const { profileId } = useParams()
   const [profile, setProfile] = useState(null)
+  
+    console.log(profile)
 
     useEffect(() => {
       const fetchProfile = async () => {
@@ -39,8 +41,8 @@ const ProfilePage = (props) => {
     }
     
     const skills = profile.skills[0]
-    const skillsArray = skills.split(',').map(skill => skill.trim())
-
+    const skillsArray = skills?.split(',').map(skill => skill.trim())
+    console.log(skillsArray)
     return ( 
     <div className={styles.container}>
       
@@ -50,11 +52,11 @@ const ProfilePage = (props) => {
         <div className={styles.profileBio}>
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
-          <p> 
-          {skillsArray.map((skill) => <tags>#{skill}</tags>)}
+          <p> {skillsArray?.length ? skillsArray.map((skill) => <tags key={skill}>#{skill} </tags>) : <></> }
+          
           </p>
           {props.user.profile === `${profileId}` ?
-            <Link to={`/profile/${profileId}/edit`} state={profile}><button>Edit</button></Link>
+            <Link to={`/profile/${profileId}/edit`} state={profile}><button>Edit Profile</button></Link>
             : <></>
           }          
         </div>
@@ -74,6 +76,13 @@ const ProfilePage = (props) => {
           />
         </div>
         <div className={styles.bottomRight}>
+          {props.user.profile === `${profileId}` ?
+          <div className={styles.myWorkshops}>
+            <h4>My Profile: show upcoming workshops and completed workshops</h4>
+          </div>
+
+          : <></>
+          } 
 
         </div>
       </div>

@@ -12,7 +12,7 @@ import hhLogo from '../../assets/HobbyHuddleLogo.png'
 // css
 import './PostCard.css'
 
-const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {  
+const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDeleteBid}) => {  
   const [formData, setFormData] = useState({
     fee: '',
     message: '',
@@ -27,6 +27,8 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
     handleAddBid(content._id, formData)
   }
 
+  const bid = content.bids?.find(bid => bid.mentorInfo._id === user.profile)
+
   return (  
     <>
       {content.mentorInfo 
@@ -36,7 +38,7 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
                 <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
               </div>
               <div className="Post-title">{content.title}</div>
-              <div className='location'>At {content.location.venueTitle}</div>
+              <div className='location'>At {content.location?.venueTitle}</div>
               <PostDetails content={content} />
               <PosterInfo poster={content.mentorInfo}/>
             </div>
@@ -72,8 +74,15 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
               </>
               :<>
                 <PosterInfo poster={content.student}/>   
-                {content.bids.find(bid => bid._id === user.profile) 
-                  ?<div className="bottom-row">
+                {bid
+                  ?<div className="bottom-row"> 
+                    <div className="bid" key={bid._id}>
+                      <div className="row">My Fee: ${bid.fee}</div>
+                      <div>{bid.message ? bid.message: "No Message available"}</div>
+                    </div>
+                    <button className="delete-bid" onClick={()=>handleDeleteBid(content._id, bid._id)}>🗑️</button>
+                  </div>
+                  :<div className="bottom-row">
                     <div className="bid-title">Make a Bid</div>        
                     <form autoComplete="off" onSubmit={handleSubmit} className='row form'>
                       <div className="top-form">
@@ -92,11 +101,10 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
                         name="message"            
                         id='message'
                         onChange={handleChange} 
-                        placeholder="Write a brief description of what you are looking to be taught"
+                        placeholder="Write a brief description of what services you can provide. "
                       />
                     </form>
-                  </div>
-                  :<div className="bottom-row"> You've Submitted a bid</div>
+                  </div>                  
                 }
               </>    
             }

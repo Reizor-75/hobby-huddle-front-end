@@ -7,7 +7,7 @@ import PostCard from "../../components/PostCard/PostCard";
 //css
 import './Requests.css'
 
-const Requests = ({user, requests, handleDeleteRequest, handleAddBid}) => {
+const Requests = ({user, requests, handleDeleteRequest, handleAddBid, handleDeleteBid}) => {
   if(!requests.length) { 
     return <div className='titleBar'>
             <div className='title'>No Student Requests Available</div> 
@@ -35,6 +35,7 @@ const Requests = ({user, requests, handleDeleteRequest, handleAddBid}) => {
             user={user} 
             handleDeleteRequest={handleDeleteRequest}
             handleAddBid={handleAddBid}
+            handleDeleteBid={handleDeleteBid}
           />
         ))}
       </div>

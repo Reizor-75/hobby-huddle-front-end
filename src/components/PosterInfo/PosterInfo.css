@@ -1,6 +1,8 @@
 .poster-container{
   display: flex;
+  justify-content: right;
   align-items: center;
+  font-weight: 600;
 }
 
 .profile-photo{

@@ -5,8 +5,12 @@ import { useParams } from "react-router-dom";
 //services
 import * as workshopService from '../../services/workshopService'
 
+//assets
+import hhLogo from '../../assets/HobbyHuddleLogo.png'
+
 //css
-import styles from './WorkshopDetails.module.css'
+import './WorkshopDetails.css'
+import PosterInfo from "../../components/PosterInfo/PosterInfo";
 import PostDetails from "../../components/PostDetails/PostDetails";
 
 const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
@@ -22,37 +26,37 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
   }, [workshopId])
 
   const handleApply = async () => {
-    console.log("pew")
     const data = await workshopService.applyToWorkshop(workshopId)
     setWorkshop(data)
   }
 
-
   if(!workshop) return <h1>Loading...</h1>
 
   return (  
-    <div className={styles.container}>
-      <PostDetails content={workshop}/>
-      <div>Venue: {workshop.location.venueTitle} </div>
-      <h5 className={styles.row}>
-        <div>Price: ${workshop.pricePerPerson} </div>
-        <div>Spots remaining: {workshop.workshopLimit - workshop.studentsAttending.length} </div>
-      </h5>
-      {/* <p> {workshop.description} </p> */}
-      <h3> Hosted by {workshop.mentorInfo.name}</h3>
-      <div id={styles.applyButton}>
-      {user.profile === workshop.mentorInfo._id 
-        ? <button id={styles.signUpButton} onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
-        : <></>
-      }
-      {user.role === 200 && workshop.workshopLimit - workshop.studentsAttending.length
-        ?<button id={styles.signUpButton} onClick={handleApply} >Apply</button>
-        : <button id={styles.signUpButton} disabled>Apply</button>
-      }
-    
-        
+    <main className='container'>
+      <div className="details-container">     
+        <div className="top-container">
+            <div className="image-crop">
+              <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
+            </div>
+          <div className="workshop-title">{workshop.title}</div>
+          <div className='row-right'>At {workshop.location.venueTitle} </div>
+          <PostDetails content={workshop} />   
+        </div>
+        <div className='workshop-bottom-row'>
+          {user.profile === workshop.mentorInfo._id 
+            ? <button className='signUpButton' onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
+            : <></>
+          }
+          {user.roll !== 200 ? <div></div> :
+            workshop.workshopLimit - workshop.studentsAttending.length
+              ?<button className='signUpButton' onClick={handleApply} >Apply</button>
+              : <button className='signUpButton' disabled>Apply</button>
+          }   
+          <PosterInfo poster={workshop.mentorInfo}/>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 

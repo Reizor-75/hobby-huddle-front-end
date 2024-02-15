@@ -25,6 +25,7 @@ import WorkshopDetails from './pages/WorkshopDetails/WorkshopDetails'
 //requests
 import Requests from './pages/Requests/Requests'
 import NewRequest from './pages/NewRequest/NewRequest'
+import EditRequest from './pages/EditRequest/EditRequest'
 
 
 // components
@@ -92,11 +93,38 @@ function App() {
     setVenues(venues.map(venue => venue._id === updatedVenue._id ? updatedVenue : venue))
     navigate('/venues')
   }
+
+  const handleUpdateRequest = async (requestFormData) => {
+    const updatedRequest = await requestService.updateRequest(requestFormData)
+    setRequests(requests.map((request) => updatedRequest._id === request._id ? updatedRequest : request))
+    navigate(`/requests`)
+  }
+
   const handleDeleteWorkshop = async (workshopId) => {
     const deletedWorkshop = await workshopService.deleteWorkshop(workshopId)
     setWorkshops(workshops.filter(workshop => workshop._id !== deletedWorkshop._id))
     navigate('/workshops')
   }
+  
+
+  const handleAddRequest = async (requestFormData) => {
+    const newRequest = await requestService.createRequest(requestFormData)
+    setRequests([newRequest, ...requests])
+    navigate('/requests')
+  }
+
+  const handleDeleteRequest = async (requestId) => {
+    const deletedRequest = await requestService.deleteRequest(requestId)
+    setRequests(requests.filter(request => request._id !== deletedRequest._id))
+    navigate('/requests')
+  }
+
+  const handleAddBid = async (requestId, requestFormData) => {
+    const newBid = await requestService.createBid(requestId, requestFormData)
+    setRequests({ ...requests.find(request =>{request._id ===requestId}), bids: [...requests.find(request=>request._id === requestId).bids, newBid] })
+    navigate('/request')
+  }
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -212,7 +240,12 @@ function App() {
           path="/requests"
           element={
             <ProtectedRoute user={user}>
-              <Requests user={user} requests={requests}/>
+              <Requests 
+                user={user} 
+                requests={requests} 
+                handleDeleteRequest={handleDeleteRequest}
+                handleAddBid={handleAddBid}
+              />
             </ProtectedRoute>
           }
         />
@@ -220,7 +253,15 @@ function App() {
           path="/newRequest"
           element={
             <ProtectedRoute user={user}>
-              <NewRequest user={user} />
+              <NewRequest user={user} handleAddRequest={handleAddRequest} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/editRequest/:requestId"
+          element={
+            <ProtectedRoute user={user}>
+              <EditRequest user={user} handleUpdateRequest={handleUpdateRequest} />
             </ProtectedRoute>
           }
         />

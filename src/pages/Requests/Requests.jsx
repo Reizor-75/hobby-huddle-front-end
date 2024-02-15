@@ -7,7 +7,8 @@ import PostCard from "../../components/PostCard/PostCard";
 //css
 import './Requests.css'
 
-const Requests = ({user, requests}) => {
+const Requests = ({user, requests, handleDeleteRequest, handleAddBid}) => {
+
   if(!requests.length) { 
     return <div className='titleBar'>
             <div className='title'>No Student Requests Available</div> 
@@ -29,7 +30,13 @@ const Requests = ({user, requests}) => {
       </div>
       <div className='cardContainer'>
         {requests.map(request =>(
-          <PostCard key={request._id} content={request}/>
+          <PostCard 
+            key={request._id} 
+            content={request} 
+            user={user} 
+            handleDeleteRequest={handleDeleteRequest}
+            handleAddBid={handleAddBid}
+          />
         ))}
       </div>
     </main>

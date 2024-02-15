@@ -1,45 +1,12 @@
 //npm modules
-import { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 //components
 import PostCard from "../../components/PostCard/PostCard";
 
-import * as requestService from "../../services/requestService"
 //css
 import './Requests.css'
-const Requests = ({user}) => {
-  const [requests, setRequests] = useState([])
-  const navigate = useNavigate()
 
-  useEffect(()=>{
-    const fetchRequests = async () => {
-      if(!user) return
-      const requestpData = user.role === 500 ? await requestService.getAllRequests() : await requestService.getMyRequests() 
-      setRequests(requestpData)
-    }
-    fetchRequests()
-  })
-  
-  const handleDeleteRequest = async (requestId) => {
-    const deletedRequest = await requestService.deleteRequest(requestId)
-    setRequests(requests.filter(request => request._id !== deletedRequest._id))
-    navigate('/requests')
-  }
-
-  const handleAddBid = async (requestId, requestFormData) => {
-    const updatedRequest = requests.find(request => request._id === requestId)
-    const newBid = await requestService.createBid(requestId, requestFormData)
-    setRequests(requests.map((request) => updatedRequest._id === request._id ? {...updatedRequest, bids:[newBid, ...updatedRequest.bids]} : request )) 
-    navigate('/requests')
-  }
-
-  const handleDeleteBid = async (requestId, bidId) => {
-    const updatedRequest = requests.find(request => request._id === requestId)
-    await requestService.deleteBid(requestId, bidId) 
-    setRequests(requests.map((request) => updatedRequest._id === request._id ? {...requests.find(request => request._id === requestId), bids: updatedRequest.bids.filter((bid) => bid._id !== bidId)} : request ))
-    navigate(`/requests`)
-  }
-
+const Requests = ({user, requests, handleDeleteRequest, handleAddBid, handleDeleteBid}) => {
   if(!requests.length) { 
     return <main className="container">
               <div className='titleBar'>

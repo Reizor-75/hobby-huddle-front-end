@@ -118,6 +118,26 @@ function App() {
     navigate('/requests')
   }
 
+  const handleDeleteRequest = async (requestId) => {
+    const deletedRequest = await requestService.deleteRequest(requestId)
+    setRequests(requests.filter(request => request._id !== deletedRequest._id))
+    navigate('/requests')
+  }
+
+  const handleAddBid = async (requestId, requestFormData) => {
+    const updatedRequest = requests.find(request => request._id === requestId)
+    const newBid = await requestService.createBid(requestId, requestFormData)
+    setRequests(requests.map((request) => updatedRequest._id === request._id ? {...updatedRequest, bids:[newBid, ...updatedRequest.bids]} : request )) 
+    navigate('/requests')
+  }
+
+  const handleDeleteBid = async (requestId, bidId) => {
+    const updatedRequest = requests.find(request => request._id === requestId)
+    await requestService.deleteBid(requestId, bidId) 
+    setRequests(requests.map((request) => updatedRequest._id === request._id ? {...requests.find(request => request._id === requestId), bids: updatedRequest.bids.filter((bid) => bid._id !== bidId)} : request ))
+    navigate(`/requests`)
+  }
+
 
   const handleLogout = () => {
     authService.logout()
@@ -237,7 +257,12 @@ function App() {
           path="/requests"
           element={
             <ProtectedRoute user={user}>
-              <Requests user={user} state={requests}/>
+              <Requests user={user} 
+                requests={requests}
+                handleDeleteRequest={handleDeleteRequest}
+                handleAddBid={handleAddBid}
+                handleDeleteBid={handleDeleteBid}
+                />
             </ProtectedRoute>
           }
         />

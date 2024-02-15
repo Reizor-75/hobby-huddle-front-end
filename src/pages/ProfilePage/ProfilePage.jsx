@@ -43,6 +43,11 @@ const ProfilePage = (props) => {
     const skills = profile.skills[0]
     const skillsArray = skills?.split(',').map(skill => skill.trim())
     console.log(skillsArray)
+
+    const workshops = profile.myWorkshops
+    console.log(workshops)
+    console.log(profileId)
+    
     return ( 
     <div className={styles.container}>
       
@@ -76,13 +81,27 @@ const ProfilePage = (props) => {
           />
         </div>
         <div className={styles.bottomRight}>
-          {props.user.profile === `${profileId}` ?
+
+          {workshops?.length ? 
+            workshops.map((workshop) => <list key={workshop}><Link to={`/workshops/${workshop._id}`} className={styles.list}>{workshop.title} is taking place on {workshop.date} </Link></list>)
+            : <>{<h3>No workshops to show</h3>}</>}
+
+
+
+
+          {/* {props.user.profile === `${profileId}` ?
           <div className={styles.myWorkshops}>
-            <h4>My Profile: show upcoming workshops and completed workshops</h4>
+            {props.user.role === 500 ?
+              <>{workshops?.length ? 
+                  workshops.map((workshop) => <list key={workshop}><ul>{workshop.title} </ul></list>)
+                  : <>{"No workshops to show"}</>}
+              </>                  
+            : "this is not a teacher profile"            
+            }
           </div>
 
-          : <></>
-          } 
+          : <>{"Hello"}</>
+          }  */}
 
         </div>
       </div>

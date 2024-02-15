@@ -8,14 +8,18 @@
   overflow-x: hidden;
   overflow-y: auto;
   text-align: justify;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1222%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(255%2c 217%2c 188%2c 1)'%3e%3c/rect%3e%3cpath d='M720 662.16C825.98 660.97 934.2 643.94 1012.3 572.3 1093.39 497.91 1134.77 390.06 1136.67 280 1138.61 167.97 1103.32 55.06 1022.53-22.53 943.07-98.83 830.13-117.63 720-120.18 606.51-122.8 483.67-116.88 403.19-36.81 322.57 43.36 314.41 166.34 317.75 280 320.94 389.55 341.72 503.35 421.17 578.83 499.1 652.88 612.49 663.35 720 662.16' fill='rgba(251%2c 192%2c 67%2c 1)'%3e%3c/path%3e%3cpath d='M720 527.28C788.57 526.51 858.6 515.49 909.13 469.13 961.6 421 988.38 351.21 989.61 280 990.86 207.51 968.03 134.45 915.76 84.24 864.34 34.88 791.26 22.71 720 21.06 646.56 19.37 567.08 23.19 515 75 462.84 126.88 457.56 206.45 459.72 280 461.79 350.88 475.23 424.52 526.64 473.36 577.07 521.27 650.44 528.05 720 527.28' fill='rgba(223%2c 109%2c 41%2c 1)'%3e%3c/path%3e%3cpath d='M720 392.4C751.17 392.05 783 387.04 805.97 365.97 829.82 344.09 841.99 312.37 842.55 280 843.12 247.05 832.74 213.84 808.98 191.02 785.61 168.58 752.39 163.05 720 162.3 686.62 161.53 650.49 163.27 626.82 186.82 603.11 210.4 600.71 246.57 601.69 280 602.63 312.22 608.74 345.69 632.11 367.89 655.03 389.67 688.38 392.75 720 392.4' fill='rgba(118%2c 189%2c 171%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1222'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e"); 
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .allCards{
   display: flex;
   align-items: center;
   flex-direction: row;
-  border: 4px solid rgb(74, 153, 214);
+  /* border: 4px solid rgb(74, 153, 214); */
   flex-wrap: wrap;
   width:1200px;
   justify-content: center;
+
 }

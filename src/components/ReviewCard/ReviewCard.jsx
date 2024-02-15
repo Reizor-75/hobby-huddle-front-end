@@ -17,11 +17,11 @@ const ReviewCard = ({ review, profileId, handleDeleteReview }) => {
       <div className={styles.buttons}>
         <button className={styles.editBtn} > 
           <Link to={`/profile/${profileId}/reviews/${review._id}`} state={review}>
-            EDIT 
+            <i className="fa-solid fa-pen-to-square"></i>
           </Link> 
         </button>
         <button className={styles.deleteBtn} onClick={()=> handleDeleteReview(profileId, review._id)}>
-          DELETE
+          <i className="fa-solid fa-trash"></i>
         </button>
       </div>
     </div>

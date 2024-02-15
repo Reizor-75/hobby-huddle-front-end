@@ -44,11 +44,11 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
         </div> 
         <div className="description">{workshop.description}</div> 
         <div className='workshop-bottom-row'>
-          {user.profile === workshop.mentorInfo._id 
+          {user?.profile === workshop.mentorInfo._id 
             ? <button className='signUpButton' onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
             : <></>
           }
-          {user.roll !== 200 ? <div></div> :
+          {user?.roll !== 200 ? <div></div> :
             workshop.workshopLimit - workshop.studentsAttending.length
               ?<button className='signUpButton' onClick={handleApply} >Apply</button>
               : <button className='signUpButton' disabled>Apply</button>

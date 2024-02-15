@@ -210,17 +210,17 @@ function App() {
         <Route
           path="/workshops"
           element={
-            <ProtectedRoute user={user}>
+            // <ProtectedRoute user={user}>
               <Workshops user={user} workshops={workshops}/>
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
         <Route
           path="/workshops/:workshopId"
           element={
-            <ProtectedRoute user={user}>
+            // <ProtectedRoute user={user}>
               <WorkshopDetails user={user} handleDeleteWorkshop={handleDeleteWorkshop}/>
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
         <Route

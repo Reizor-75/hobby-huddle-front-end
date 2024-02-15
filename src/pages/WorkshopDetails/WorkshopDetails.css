@@ -1,37 +1,56 @@
-.details{
+.details-container{
+  width: 120%; /* fix me */
   display: flex;
   flex-direction: column;
-  height: 75vh;
+  justify-content: space-between;
   margin: 16px;
   padding: 16px;
   border-radius: 16px;
-  background-color: var(--student-color);
+  background-color: var(--mentor-color);  
+  font-size: large;
+  font-weight: 600;
 }
 
-.details > * {
-  margin: 8px;
+.top-container{
+  height: 90%;
 }
 
-.title{
+.workshop-title{
   display: flex;
   justify-content: center;
   font-size: xx-large;
   margin: 16px;
 }
 
-.row{
-  font-size: large;
-  font-weight: 600;
-}
-
-.bottom{
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-#signUpButton{
+.signUpButton{
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--student-color);
+  color: var(--mentor-color);
+}
+
+.image-crop{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  max-width: 100%;
+  height: 50%;
+  margin: 0;
+}
+
+.workshop-image{
+  height: 100%;
+  width: 100%;
+  background-color: #ffd9bc;
+  border-radius: 16px;
+  margin: 0;
+}
+
+.workshop-bottom-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }

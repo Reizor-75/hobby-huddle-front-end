@@ -18,15 +18,18 @@ const PostDetails = ({content}) => {
               <div className='spots'>Spots Remaining: {content.workshopLimit - content.studentsAttending.length}</div>
               <div className='cost'>Price: ${content.pricePerPerson}</div>
             </div>
-        </div> 
+          </div> 
 
-        : <div className='row'>
-          <div> Range: ${content.lowestPayment} - ${content.highestPayment}</div>
-        </div>
+        : <>
+            <div className='row'>
+              <div> Range: ${content.lowestPayment} - ${content.highestPayment}</div>
+            </div>
+            <div className='row description'> {content.description}</div>  
+          </>          
       }
-      <div className='row description'>
+      {/* <div className='row description'>
         {content.description}
-      </div>      
+      </div>       */}
     </div>
   )
 

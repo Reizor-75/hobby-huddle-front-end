@@ -5,11 +5,10 @@ import { useLocation } from 'react-router-dom'
 // css
 import './EditRequest.css'
 
-const EditRequest = (props) => {
+const EditRequest = ({handleUpdateRequest}) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
   // const navigate = useNavigate()
-
 
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -17,7 +16,7 @@ const EditRequest = (props) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault()    
-    props.handleUpdateRequest(formData)
+    handleUpdateRequest(formData)
   }
 
   return (  

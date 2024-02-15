@@ -12,7 +12,18 @@ import './newWorkshop.css'
 
 const NewWorkshop = ({user}) => {
   const [formData, setFormData] = useState([])
-  const [venues, setVenuesData] = useState([])
+  const [venues, setVenuesData] = useState({
+    title: '',
+    date: '',
+    pricePerPerson: '',
+    location:'',
+    workshopLimit: '',
+    studentsAttending: [],
+    description: '',
+    category: '',
+    photo:''
+  })
+
   const navigate = useNavigate()
 
   useEffect(() => {

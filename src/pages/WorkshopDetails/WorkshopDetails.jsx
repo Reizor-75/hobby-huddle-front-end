@@ -5,6 +5,9 @@ import { useParams } from "react-router-dom";
 //services
 import * as workshopService from '../../services/workshopService'
 
+//assets
+import hhLogo from '../../assets/HobbyHuddleLogo.png'
+
 //css
 import './WorkshopDetails.css'
 import PosterInfo from "../../components/PosterInfo/PosterInfo";
@@ -31,20 +34,25 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
 
   return (  
     <main className='container'>
-      <div className="details">     
-        <div className="title">{workshop.title}</div>
-        <PostDetails content={workshop} />   
-        <div className='row'>Venue: {workshop.location.venueTitle} </div>
-
-        <div className='bottom row'>
+      <div className="details-container">     
+        <div className="top-container">
+            <div className="image-crop">
+              <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
+            </div>
+          <div className="workshop-title">{workshop.title}</div>
+          <div className='row-right'>At {workshop.location.venueTitle} </div>
+          <PostDetails content={workshop} />   
+        </div>
+        <div className='workshop-bottom-row'>
           {user.profile === workshop.mentorInfo._id 
-            ? <button id='signUpButton' onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
+            ? <button className='signUpButton' onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
             : <></>
           }
-          {user.role === 200 && workshop.workshopLimit - workshop.studentsAttending.length
-            ?<button id='signUpButton' onClick={handleApply} >Apply</button>
-            : <button id='signUpButton' disabled>Apply</button>
-          }    
+          {user.roll !== 200 ? <div></div> :
+            workshop.workshopLimit - workshop.studentsAttending.length
+              ?<button className='signUpButton' onClick={handleApply} >Apply</button>
+              : <button className='signUpButton' disabled>Apply</button>
+          }   
           <PosterInfo poster={workshop.mentorInfo}/>
         </div>
       </div>

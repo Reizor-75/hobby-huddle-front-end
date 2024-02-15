@@ -1,12 +1,14 @@
 // components
 import ReviewCard from '../ReviewCard/ReviewCard'
 
+//css
+import styles from './Reviews.module.css'
+
 const Reviews = (props) => {
   if (!props.reviews?.length) return <h4>No Reviews</h4>
 
   return (
-    <div>
-      {console.log(props.reviews)}
+    <div className={styles.allReviews}>
       {props.reviews.map((review, idx) => (
         <>
           <ReviewCard

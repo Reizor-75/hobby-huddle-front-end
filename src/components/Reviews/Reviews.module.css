@@ -1,0 +1,14 @@
+.allReviews{
+  /* border: pink solid 4px */
+}
+
+.allReviews{
+  margin: 4px, 4px;
+  padding: 4px;
+  /* background-color: rgb(87, 103, 220); */
+  width: 550px;
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: justify;
+}

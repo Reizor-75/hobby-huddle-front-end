@@ -15,6 +15,8 @@ import Reviews from "../../components/Reviews/Reviews"
 const ProfilePage = (props) => {
   const { profileId } = useParams()
   const [profile, setProfile] = useState(null)
+  
+    console.log(profile)
 
     useEffect(() => {
       const fetchProfile = async () => {
@@ -34,30 +36,38 @@ const ProfilePage = (props) => {
       setProfile({ ...profile, reviews: profile.reviews.filter((c) => c._id !== reviewId) })
     }
 
-    console.log('Profile State:', profile)
     if (!profile) {
       return <h1>Loading...</h1>
     }
     
-    console.log(profile.user)
-
+    const skills = profile.skills[0]
+    const skillsArray = skills?.split(',').map(skill => skill.trim())
+    console.log(skillsArray)
     return ( 
     <div className={styles.container}>
       
       <div className={styles.topContainer}>
         <div className={styles.profilePic}>
-          <img className={styles.profileImg} src="../../../arthur.png"/></div>
+          <img className={styles.profileImg} src={profile.photo}/></div>
         <div className={styles.profileBio}>
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
-          <p> {profile.skills}</p>
-          <Link to={`/profile/${profileId}/edit`} state={profile}>Edit</Link>
+          <p> {skillsArray?.length ? skillsArray.map((skill) => <tags key={skill}>#{skill} </tags>) : <></> }
+          
+          </p>
+          {props.user.profile === `${profileId}` ?
+            <Link to={`/profile/${profileId}/edit`} state={profile}><button>Edit Profile</button></Link>
+            : <></>
+          }          
         </div>
       </div>
       <div className={styles.bottomContainer}>
         <div className={styles.bottomLeft}>
           <h1>Reviews</h1>
+          {props.user.profile !== `${profileId}` ?
           <NewReview handleAddReview={handleAddReview} />
+          : <></>
+          } 
           <Reviews 
             reviews={profile.reviews} 
             user={props.user} 
@@ -66,6 +76,13 @@ const ProfilePage = (props) => {
           />
         </div>
         <div className={styles.bottomRight}>
+          {props.user.profile === `${profileId}` ?
+          <div className={styles.myWorkshops}>
+            <h4>My Profile: show upcoming workshops and completed workshops</h4>
+          </div>
+
+          : <></>
+          } 
 
         </div>
       </div>

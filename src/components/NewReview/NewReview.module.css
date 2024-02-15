@@ -1,3 +1,4 @@
 .container {
-  border: solid green 1px
+  /* border: solid green 1px; */
+  width: 550px;
 }

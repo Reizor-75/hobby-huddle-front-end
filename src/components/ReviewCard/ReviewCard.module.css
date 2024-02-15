@@ -1,0 +1,66 @@
+/* Cream : ffd9bc
+Teal: 76bdab
+Orange: df6d29
+yellow: fbc043 */
+
+.reviewCard{
+  border: solid 1px #df6d29;
+  background-color: #76bdab;
+  padding: 10px;
+  height: 225px;
+  width: 500px;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.buttons{
+padding: 10px;
+display: flex;
+justify-content: flex-end;
+/* border: solid 1px red; */
+/* height: 40px; */
+}
+
+
+/* CSS */
+.deleteBtn, .editBtn {
+  background-color: #df6d29;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #39739d;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 0;
+  outline: none;
+  padding: 8px .8em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.deleteBtn, .editBtn:hover,
+.deleteBtn, .editBtn:focus {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.deleteBtn, .editBtn:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.deleteBtn, .editBtn:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}

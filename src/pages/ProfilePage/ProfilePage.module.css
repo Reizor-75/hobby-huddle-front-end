@@ -1,6 +1,10 @@
 .container{
   border: red solid 2px;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .topContainer{
@@ -9,7 +13,7 @@
   display:flex;
   margin: 20px;
   padding: 20px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -31,23 +35,39 @@
 }
 
 .bottomContainer{
-  border: solid white 2px;
+  border: solid rgb(33, 39, 124) 2px;
   height: 70vh;
   justify-content: center;
   align-items: center;
   display:flex;
   flex-direction: row;
+  width: 100%
 }
 
 .bottomLeft{
   border: solid rgb(123, 189, 18) 2px;
+  background-color: #ffd9bc;
   width: 50%;
+  min-width: 550px;
   height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .bottomRight{
   border: solid rgb(18, 123, 189) 2px;
   width: 50%;
+  min-width: 550px;
   height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
 
+.myWorkshops{
+  border: yellow, solid, 1px;
+  color: purple;
 }

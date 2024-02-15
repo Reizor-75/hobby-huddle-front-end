@@ -119,6 +119,12 @@ function App() {
     navigate('/requests')
   }
 
+  const handleAddBid = async (requestId, requestFormData) => {
+    const newBid = await requestService.createBid(requestId, requestFormData)
+    setRequests({ ...requests.find(request =>{request._id ===requestId}), bids: [...requests.find(request=>request._id === requestId).bids, newBid] })
+    navigate('/request')
+  }
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)
@@ -234,7 +240,12 @@ function App() {
           path="/requests"
           element={
             <ProtectedRoute user={user}>
-              <Requests user={user} requests={requests} handleDeleteRequest={handleDeleteRequest}/>
+              <Requests 
+                user={user} 
+                requests={requests} 
+                handleDeleteRequest={handleDeleteRequest}
+                handleAddBid={handleAddBid}
+              />
             </ProtectedRoute>
           }
         />

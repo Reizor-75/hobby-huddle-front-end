@@ -7,7 +7,7 @@ import PostCard from "../../components/PostCard/PostCard";
 //css
 import './Requests.css'
 
-const Requests = ({user, requests, handleDeleteRequest}) => {
+const Requests = ({user, requests, handleDeleteRequest, handleAddBid}) => {
 
   if(!requests.length) { 
     return <div className='titleBar'>
@@ -35,6 +35,7 @@ const Requests = ({user, requests, handleDeleteRequest}) => {
             content={request} 
             user={user} 
             handleDeleteRequest={handleDeleteRequest}
+            handleAddBid={handleAddBid}
           />
         ))}
       </div>

@@ -24,7 +24,7 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault()
-    handleAddBid(formData)
+    handleAddBid(content._id, formData)
   }
 
   return (  
@@ -62,7 +62,10 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
                     <div className="bids">
                     {content.bids.length             
                       ? content.bids.map(bid =>(
-                        <div className="row" key={bid._id}> New Bid</div>
+                        <div className="bid" key={bid._id}>
+                          <div className="row">{bid.mentorInfo.name}'s Fee: ${bid.fee}</div>
+                          <div>{bid.message ? bid.message: "No Message available"}</div>
+                        </div>
                       ))
                       : <div className="row">No Bids Availble</div>
                     }
@@ -71,28 +74,31 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
               </>
               :<>
                 <PosterInfo poster={content.student}/>   
-                <div className="bottom-row">
-                  <div className="bid-title">Make a Bid</div>        
-                  <form autoComplete="off" onSubmit={handleSubmit} className='row form'>
-                    <div className="top-form">
-                      <input
-                        required 
-                        type="Number"          
-                        className='input-fee'
-                        name="Fee"
-                        min={0}            
-                        onChange={handleChange}
-                        placeholder="Fee"/>
-                      <button className='student button' type="submit">Place Bid</button>
-                    </div>
-                    <textarea 
-                      className='input-message'
-                      name="message"            
-                      id='message'
-                      onChange={handleChange} 
-                      placeholder="Write a brief description of what you are looking to be taught"/>
-                  </form>
-                </div>
+                {content.bids.find(bid => bid._id === user.profile) 
+                ?<div className="bottom-row">
+                    <div className="bid-title">Make a Bid</div>        
+                    <form autoComplete="off" onSubmit={handleSubmit} className='row form'>
+                      <div className="top-form">
+                        <input
+                          required 
+                          type="Number"          
+                          className='input-fee'
+                          name="fee"
+                          min={0}            
+                          onChange={handleChange}
+                          placeholder="Fee"/>                      
+                        <button className='student button' type="submit">Place Bid</button>
+                      </div>
+                      <textarea 
+                        className='input-message'
+                        name="message"            
+                        id='message'
+                        onChange={handleChange} 
+                        placeholder="Write a brief description of what you are looking to be taught"/>
+                    </form>
+                  </div>
+                  :<div className="bottom-row"> You've Submitted a bid</div>
+                }
               </>    
             }
             

@@ -39,8 +39,8 @@ const Venues = (props) => {
   }
 
  const user=props.user
- console.log("USER")
- console.dir(user)
+//  console.log("USER")
+//  console.dir(user)
   
   return (
     <>

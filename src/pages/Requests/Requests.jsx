@@ -1,5 +1,5 @@
 //npm modules
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom'
 //components
 import PostCard from "../../components/PostCard/PostCard";
@@ -7,10 +7,19 @@ import PostCard from "../../components/PostCard/PostCard";
 import * as requestService from "../../services/requestService"
 //css
 import './Requests.css'
-const Requests = ({user, state}) => {
-  const [requests, setRequests] = useState(state)
+const Requests = ({user}) => {
+  const [requests, setRequests] = useState([])
   const navigate = useNavigate()
 
+  useEffect(()=>{
+    const fetchRequests = async () => {
+      if(!user) return
+      const requestpData = user.role === 500 ? await requestService.getAllRequests() : await requestService.getMyRequests() 
+      setRequests(requestpData)
+    }
+    fetchRequests()
+  })
+  
   const handleDeleteRequest = async (requestId) => {
     const deletedRequest = await requestService.deleteRequest(requestId)
     setRequests(requests.filter(request => request._id !== deletedRequest._id))

@@ -1,5 +1,5 @@
 ///npm modules
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 //components
@@ -30,44 +30,46 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDelet
   const bid = content.bids?.find(bid => bid.mentorInfo._id === user.profile)
 
   return (  
-    <>
-      {content.mentorInfo 
-        ?<div className='card'> 
-            <div className="image-crop">
-              <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
-            </div>
-            <div className="Post-title">{content.title}</div>
-            <div className='location'>At {content.location?.venueTitle}</div>
-            <PostDetails content={content} />              
-            <div className="row">
-              <NavLink to={`/workshops/${content._id}`}>
-                <button className='details button'>See Details</button>
-              </NavLink>  
-              <PosterInfo poster={content.mentorInfo}/>   
-            </div>
+    <>     
+      <div className='card'>  
+        <div className="image-crop">
+          <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
+        </div>
+        <div className="Post-title">{content.title}</div>
+        {content.mentorInfo 
+          ?<div className="content">
+              <PostDetails content={content} />              
+              <div className="row">
+                <Link to={`/workshops/${content._id}`}>
+                  <button className='details button'>See Details</button>
+                </Link>  
+                <PosterInfo poster={content.mentorInfo}/>   
+              </div>
           </div>
-        :<div className='card student'> 
-          <div className="image-crop"> <img src={hhLogo} alt="Workshop Image" className="workshop-image"/> </div>
-          <div className="Post-title">{content.title}</div>
-          <PostDetails content={content} />    
-          <div className='bottom-row'>
+          :<div className="content">
+            <PostDetails content={content} />    
+            <div className='bottom-row'>
             {user.profile === content.student._id 
               ?<>
                 <div className="row">                  
-                  <Link to={`/editRequest/${content._id}`} state={content}>
-                    <button className='student edit button'>✏️</button>
-                  </Link>
-                  <button className='student delete button' onClick={() => handleDeleteRequest(content._id)}>🗑️</button>
+                  <div className="buttons">
+                    <Link to={`/editRequest/${content._id}`} state={content}>
+                      <button className='student edit button'><i className="fa-solid fa-pen"></i></button>
+                    </Link>
+                    <Link to='/'>                    
+                      <button className='student delete button' onClick={() => handleDeleteRequest(content._id)}><i className="fa-solid fa-trash"></i></button>
+                    </Link>
+                  </div>
                   <PosterInfo poster={content.student}/>   
                 </div>
-                <div className="student-bottom-row">
+                <div className="bottom-row">
                   <div className="bid-title">Bids</div>
                     <div className="bids">
                     {content.bids.length             
                       ? content.bids.map(bid =>(
                         <div className="bid" key={bid._id}>
-                          <div className="row">{bid.mentorInfo.name}'s Fee: ${bid.fee}</div>
-                          <div>{bid.message ? bid.message: "No Message available"}</div>
+                          <div >{bid.mentorInfo.name}'s Fee: <i className="fa-solid fa-dollar-sign"></i>{bid.fee}</div>
+                          <div >{bid.message ? bid.message: "No Message available"}</div>
                         </div>
                       ))
                       : <div className="row">No Bids Availble</div>
@@ -78,16 +80,16 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDelet
               :<>
                 <PosterInfo poster={content.student}/>   
                 {bid
-                  ?<div className="bottom-row"> 
-                    <div className="bid" key={bid._id}>
-                      <div className="row">My Fee: ${bid.fee}</div>
-                      <div>{bid.message ? bid.message: "No Message available"}</div>
+                  ?<div className="bid" key={bid._id}>
+                    <div className="row">
+                      <div><i className="fa-solid fa-dollar-sign"></i>{bid.fee} per Hour</div>             
+                      <button className="student button" onClick={()=>handleDeleteBid(content._id, bid._id)}><i className="fa-solid fa-trash"></i></button>
                     </div>
-                    <button className="delete-bid" onClick={()=>handleDeleteBid(content._id, bid._id)}>🗑️</button>
+                    <div className="message">{bid.message ? bid.message: "No Message available"}</div>
                   </div>
                   :<div className="bottom-row">
                     <div className="bid-title">Make a Bid</div>        
-                    <form autoComplete="off" onSubmit={handleSubmit} className='row form'>
+                    <form autoComplete="off" onSubmit={handleSubmit} className=''>
                       <div className="top-form">
                         <input
                           required 
@@ -96,7 +98,7 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDelet
                           name="fee"
                           min={0}            
                           onChange={handleChange}
-                          placeholder="Fee"/>                      
+                          placeholder="Fee per Hour"/>                      
                         <button className='student button' type="submit">Place Bid</button>
                       </div>
                       <textarea 
@@ -111,9 +113,10 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDelet
                 }
               </>    
             }
-          </div>  
-        </div>
-      }
+            </div>
+          </div>
+          }
+      </div>
     </>
   )
 }

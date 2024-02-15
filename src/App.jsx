@@ -237,7 +237,7 @@ function App() {
           path="/requests"
           element={
             <ProtectedRoute user={user}>
-              <Requests user={user} state={requests} />
+              <Requests user={user} state={requests}/>
             </ProtectedRoute>
           }
         />

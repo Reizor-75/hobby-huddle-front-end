@@ -10,7 +10,6 @@ const ProfileCard = ({profile}) => {
   const skills = profile.skills[0]
   const skillsArray = skills?.split(',').map(skill => skill.trim())
   console.log(skillsArray)
-  
   return ( 
     <div className={styles.profileCard}>
       <Link to={`/profile/${profile._id}`}>
@@ -31,7 +30,7 @@ const ProfileCard = ({profile}) => {
         </div>
       </Link>
     </div>
-  );
+  )
 }
 
 export default ProfileCard;

@@ -100,12 +100,17 @@ function App() {
     navigate(`/requests`)
   }
 
+  const handdleAddWorkshop = async (workshopFormData) => {
+    const newWorkshop = await  workshopService.createWorkshop(workshopFormData)
+    setWorkshops({ ...workshops,  newWorkshop })
+    navigate('/workshops')
+  }
+  
   const handleDeleteWorkshop = async (workshopId) => {
     const deletedWorkshop = await workshopService.deleteWorkshop(workshopId)
     setWorkshops(workshops.filter(workshop => workshop._id !== deletedWorkshop._id))
     navigate('/workshops')
-  }
-  
+  }  
 
   const handleAddRequest = async (requestFormData) => {
     const newRequest = await requestService.createRequest(requestFormData)
@@ -120,10 +125,19 @@ function App() {
   }
 
   const handleAddBid = async (requestId, requestFormData) => {
+    const updatedRequest = requests.find(request => request._id === requestId)
     const newBid = await requestService.createBid(requestId, requestFormData)
-    setRequests({ ...requests.find(request =>{request._id ===requestId}), bids: [...requests.find(request=>request._id === requestId).bids, newBid] })
-    navigate('/request')
+    setRequests(requests.map((request) => updatedRequest._id === request._id ? {...updatedRequest, bids:[newBid, ...updatedRequest.bids]} : request )) 
+    navigate('/requests')
   }
+
+  const handleDeleteBid = async (requestId, bidId) => {
+    const updatedRequest = requests.find(request => request._id === requestId)
+    await requestService.deleteBid(requestId, bidId) 
+    setRequests(requests.map((request) => updatedRequest._id === request._id ? {...requests.find(request => request._id === requestId), bids: updatedRequest.bids.filter((bid) => bid._id !== bidId)} : request ))
+    navigate(`/requests`)
+  }
+
 
   const handleLogout = () => {
     authService.logout()
@@ -162,7 +176,10 @@ function App() {
           path="/profile/:profileId/edit"
           element={
             <ProtectedRoute user={user}>
-              <EditProfile profiles={profiles} user={user} handleUpdateProfile={handleUpdateProfile}/>
+              <EditProfile 
+                profiles={profiles} 
+                user={user} 
+                handleUpdateProfile={handleUpdateProfile}/>
             </ProtectedRoute>
           }
         />
@@ -213,24 +230,24 @@ function App() {
         <Route
           path="/workshops"
           element={
-            <ProtectedRoute user={user}>
+            // <ProtectedRoute user={user}>
               <Workshops user={user} workshops={workshops}/>
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
         <Route
           path="/workshops/:workshopId"
           element={
-            <ProtectedRoute user={user}>
+            // <ProtectedRoute user={user}>
               <WorkshopDetails user={user} handleDeleteWorkshop={handleDeleteWorkshop}/>
-            </ProtectedRoute>
+            // </ProtectedRoute>
           }
         />
         <Route
           path="/workshops/new"
           element={
             <ProtectedRoute user={user}>
-              <NewWorkshop user={user}/>
+              <NewWorkshop user={user} handdleAddWorkshop={handdleAddWorkshop}/>
             </ProtectedRoute>
           }
         />
@@ -240,12 +257,12 @@ function App() {
           path="/requests"
           element={
             <ProtectedRoute user={user}>
-              <Requests 
-                user={user} 
-                requests={requests} 
+              <Requests user={user} 
+                requests={requests}
                 handleDeleteRequest={handleDeleteRequest}
                 handleAddBid={handleAddBid}
-              />
+                handleDeleteBid={handleDeleteBid}
+                />
             </ProtectedRoute>
           }
         />

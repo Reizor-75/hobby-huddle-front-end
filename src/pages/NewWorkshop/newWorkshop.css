@@ -1,9 +1,13 @@
-.container{
+.form-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 550px;  
+  background-color: var(--vendor-color);
+  height: fit-content;
+  padding: 16px;
+  border-radius: 20px;
 }
 
 .label{

@@ -10,7 +10,7 @@ import styles from "./ReviewCard.module.css"
 const ReviewCard = ({ review, profileId, handleDeleteReview }) => {
   return (
     <div className={styles.reviewCard}>
-        <AuthorInfo review={review} /> 
+      <AuthorInfo review={review} /> 
       <h2> {review.title} </h2>
       <p> {review.content} </p>
 

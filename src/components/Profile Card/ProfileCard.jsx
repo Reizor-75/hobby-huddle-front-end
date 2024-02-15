@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 // css
 import styles from "./ProfileCard.module.css"
-import vendorHand from "../../assets/vendorHand.png"
+import vendorHand from "../../assets/VendorHand.png"
 
 const ProfileCard = ({profile}) => {
 

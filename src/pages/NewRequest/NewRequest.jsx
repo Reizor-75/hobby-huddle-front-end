@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 // css
 import './NewRequest.css'
 
-const NewRequest = ({user, handleAddBlog}) => {
+const NewRequest = ({user, handleAddRequest}) => {
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -21,7 +21,7 @@ const NewRequest = ({user, handleAddBlog}) => {
 
   const handleSubmit = async evt => {
     evt.preventDefault()
-    handleAddBlog(formData)
+    handleAddRequest(formData)
   }
 
   if(user.role !== 200){    

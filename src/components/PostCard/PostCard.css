@@ -1,66 +1,47 @@
 .card{
   display: flex;
   flex-direction: column;
-  background-color: var(--mentor-color);
-  width: 500px;
-  height: 450px;
-  padding: 16px;
-  border-radius: 16px;
   margin: 16px;  
-  color: white;
+  min-width: 500px;
+  background-color: white;
+  color: var(--mentor-color);  
+  border:2px solid white;
+  border-radius:20px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+}
+
+.content{
+  height: 40%;
+  padding: 8px;
 }
 
 .Post-title{
   font-size: x-large;
   font-weight: 700;
-  margin: 8px 0;
-}
-
-.student{
-  background-color: var(--student-color);
-  color: var(--mentor-color);
-}
-
-#signUpButton{
-  display: flex;
-  justify-content: right;
-  margin: 0;
-  margin-top: auto;
+  padding: 4px;
+  background-color: var(--mentor-color);
+  color: var(--cream);
 }
 
 .image-crop{  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; 
-  max-width: 100%;
-  margin: 0;
-}
-
-.workshop-image{
-  height: 100%;
+  background-color: var(--cream);
+  height:200px;
   width: 100%;
-  background-color: #ffd9bc;
-  border-radius: 16px;
-  margin: 0;
+  border-radius:20px 20px 0px 0px;
+  overflow: hidden;
+  img{
+    height:200px;
+    width: auto;
+    margin: auto;
+    border-radius: 0;
+  }
 }
 
-div.student.button{
-  display: flex;
-  align-items: center;
-  background-color: var(--mentor-color);
-  height: fit-content;
-  padding: 8px;
-  border-radius: 8px;
-  margin: 8px;
-  margin-right: auto;
-  color: white;
-}
-
-.form{
+form{
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 0;
 }
 
 .top-form{
@@ -72,15 +53,22 @@ div.student.button{
   margin: 2px 0;
 }
 
-.input-message{
-  border-radius: 0px;
-  margin: 2px 0;
+.input-message{  
+  width: 100%;
+  height: 100px;
+  overflow-y:auto;  
+  border-radius: 30px;
+  border: 2px solid #4e9281;
+  margin: 4px 0;
 }
 
-button.student{
-  background-color: var(--mentor-color);
+.button{
+  background-color: var(--cream);
   color: white;
-  margin: 2px;
+  margin:2px;
+  width: fit-content;
+  height: fit-content;  
+  padding: 8px;
 }
 
 .location{
@@ -103,8 +91,28 @@ button.student{
 }
 
 .bid{
-  background-color: var(--student-color);
-  padding: 8px;
+  /* background-color: var(--student-color); */
+  padding: 8px 0;
   margin: 4px 0;
   border-radius: 8px;
+  max-width: 480px;
+  font-weight: 600;
+}
+
+.student{
+  background-color: var(--student-color);
+  color: var(--mentor-color);
+}
+
+.buttons{
+  display: flex;
+}
+
+.details{
+  background-color: var(--mentor-color);
+}
+
+.message{
+  height: 100px;
+  overflow-y:auto; 
 }

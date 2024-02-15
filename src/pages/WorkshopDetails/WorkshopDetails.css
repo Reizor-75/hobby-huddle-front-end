@@ -1,0 +1,56 @@
+.details-container{
+  width: 120%; /* fix me */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: var(--mentor-color);  
+  font-size: large;
+  font-weight: 600;
+}
+
+.top-container{
+  height: 90%;
+}
+
+.workshop-title{
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  margin: 16px;
+}
+
+.signUpButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--student-color);
+  color: var(--mentor-color);
+}
+
+.image-crop{  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  max-width: 100%;
+  height: 50%;
+  margin: 0;
+}
+
+.workshop-image{
+  height: 100%;
+  width: 100%;
+  background-color: #ffd9bc;
+  border-radius: 16px;
+  margin: 0;
+}
+
+.workshop-bottom-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}

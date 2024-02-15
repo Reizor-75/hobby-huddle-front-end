@@ -63,6 +63,7 @@ const VenueCard = (props) => {
         </button>
         </div>
         :
+        
         <></>}
         </div>
       </div>

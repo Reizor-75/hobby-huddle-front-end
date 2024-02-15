@@ -1,43 +1,36 @@
 //npm modules
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 // css
-import './NewRequest.css'
+import './EditRequest.css'
 
-const NewRequest = ({user, handleAddBlog}) => {
-  const [formData, setFormData] = useState({
-    title: '',
-    category: '',
-    lowestPayment: '',
-    highestPayment: '',
-    description: '',
-  })
-  const navigate = useNavigate()
-
+const EditRequest = ({handleUpdateRequest}) => {
+  const { state } = useLocation()
+  const [formData, setFormData] = useState(state)
+  // const navigate = useNavigate()
 
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
   const handleSubmit = async evt => {
-    evt.preventDefault()
-    handleAddBlog(formData)
-  }
-
-  if(user.role !== 200){    
-    navigate('/requests')
+    evt.preventDefault()    
+    handleUpdateRequest(formData)
   }
 
   return (  
     <main className='container'>
-      <h1>Create New Student Request</h1>
+      <h1>Edit Request</h1>
       <form autoComplete="off" onSubmit={handleSubmit} className='form'>
         <label className='label'>
           Title
-          <input type="text"
+          <input 
+            required
+            type="text"
             className='input'
             name="title"
+            value={formData.title}
             onChange={handleChange} />
         </label> 
         <label className='label'>
@@ -46,6 +39,7 @@ const NewRequest = ({user, handleAddBlog}) => {
             className='input'
             name="category" 
             id='categorySelect'
+            value={formData.category}
             onChange={handleChange}
             defaultValue={""}>            
               <option value="" disabled hidden>Choose a Class Category</option>
@@ -59,19 +53,24 @@ const NewRequest = ({user, handleAddBlog}) => {
         </label>
         <label className='label'>
           Minimum Payment
-          <input type="Number"          
+          <input
+            required 
+            type="Number"          
             className='input'
             name="lowestPayment"
-            min={0}
+            min={0}            
+            value={formData.lowestPayment}
             onChange={handleChange}
             placeholder="Minimum Payment Range"/>
         </label>
         <label className='label'>
           Max Payment
-          <input type="Number"          
+          <input 
+            required
+            type="Number"          
             className='input'
             name="highestPayment"
-            min={1}
+            value={formData.highestPayment}
             onChange={handleChange} 
             placeholder="Maximum Payment Range"/>
         </label>
@@ -81,6 +80,7 @@ const NewRequest = ({user, handleAddBlog}) => {
             className='input'
             name="description"            
             id='description'
+            value={formData.description}
             onChange={handleChange} 
             placeholder="Write a brief description of what you are looking to be taught"/>
         </label>
@@ -92,4 +92,4 @@ const NewRequest = ({user, handleAddBlog}) => {
   );
 }
 
-export default NewRequest;
+export default EditRequest

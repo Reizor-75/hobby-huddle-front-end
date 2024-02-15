@@ -1,6 +1,3 @@
-
-import PosterInfo from '../PosterInfo/PosterInfo';
-
 //css
 import './PostDetails.css'
 
@@ -11,10 +8,8 @@ const PostDetails = ({content}) => {
 
   return (  
     <div className='post-details-container'>
-      <div>
-        <div className='workshop-title'>{content.title}</div>
-        {content.workshopLimit 
-          ? <div className='row'>
+      {content.workshopLimit 
+        ? <div className='row'>
             <div>
               <div className='date'>{date}</div>
               <div className='time'>{time}</div> 
@@ -25,17 +20,16 @@ const PostDetails = ({content}) => {
             </div>
           </div> 
 
-          : <div className='row'>
-            <div> Range: ${content.lowestPayment} - ${content.highestPayment}</div>
-          </div>
-        }
-      </div>
-      <div className='row'>
+        : <>
+            <div className='row'>
+              <div> Range: ${content.lowestPayment} - ${content.highestPayment}</div>
+            </div>
+            <div className='row description'> {content.description}</div>  
+          </>          
+      }
+      {/* <div className='row description'>
         {content.description}
-      </div>
-      <div className='bottom-row'>
-        {content.mentorInfo ? <PosterInfo poster={content.mentorInfo}/> : <PosterInfo poster={content.student}/>   }
-      </div>
+      </div>       */}
     </div>
   )
 

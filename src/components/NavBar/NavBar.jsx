@@ -24,16 +24,14 @@ const NavBar = ({ user, handleLogout }) => {
         </div>
         <nav>
         <ul>
-          <li><NavLink to="/profile">My Profile</NavLink></li>
-          <li><NavLink to="/editprofile">Edit My Profile</NavLink></li>
-          <li><NavLink to="/auth/change-password">Change my password</NavLink></li>
-          <li><NavLink to="" onClick={handleLogout}>Sign out</NavLink></li>
-          <li><NavLink to="/venues">All Venues</NavLink></li>
-          <li><NavLink to="/venues/new">Create a Venue</NavLink></li>
-          <li><NavLink to="/workshops">Workshops</NavLink></li>
-          <li><NavLink to="/profiles">All Profiles</NavLink></li>
-          <li><NavLink to="/workshops">Workshops</NavLink></li>
-          <li><NavLink to="/requests">Requests</NavLink></li>
+        <li><NavLink className={styles.nav_link} to={`/profile/${user.profile}`}>My Profile</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/auth/change-password">Change my password</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="" onClick={handleLogout}>Sign out</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/venues">All Venues</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/venues/new">Create a Venue</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/workshops">Workshops</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/profiles">All Profiles</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/requests">Requests</NavLink></li>
         </ul>
         </nav>
         </>
@@ -49,15 +47,13 @@ const NavBar = ({ user, handleLogout }) => {
       </div>
       <nav>
         <ul>
-          <li><NavLink to={`/profile/${user.profile}`}>My Profile</NavLink></li>
-          <li><NavLink to={`/profile/${user.profile}/edit`}>Edit My Profile</NavLink></li>
-          <li><NavLink to="/auth/change-password">Change my password</NavLink></li>
-          <li><NavLink to="" onClick={handleLogout}>Sign out</NavLink></li>
-          <li><NavLink to="/venues">All Venues</NavLink></li>
+          <li><NavLink className={styles.nav_link} to={`/profile/${user.profile}`}>My Profile</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/auth/change-password">Change my password</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="" onClick={handleLogout}>Sign out</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/venues">All Venues</NavLink></li>
           <li><NavLink to="/workshops">Workshops</NavLink></li>
           <li><NavLink to="/profiles">Mentor Profiles</NavLink></li>
           <li><NavLink to="/requests">Requests</NavLink></li>
-          <li><NavLink to="/requests/new">Create a Request</NavLink></li>
         </ul>
         </nav>
         </>
@@ -74,15 +70,13 @@ const NavBar = ({ user, handleLogout }) => {
       </div>
       <nav>
         <ul>
-          <li><NavLink to={`/profile/${user.profile}`}>My Profile</NavLink></li>
-          <li><NavLink to={`/profile/${user.profile}/edit`}>Edit My Profile</NavLink></li>
-          <li><NavLink to="/auth/change-password">Change my password</NavLink></li>
-          <li><NavLink to="" onClick={handleLogout}>Sign out</NavLink></li>
-          <li><NavLink to="/venues">All Venues</NavLink></li>
-          <li><NavLink to="/workshops">Workshops</NavLink></li>
-          <li><NavLink to="/workshops">Create a workshop</NavLink></li>
-          <li><NavLink to="/profiles">All Profiles</NavLink></li>
-          <li><NavLink to="/requests">Requests</NavLink></li>
+          <li><NavLink className={styles.nav_link} to={`/profile/${user.profile}`}>My Profile</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/auth/change-password">Change my password</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="" onClick={handleLogout}>Sign out</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/venues">All Venues</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/workshops">Workshops</NavLink></li>
+          <li><NavLink className={styles.nav_link}to="/profiles">All Profiles</NavLink></li>
+          <li><NavLink className={styles.nav_link} to="/requests">Requests</NavLink></li>
         </ul>
         </nav>
         </>
@@ -96,9 +90,9 @@ const NavBar = ({ user, handleLogout }) => {
       <>
       <nav>
         <ul>
-        <li><NavLink to="/auth/login">Log In</NavLink></li>
-        <li><NavLink to="/auth/signup">Sign Up</NavLink></li>
-        <li><NavLink to="/workshops">Workshops</NavLink></li>
+        <li><NavLink className={styles.nav_link} to="/auth/login">Log In</NavLink></li>
+        <li><NavLink className={styles.nav_link} to="/auth/signup">Sign Up</NavLink></li>
+        <li><NavLink className={styles.nav_link} to="/workshops">Workshops</NavLink></li>
       </ul>
       </nav>
       </>

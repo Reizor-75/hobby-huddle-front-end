@@ -1,4 +1,75 @@
-.main{
+:root {
+  --vendor-color: #76bdab;
+  --student-color: #fbc043;
+  --mentor-color: #df6d29;
+  --cream: #ffd9bc;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  padding: 0px !important;
+}
+
+.formBanner{
+  height:200px;
+  padding: 1em 2em;
+  /* background-image: url(https://img.freepik.com/free-vector/background-wave-minimalist-modern-style_483537-5220.jpg?w=2000&t=st=1707943771~exp=1707944371~hmac=f7c89d0df28d30d76758e44fb0ee3d8a2b709e2cdb4afa978eb70929b96700f5); */
+  background-image: linear-gradient(to bottom right, #febb88,var(--cream)) ;
+  background-size: cover;
+  background-position: bottom;
+  h1{
+    text-align: left;
+    color: #66aa99;
+    text-shadow: #00000078 1px 1px;
+  }
+  p{
+    color: #66aa99;
+    /* text-shadow: #00000078 1px 1px; */
+    font-size: 1.5em;
+  }
+}
+
+div.formContainer{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 50px;
+}
+
+#venueForm{
+  background-color: var(--vendor-color);
+  border: 4px solid #4e9281;
+}
+
+form{
+  
+  padding: 20px;
+  width:800px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 30px;
+}
+
+.label{
+  text-align: left;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin: 10px 0 !important;
+  color:#fff;
+}
+
+input{
+  width:70%;
+  border-radius: 30px;
+  border: 2px solid #4e9281;
+  padding:10px;
+}
+
+.container{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +80,7 @@
 .label{
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: space-around;
   margin: 4px;
 }
 
@@ -28,13 +99,25 @@ button{
   border-radius: 8px;
 }
 
-.submit{
+div.submit>button{
   display: flex;
-  justify-content: center;
-  margin: 8px;
+  align-items: center;
+  width: 100%;
+  margin: 30px 0;
+  border-radius: 30px;
+  font-size: 1.25em;
+  background-color: var(--cream);
+  border: solid 1px var(--mentor-color);
+  transition: 0.3s;
+}
+
+div.submit>button:hover{
+  background-color: var(--mentor-color);
+  color: #fff; 
 }
 
 #description{  
+  margin:0px;
   margin-left: 16px;
   padding: 4px 8px;
   width: 300px;

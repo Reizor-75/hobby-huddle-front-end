@@ -11,6 +11,8 @@ import defaultVenueImg from  '../../assets/HobbyHuddleLogo.png'
 
 const VenueCard = (props) => {
 
+  console.log(props.venue.coverImage)
+
   return ( 
     <>
     <div className={styles.card_container}>

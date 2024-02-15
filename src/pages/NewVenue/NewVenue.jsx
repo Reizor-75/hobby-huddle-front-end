@@ -37,9 +37,9 @@ const NewVenue = () => {
 
   return (  
     <main className={styles.main}>
-           <div className={styles.formBanner}>
-      <h1>Create new Venue</h1>
-      <p>Show case your space to build the Hobby Huddle Community!</p>
+      <div className={styles.formBanner}>
+        <h1>Create new Venue</h1>
+        <p>Show case your space to build the Hobby Huddle Community!</p>
       </div>
       <div className={styles.formContainer}>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form} id={styles.venueForm}>

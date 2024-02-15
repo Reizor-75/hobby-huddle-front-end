@@ -9,13 +9,15 @@ import './Requests.css'
 
 const Requests = ({user, requests, handleDeleteRequest, handleAddBid, handleDeleteBid}) => {
   if(!requests.length) { 
-    return <div className='titleBar'>
-            <div className='title'>No Student Requests Available</div> 
-            {user.role === 200 ?
-              <NavLink to="/newRequest"><button>Create New Request</button></NavLink>
-              : <></>
-            }
-          </div>
+    return <main className="container">
+              <div className='titleBar'>
+                <div className='title'>No Student Requests Available</div> 
+                {user.role === 200 ?
+                  <NavLink to="/newRequest"><button>Create New Request</button></NavLink>
+                  : <></>
+                }
+              </div>
+            </main>
   }
   
   return (  

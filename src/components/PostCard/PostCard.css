@@ -77,10 +77,11 @@ div.student.button{
   margin: 2px 0;
 }
 
-button.student{
-  background-color: var(--mentor-color);
+.button{
+  background-color: var(--cream);
   color: white;
   margin: 2px;
+  
 }
 
 .location{

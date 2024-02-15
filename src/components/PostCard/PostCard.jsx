@@ -32,17 +32,20 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDelet
   return (  
     <>
       {content.mentorInfo 
-        ?<NavLink to={`/workshops/${content._id}`}>
-            <div className='card'> 
-              <div className="image-crop">
-                <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
-              </div>
-              <div className="Post-title">{content.title}</div>
-              <div className='location'>At {content.location?.venueTitle}</div>
-              <PostDetails content={content} />
-              <PosterInfo poster={content.mentorInfo}/>
+        ?<div className='card'> 
+            <div className="image-crop">
+              <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
             </div>
-        </NavLink>  
+            <div className="Post-title">{content.title}</div>
+            <div className='location'>At {content.location?.venueTitle}</div>
+            <PostDetails content={content} />              
+            <div className="row">
+              <NavLink to={`/workshops/${content._id}`}>
+                <button className='details button'>See Details</button>
+              </NavLink>  
+              <PosterInfo poster={content.mentorInfo}/>   
+            </div>
+          </div>
         :<div className='card student'> 
           <div className="image-crop"> <img src={hhLogo} alt="Workshop Image" className="workshop-image"/> </div>
           <div className="Post-title">{content.title}</div>
@@ -52,9 +55,9 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDelet
               ?<>
                 <div className="row">                  
                   <Link to={`/editRequest/${content._id}`} state={content}>
-                    <div className='student edit button'>✏️</div>
+                    <button className='student edit button'>✏️</button>
                   </Link>
-                  <div className='student delete button' onClick={() => handleDeleteRequest(content._id)}>🗑️</div>
+                  <button className='student delete button' onClick={() => handleDeleteRequest(content._id)}>🗑️</button>
                   <PosterInfo poster={content.student}/>   
                 </div>
                 <div className="student-bottom-row">

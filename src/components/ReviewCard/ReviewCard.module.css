@@ -1,8 +1,3 @@
-/* Cream : ffd9bc
-Teal: 76bdab
-Orange: df6d29
-yellow: fbc043 */
-
 .reviewCard{
   border: solid 1px #df6d29;
   background-color: #76bdab;
@@ -21,8 +16,6 @@ justify-content: flex-end;
 /* height: 40px; */
 }
 
-
-/* CSS */
 .deleteBtn, .editBtn {
   background-color: #df6d29;
   border-radius: 3px;

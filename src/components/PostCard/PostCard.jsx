@@ -29,23 +29,21 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
 
   return (  
     <>
-    {content.mentorInfo 
-      ? 
-        <NavLink to={`/workshops/${content._id}`}>
-          <div className='card'> 
-            <div className="image-crop">
-              <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
+      {content.mentorInfo 
+        ?<NavLink to={`/workshops/${content._id}`}>
+            <div className='card'> 
+              <div className="image-crop">
+                <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
+              </div>
+              <div className="Post-title">{content.title}</div>
+              <div className='location'>At {content.location.venueTitle}</div>
+              <PostDetails content={content} />
+              <PosterInfo poster={content.mentorInfo}/>
             </div>
-            <div className="Post-title">{content.title}</div>
-            <div className='location'>At {content.location.venueTitle}</div>
-            <PostDetails content={content} />
-            <PosterInfo poster={content.mentorInfo}/>
-          </div>
         </NavLink>  
-      : 
-        <div className='card student'> 
-          <div className="image-crop"><img src={hhLogo} alt="Workshop Image" className="workshop-image"/></div>
-          <div className="Post-title">{content.title}</div>          
+        :<div className='card student'> 
+          <div className="image-crop"> <img src={hhLogo} alt="Workshop Image" className="workshop-image"/> </div>
+          <div className="Post-title">{content.title}</div>
           <PostDetails content={content} />    
           <div className='bottom-row'>
             {user.profile === content.student._id 
@@ -75,7 +73,7 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
               :<>
                 <PosterInfo poster={content.student}/>   
                 {content.bids.find(bid => bid._id === user.profile) 
-                ?<div className="bottom-row">
+                  ?<div className="bottom-row">
                     <div className="bid-title">Make a Bid</div>        
                     <form autoComplete="off" onSubmit={handleSubmit} className='row form'>
                       <div className="top-form">
@@ -94,18 +92,17 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {
                         name="message"            
                         id='message'
                         onChange={handleChange} 
-                        placeholder="Write a brief description of what you are looking to be taught"/>
+                        placeholder="Write a brief description of what you are looking to be taught"
+                      />
                     </form>
                   </div>
                   :<div className="bottom-row"> You've Submitted a bid</div>
                 }
               </>    
             }
-            
-          </div>     
-          
+          </div>  
         </div>
-    }
+      }
     </>
   )
 }

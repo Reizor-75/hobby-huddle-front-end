@@ -1,7 +1,9 @@
+// assets
 import mentorHand from '../../assets/MentorHand.png'
 import studentHand from '../../assets/StudentHand.png'
 import vendorHand from '../../assets/VendorHand.png'
 
+//css
 import './PosterInfo.css'
 
 const PosterInfo = ({poster}) => {  
@@ -18,7 +20,7 @@ const PosterInfo = ({poster}) => {
       <div className="hosting-line">Hosted By {poster.name}</div>
       <img src={photo} alt="Profile Photo" className="profile-photo" />
     </div>
-  );
+  )
 }
 
 export default PosterInfo;

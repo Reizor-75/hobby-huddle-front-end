@@ -1,5 +1,4 @@
 .profileCard{
-  /* color: rgb(139, 228, 101); */
   border: white solid 2px;
   width: 300px;
   height: 350px;
@@ -30,7 +29,6 @@ img{
   display: block;
   object-fit: cover;
 }
-
 
 .profileInfo{
   text-align: center;

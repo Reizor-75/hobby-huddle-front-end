@@ -1,13 +1,12 @@
+//npm module
 import { Link } from "react-router-dom"
 
 // css
 import styles from "./ProfileCard.module.css"
 
 const ProfileCard = ({profile}) => {
-
-const skills = profile
-console.log(skills)
-// const skillsArray = skills.split(',').map(skill => skill.trim())
+  const skills = profile
+  console.log(skills)
 
   return ( 
     <div className={styles.profileCard}>
@@ -26,7 +25,7 @@ console.log(skills)
         <p> {profile.aboutMe} </p>
       </div>
     </div>
-  );
+  )
 }
 
 export default ProfileCard;

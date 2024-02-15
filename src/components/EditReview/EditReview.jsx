@@ -20,7 +20,7 @@ const EditReview = () => {
     await profileService.updateReview(profileId, reviewId, formData)
     navigate(`/profile/${profileId}`)
   }
-  console.log(formData)
+  
   return (
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>

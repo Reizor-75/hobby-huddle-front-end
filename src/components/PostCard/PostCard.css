@@ -54,10 +54,8 @@ div.student.button{
   border-radius: 8px;
   margin: 8px;
   margin-right: auto;
-  background-color: var(--mentor-color);
   color: white;
 }
-
 
 .form{
   display: flex;
@@ -69,6 +67,7 @@ div.student.button{
   display: flex;
   justify-content: space-between;
 }
+
 .input-fee{
   margin: 2px 0;
 }
@@ -81,13 +80,12 @@ div.student.button{
 button.student{
   background-color: var(--mentor-color);
   color: white;
-  margin: 2px
+  margin: 2px;
 }
 
 .location{
   font-weight: 700;
 }
-
 
 .bid-title{
   font-size: x-large;

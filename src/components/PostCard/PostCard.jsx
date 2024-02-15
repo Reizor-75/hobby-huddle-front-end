@@ -12,7 +12,21 @@ import hhLogo from '../../assets/HobbyHuddleLogo.png'
 // css
 import './PostCard.css'
 
-const PostCard = ({user, content, handleDeleteRequest}) => {
+const PostCard = ({user, content, handleDeleteRequest, handleAddBid}) => {  
+  const [formData, setFormData] = useState({
+    fee: '',
+    message: '',
+  })
+
+  const handleChange = evt => {
+    setFormData({ ...formData, [evt.target.name]: evt.target.value })
+  }
+
+  const handleSubmit = async evt => {
+    evt.preventDefault()
+    handleAddBid(formData)
+  }
+
   return (  
     <>
     {content.mentorInfo 
@@ -59,7 +73,7 @@ const PostCard = ({user, content, handleDeleteRequest}) => {
                 <PosterInfo poster={content.student}/>   
                 <div className="bottom-row">
                   <div className="bid-title">Make a Bid</div>        
-                  <form autoComplete="off" className='row form'>
+                  <form autoComplete="off" onSubmit={handleSubmit} className='row form'>
                     <div className="top-form">
                       <input
                         required 
@@ -67,7 +81,7 @@ const PostCard = ({user, content, handleDeleteRequest}) => {
                         className='input-fee'
                         name="Fee"
                         min={0}            
-                        // onChange={handleChange}
+                        onChange={handleChange}
                         placeholder="Fee"/>
                       <button className='student button' type="submit">Place Bid</button>
                     </div>
@@ -75,7 +89,7 @@ const PostCard = ({user, content, handleDeleteRequest}) => {
                       className='input-message'
                       name="message"            
                       id='message'
-                      // onChange={handleChange} 
+                      onChange={handleChange} 
                       placeholder="Write a brief description of what you are looking to be taught"/>
                   </form>
                 </div>

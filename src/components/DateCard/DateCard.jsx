@@ -5,7 +5,7 @@ const DateCard = ({ createdAt }) => {
   const date = new Date(createdAt).toLocaleDateString()
   return (
     <div className={styles.container}>
-      <h5>{date}</h5>
+      <h5 className={styles.dateInfo}>{date}</h5>
     </div>
   )
 }

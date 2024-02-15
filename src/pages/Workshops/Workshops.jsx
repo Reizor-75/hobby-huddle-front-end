@@ -10,19 +10,19 @@ import './Workshops.css'
 const Workshops = ({user , workshops}) => {  
   if(!workshops.length) { 
     return <div className='titleBar'>
-            <div className='title'>No Workshops available</div> 
-            {user.role === 500 ?
+            <h1 className='title'>No Workshops available</h1> 
+            {user?.role === 500 ?
               <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>
               : <></>
             }
           </div>
   }
-  
+
   return (  
     <main className='container'>
       <div className='titleBar'>
-        <div className='title'>Workshops</div> 
-        {user.role === 500 ?
+        <h1 className='title'>Workshops</h1> 
+        {user?.role === 500 ?
           <div className='button-container'>
             <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>
           </div>
@@ -35,7 +35,7 @@ const Workshops = ({user , workshops}) => {
         ))}
       </div>
     </main>
-  );
+  )
 }
 
-export default Workshops;
+export default Workshops

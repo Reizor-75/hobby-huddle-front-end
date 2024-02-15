@@ -10,18 +10,14 @@ const Reviews = (props) => {
   return (
     <div className={styles.allReviews}>
       {props.reviews.map((review, idx) => (
-        <>
-          <ReviewCard
+        <ReviewCard
           key={idx}
           review={review}
           user={props.user}
           handleDeleteReview={props.handleDeleteReview}
           profileId={props.profileId}
-          />
-        </>
-        
-        ))}
-        
+        />      
+      ))}
     </div>
   )
 }

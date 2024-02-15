@@ -10,18 +10,18 @@ import styles from "./ReviewCard.module.css"
 const ReviewCard = ({ review, profileId, handleDeleteReview }) => {
   return (
     <div className={styles.reviewCard}>
-        <AuthorInfo review={review} /> 
+      <AuthorInfo review={review} /> 
       <h2> {review.title} </h2>
       <p> {review.content} </p>
 
       <div className={styles.buttons}>
         <button className={styles.editBtn} > 
           <Link to={`/profile/${profileId}/reviews/${review._id}`} state={review}>
-            EDIT 
+            <i className="fa-solid fa-pen-to-square"></i>
           </Link> 
         </button>
         <button className={styles.deleteBtn} onClick={()=> handleDeleteReview(profileId, review._id)}>
-          DELETE
+          <i className="fa-solid fa-trash"></i>
         </button>
       </div>
     </div>

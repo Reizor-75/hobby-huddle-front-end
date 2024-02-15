@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 // css
 import './NewRequest.css'
 
-const NewRequest = ({user, handleAddBlog}) => {
+const NewRequest = ({user, handleAddRequest}) => {
   const [formData, setFormData] = useState({
     title: '',
     category: '',
@@ -15,14 +15,13 @@ const NewRequest = ({user, handleAddBlog}) => {
   })
   const navigate = useNavigate()
 
-
   const handleChange = evt => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
   }
 
   const handleSubmit = async evt => {
     evt.preventDefault()
-    handleAddBlog(formData)
+    handleAddRequest(formData)
   }
 
   if(user.role !== 200){    
@@ -89,7 +88,7 @@ const NewRequest = ({user, handleAddBlog}) => {
         </div>
       </form>
     </main>
-  );
+  )
 }
 
-export default NewRequest;
+export default NewRequest

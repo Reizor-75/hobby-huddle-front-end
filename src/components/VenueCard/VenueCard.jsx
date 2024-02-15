@@ -1,17 +1,16 @@
+//npm modules
+import { useState } from 'react'
+
 import { Link } from "react-router-dom"
 
 // css 
 import styles from './VenueCard.module.css'
 
 //assets
-
 import vendorHand from '../../assets/VendorHand.png'
 import defaultVenueImg from  '../../assets/HobbyHuddleLogo.png'
 
-
 const VenueCard = (props) => {
-
-  console.log(props.venue.coverPhoto)
 
   return ( 
     <>
@@ -53,10 +52,12 @@ const VenueCard = (props) => {
         </div>
         :
         <></>}
+      
         </div>
       </div>
+      {/* future feature
       <div className={styles.categories_container}>
-      </div>
+      </div> */}
     </>
   )
 }

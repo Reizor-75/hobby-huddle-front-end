@@ -89,7 +89,7 @@ const EditRequest = ({handleUpdateRequest}) => {
         </div>
       </form>
     </main>
-  );
+  )
 }
 
 export default EditRequest

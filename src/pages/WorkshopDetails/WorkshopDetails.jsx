@@ -41,8 +41,11 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
             </div>
           <div className="workshop-title">{workshop.title}</div>
           <PostDetails content={workshop} />   
+        </div>         
+        <div className="description">          
+          <div>Class Details:</div>
+          {workshop.description}
         </div> 
-        <div className="description">{workshop.description}</div> 
         <div className='workshop-bottom-row'>
           {user?.profile === workshop.mentorInfo._id 
             ? <button className='signUpButton' onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>

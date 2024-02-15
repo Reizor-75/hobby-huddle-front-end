@@ -80,15 +80,18 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDelet
               :<>
                 <PosterInfo poster={content.student}/>   
                 {bid
-                  ?<div className="bid" key={bid._id}>
-                    <div className="row">
-                      <div><i className="fa-solid fa-dollar-sign"></i>{bid.fee} per Hour</div>             
-                      <button className="student button" onClick={()=>handleDeleteBid(content._id, bid._id)}><i className="fa-solid fa-trash"></i></button>
+                  ?<>
+                    <div className="bid-title">My Bid</div>
+                    <div className="bid" key={bid._id}>
+                      <div className="row">
+                        <div><i className="fa-solid fa-dollar-sign"></i>{bid.fee} per Hour</div>             
+                        <button className="student button" onClick={()=>handleDeleteBid(content._id, bid._id)}><i className="fa-solid fa-trash"></i></button>
+                      </div>
+                      <div className="message">{bid.message ? bid.message: "No Message available"}</div>
                     </div>
-                    <div className="message">{bid.message ? bid.message: "No Message available"}</div>
-                  </div>
+                  </>
                   :<div className="bottom-row">
-                    <div className="bid-title">Make a Bid</div>        
+                    <div className="bid-title">Make a Bid</div>
                     <form autoComplete="off" onSubmit={handleSubmit} className=''>
                       <div className="top-form">
                         <input

@@ -57,7 +57,7 @@ form{
   overflow-y:auto;  
   border-radius: 30px;
   border: 2px solid #4e9281;
-  padding:10px;
+  margin: 4px 0;
 }
 
 .button{
@@ -89,8 +89,8 @@ form{
 }
 
 .bid{
-  background-color: var(--student-color);
-  padding: 8px;
+  /* background-color: var(--student-color); */
+  padding: 8px 0;
   margin: 4px 0;
   border-radius: 8px;
   max-width: 480px;

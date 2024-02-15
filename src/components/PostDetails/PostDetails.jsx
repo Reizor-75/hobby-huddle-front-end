@@ -26,7 +26,10 @@ const PostDetails = ({content}) => {
           <div className='row'>
             <div> <i className="fa-solid fa-dollar-sign"></i> {content.lowestPayment} - <i className="fa-solid fa-dollar-sign"></i> {content.highestPayment}</div>
           </div>
-          <div className='row description'> {content.description}</div>  
+          <div className='description'> 
+            <div>Looking for:</div>
+            {content.description}
+          </div>  
         </>          
       }
     </div>

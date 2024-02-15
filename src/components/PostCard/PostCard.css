@@ -28,10 +28,12 @@
   height:200px;
   width: 100%;
   border-radius:20px 20px 0px 0px;
+  overflow: hidden;
   img{
     height:200px;
     width: auto;
     margin: auto;
+    border-radius: 0;
   }
 }
 

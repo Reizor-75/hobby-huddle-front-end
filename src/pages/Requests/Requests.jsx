@@ -10,7 +10,7 @@ const Requests = ({user, requests, handleDeleteRequest, handleAddBid, handleDele
   if(!requests.length) { 
     return <main className="container">
               <div className='titleBar'>
-                <div className='title'>No Student Requests Available</div> 
+                <h1 className='title'>No Student Requests Available</h1> 
                 {user.role === 200 ?
                   <NavLink to="/newRequest"><button>Create New Request</button></NavLink>
                   : <></>
@@ -22,7 +22,7 @@ const Requests = ({user, requests, handleDeleteRequest, handleAddBid, handleDele
   return (  
     <main className='container'>
       <div className='titleBar'>
-        <div className='title'>Student Requests</div> 
+        <h1 className='title'>Student Requests</h1> 
         {user.role === 200 ?
           <NavLink to="/newRequest"><button>Create New Request</button></NavLink>
           : <></>

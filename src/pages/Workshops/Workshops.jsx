@@ -10,7 +10,7 @@ import './Workshops.css'
 const Workshops = ({user , workshops}) => {  
   if(!workshops.length) { 
     return <div className='titleBar'>
-            <div className='title'>No Workshops available</div> 
+            <h1 className='title'>No Workshops available</h1> 
             {user?.role === 500 ?
               <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>
               : <></>
@@ -21,7 +21,7 @@ const Workshops = ({user , workshops}) => {
   return (  
     <main className='container'>
       <div className='titleBar'>
-        <div className='title'>Workshops</div> 
+        <h1 className='title'>Workshops</h1> 
         {user?.role === 500 ?
           <div className='button-container'>
             <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>

@@ -27,9 +27,6 @@ button{
 }
 
 .title{
-  color: var(--mentor-color);
-  font-size: xx-large;
-  font-weight: 800;
   margin: 0 8px;
 }
 

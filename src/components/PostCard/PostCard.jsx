@@ -28,12 +28,13 @@ const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDelet
   }
 
   const bid = content.bids?.find(bid => bid.mentorInfo._id === user.profile)
+  const photo = content.photo ? content.photo : hhLogo
 
   return (  
     <>     
       <div className='card'>  
         <div className="image-crop">
-          <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
+          <img src={photo} alt="Workshop Image" className="workshop-image"/>
         </div>
         <div className="Post-title">{content.title}</div>
         {content.mentorInfo 

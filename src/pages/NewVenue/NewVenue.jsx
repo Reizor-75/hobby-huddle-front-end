@@ -1,5 +1,5 @@
 //npm modules
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from 'react-router-dom'
 
 // services
@@ -10,7 +10,11 @@ import styles from './newVenue.module.css'
 
 
 const NewVenue = () => {
+  const imgInputRef = useRef(null)
+
+  const [photoData, setPhotoData] = useState({ photo: null })
   const [formData, setFormData] = useState([])
+
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -28,16 +32,44 @@ const NewVenue = () => {
   const handleSubmit = async evt => {
     evt.preventDefault()
     try {
-      await venueService.create(formData)
+      await venueService.create(formData, photoData.photo)
       navigate('/venues')
     } catch (error) {
       console.log(error)
     }
   }
 
+  const handleChangePhoto = evt => {
+    const file = evt.target.files[0]
+    let isFileInvalid = false
+   
+    const validFormats = ['gif', 'jpeg', 'jpg', 'png', 'svg', 'webp']
+    const photoFormat = file.name.split('.').at(-1)
+
+    // cloudinary supports files up to 10.4MB each as of May 2023
+    if (file.size >= 10485760) {
+     
+      isFileInvalid = true
+    }
+    if (!validFormats.includes(photoFormat)) {
+      isFileInvalid = true
+    }
+    
+    if (isFileInvalid) {
+      imgInputRef.current.value = null
+      return
+    }
+
+    setPhotoData({ photo: evt.target.files[0] })
+  }
+
   return (  
     <main className={styles.main}>
+      <div className={styles.formBanner}>
       <h1>Create new Venue</h1>
+      <p>Show case your space to build the Hobby Huddle Community!</p>
+      </div>
+      <div className={styles.formContainer}>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form} id={styles.venueForm}>
         <label className={styles.label}>
           Venue Name
@@ -85,10 +117,20 @@ const NewVenue = () => {
             onChange={handleChange} 
             placeholder="Max Number of guests"/>
         </label>
+        <label className={styles.label}>
+          Upload Photo
+          <input 
+            type="file" 
+            name="coverImage"
+            onChange={handleChangePhoto}
+            ref={imgInputRef} 
+          />
+          </label>
         <div className={styles.submit}>
           <button type="submit">Submit</button>
         </div>
       </form>
+      </div>
     </main>
   )
 }

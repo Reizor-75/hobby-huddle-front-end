@@ -53,11 +53,16 @@ ul{
   font-weight: medium;
 }
 
-a:hover{
+a.nav_link:hover{
+
   background-color: #fff;
   padding: 10px 30px;
   border-radius: 30px;
   font-weight: 600;
+}
+
+a:hover{
+  
 }
 
 li,a, a:visited{

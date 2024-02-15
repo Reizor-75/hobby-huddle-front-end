@@ -12,7 +12,7 @@ const Workshops = ({user , workshops}) => {
     return <div className='titleBar'>
             <div className='title'>No Workshops available</div> 
             {user.role === 500 ?
-              <NavLink to="/new"><button>Create New Workshop</button></NavLink>
+              <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>
               : <></>
             }
           </div>

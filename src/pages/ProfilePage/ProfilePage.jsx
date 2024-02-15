@@ -7,7 +7,7 @@ import * as profileService from '../../services/profileService'
 
 // css
 import styles from './ProfilePage.module.css'
-import vendorHand from "../../assets/vendorHand.png"
+import vendorHand from "../../assets/VendorHand.png"
 
 // compontents
 import NewReview from "../../components/NewReview/NewReview"
@@ -29,7 +29,7 @@ const ProfilePage = (props) => {
     const newReview = await profileService.createReview(profileId, reviewFormData)
     setProfile({ ...profile, reviews: [...profile.reviews, newReview] })
   }
-  
+
   const handleDeleteReview = async (profileId, reviewId) => {
     await profileService.deleteReview(profileId, reviewId)
     setProfile({ ...profile, reviews: profile.reviews.filter((c) => c._id !== reviewId) })

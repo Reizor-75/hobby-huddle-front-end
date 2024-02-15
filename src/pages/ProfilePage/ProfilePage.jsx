@@ -7,6 +7,7 @@ import * as profileService from '../../services/profileService'
 
 // css
 import styles from './ProfilePage.module.css'
+import vendorHand from "../../assets/vendorHand.png"
 
 // compontents
 import NewReview from "../../components/NewReview/NewReview"
@@ -44,16 +45,19 @@ const ProfilePage = (props) => {
     const skillsArray = skills?.split(',').map(skill => skill.trim())
     console.log(skillsArray)
 
+    // const workshopDate = profile.myWorkshops.date.toLocaleDateString()
+    console.log(profile.myWorkshops)
+
     const workshops = profile.myWorkshops
-    console.log(workshops)
-    console.log(profileId)
-    
+
+    const formatDate = (workshop) => { return new Date(workshop.date).toLocaleString()}
+
     return ( 
     <div className={styles.container}>
       
       <div className={styles.topContainer}>
         <div className={styles.profilePic}>
-          <img className={styles.profileImg} src={profile.photo}/></div>
+        <img className={styles.profileImg} src={profile.photo? profile.photo : vendorHand} /></div>
         <div className={styles.profileBio}>
           <h1>{profile.name}</h1>
           <p>{profile.aboutMe}</p>
@@ -68,7 +72,7 @@ const ProfilePage = (props) => {
       </div>
       <div className={styles.bottomContainer}>
         <div className={styles.bottomLeft}>
-          <h1>Reviews</h1>
+          <h2>Reviews</h2>
           {props.user.profile !== `${profileId}` ?
           <NewReview handleAddReview={handleAddReview} />
           : <></>
@@ -81,28 +85,14 @@ const ProfilePage = (props) => {
           />
         </div>
         <div className={styles.bottomRight}>
-
-          {workshops?.length ? 
-            workshops.map((workshop) => <list key={workshop}><Link to={`/workshops/${workshop._id}`} className={styles.list}>{workshop.title} is taking place on {workshop.date} </Link></list>)
-            : <>{<h3>No workshops to show</h3>}</>}
-
-
-
-
-          {/* {props.user.profile === `${profileId}` ?
-          <div className={styles.myWorkshops}>
-            {props.user.role === 500 ?
-              <>{workshops?.length ? 
-                  workshops.map((workshop) => <list key={workshop}><ul>{workshop.title} </ul></list>)
-                  : <>{"No workshops to show"}</>}
-              </>                  
-            : "this is not a teacher profile"            
-            }
+          <div className={styles.bottomLeft}>
+            <h2>Workshops</h2>
           </div>
-
-          : <>{"Hello"}</>
-          }  */}
-
+          <div className={styles.workshopList}>
+            {workshops?.length ? 
+              workshops.map((workshop) => <list key={workshop}><Link to={`/workshops/${workshop._id}`} className={styles.list}>{workshop.title} is taking place on {formatDate(workshop)} <br/> </Link></list>)
+              : <>{<h3>No workshops to show</h3>}</>}
+          </div>
         </div>
       </div>
 

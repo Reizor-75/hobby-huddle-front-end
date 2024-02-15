@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   margin: 20px;
-  background-color: #76bdab;
+  background-color: #c5d0ae;
 }
 
 .profilePicture{
@@ -29,6 +29,7 @@ img{
   height: 150px; */
   display: block;
   object-fit: cover;
+  background-color: azure;
 }
 
 .profileName{
@@ -71,4 +72,7 @@ img{
 
 .tagsBar{
   color: black;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }

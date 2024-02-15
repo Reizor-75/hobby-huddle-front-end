@@ -21,6 +21,7 @@ const EditVenue = (props) => {
   return (  
     <main className={styles.main}>
       <h1>Edit Venue </h1>
+      <div className={styles.formContainer}>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form} id={styles.venueForm}>
         <label className={styles.label}>
           Venue Name
@@ -74,10 +75,19 @@ const EditVenue = (props) => {
             onChange={handleChange} 
             placeholder="Max Number of guests"/>
         </label>
+        <label className={styles.label}>
+          Upload Photo (url)
+          <input type="text"          
+            className={styles.input}
+            name="coverPhoto"
+            onChange={handleChange}
+            placeholder="Your beautiful venue"/>
+          </label>
         <div className={styles.submit}>
           <button type="submit">Submit</button>
         </div>
       </form>
+      </div>
     </main>
   )
 }

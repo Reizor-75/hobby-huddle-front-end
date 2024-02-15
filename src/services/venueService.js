@@ -58,28 +58,9 @@ async function update(venueFormData) {
   }
 }
 
-async function addPhoto(photoData) {
-  try {
-    const photoFormData = new FormData()
-    photoFormData.append('photo', photoData)
-    const venueId = tokenService.getUserFromToken().profile
-    const res = await fetch(`${BASE_URL}/${venueId}/add-photo`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`
-      },
-      body: photoFormData,
-    })
-    return await res.json()
-  } catch (err) {
-    throw new Error(err)
-  }
-}
-
 export { 
   getAllVenues,
   create,
   deleteVenue,
   update,
-  addPhoto
 }

@@ -87,6 +87,20 @@ async function createBid(requestId, requestFormData){
   }
 }
 
+async function deleteBid(requestId, bidId){
+  try {
+    const res = await fetch(`${BASE_URL}/${requestId}/${bidId}`, {
+      method: 'DELETE',
+      headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+      }
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 export {
   getAllRequests,
   getMyRequests,
@@ -94,4 +108,5 @@ export {
   updateRequest,
   deleteRequest,
   createBid,
+  deleteBid
 }

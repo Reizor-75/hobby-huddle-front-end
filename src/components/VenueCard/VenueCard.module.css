@@ -5,6 +5,10 @@
   --cream: #ffd9bc;
 }
 
+h1{
+  font-family: fredoka;
+}
+
 .card_container{
   border:2px solid white;
   min-width: 600px;  
@@ -38,10 +42,6 @@ div.image_container{
 .venue_title_container{
   background-color: var(--mentor-color);
   padding:10px 30px;
-}
-
-.editButton, .deleteButton{
-  width:200px;
 }
 
 .image_container{
@@ -82,14 +82,26 @@ div.image_container{
   color: #fff;
   font-weight: bold;
   border-radius: 50px;
+  font-family: fredoka;
+  text-shadow: 1px 1px #0000005d;
 }
 
 h2{
   margin:0;
+  font-family: fredoka;
 }
 
-button, a, a:visited{
-  margin: 0;
+.venue_option_buttons> a, .venue_option_buttons> a:visited, .deleteButton{
+  margin: 20px 0;
+  font-size:1em;
+  width: 200px;
+  font-family: fredoka;
+  background-color: var(--mentor-color);
+  font-weight: 600;
+  color: white !important;
+  text-align: center;
+  padding: 8px;
+  border-radius: 20px;
 }
 
 .venue_info_container{

@@ -26,8 +26,8 @@ const VenueCard = (props) => {
           <i className="fa-solid fa-building"></i> {props.venue.address}
           </p>
           <p className={styles.venue_contact}> 
-          <i className="fa-solid fa-phone"></i> 
-          {props.venue.phoneNumber}</p>
+            <i className="fa-solid fa-phone"></i> 
+            {props.venue.phoneNumber}</p>
           <p className={styles.venue_contact}><i className="fa-solid fa-envelope"></i> {props.venue.email}</p>
           <p className={styles.venue_contact}><i className="fa-solid fa-link"></i>{props.venue.website ? props.venue.website : <span>No website listed</span>}</p>
         </div> 
@@ -43,8 +43,8 @@ const VenueCard = (props) => {
         
         {props.user.role === 100 && props.user.profile=== props.venue.venueOwner._id ?
         <div className={styles.venue_option_buttons}>
-        <Link to={`/venues/${props.venue._id}/edit`} state={props.venue}>   
-          <button className={styles.editButton}>Edit Venue</button>
+        <Link to={`/venues/${props.venue._id}/edit`} state={props.venue} className={styles.editButton}> 
+        Edit Venue
         </Link>
         <button className={styles.deleteButton} onClick={() => props.deleteVenue(props.venue._id)}>
           Delete Venue

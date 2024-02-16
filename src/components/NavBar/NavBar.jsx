@@ -41,7 +41,7 @@ const NavBar = ({ user, handleLogout }) => {
       {user && user.role===200 ?
       <>
       <div className={styles.nav_welcome}>
-      <h2 className={styles.welcome_name}>Welcome, {user.name}</h2>
+        <h2 className={styles.welcome_name}>Welcome, {user.name}</h2>
       </div>
       <nav>
         <ul>
@@ -54,9 +54,9 @@ const NavBar = ({ user, handleLogout }) => {
           <li><NavLink to="/requests">Requests</NavLink></li>
         </ul>
         </nav>
-        </>
+      </>
       :
-        <></>
+      <></>
       }
 
       {/* mentor nav */}

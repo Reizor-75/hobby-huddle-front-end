@@ -25,6 +25,7 @@ const NewReview = (props) => {
         value={formData.title}
         placeholder="Title"
         onChange={handleChange}
+        className={styles.title}
       />
       <textarea
         required
@@ -32,8 +33,9 @@ const NewReview = (props) => {
         value={formData.content}
         placeholder="Add Review"
         onChange={handleChange}
+        className={styles.content}
       />
-      <button type="submit">Add Review</button>
+      <button type="submit" className="addReview">Add Review</button>
     </form>
   )
 }

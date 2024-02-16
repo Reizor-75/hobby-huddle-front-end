@@ -1,7 +1,9 @@
+// assets
 import mentorHand from '../../assets/MentorHand.png'
 import studentHand from '../../assets/StudentHand.png'
 import vendorHand from '../../assets/VendorHand.png'
 
+//css
 import './PosterInfo.css'
 
 const PosterInfo = ({poster}) => {  
@@ -11,14 +13,14 @@ const PosterInfo = ({poster}) => {
     return vendorHand
   }
 
-  const photo = poster.photo ? poster.photo:setPhoto()
+  const photo = poster.photo ? poster.photo : setPhoto()
 
   return (  
     <div className="poster-container"> 
       <div className="hosting-line">Hosted By {poster.name}</div>
       <img src={photo} alt="Profile Photo" className="profile-photo" />
     </div>
-  );
+  )
 }
 
 export default PosterInfo;

@@ -1,4 +1,17 @@
 .container {
   /* border: solid green 1px; */
   width: 550px;
+  display: center;
+  align-items: flex-end;
 }
+
+.title{
+  height: 40px;
+  border: solid rgb(0, 128, 124) 1.5px;
+}
+
+.content{
+  height: 80px;
+  border: solid rgb(0, 128, 124) 1.5px;
+}
+

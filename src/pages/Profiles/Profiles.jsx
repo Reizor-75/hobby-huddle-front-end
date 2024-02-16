@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 // services
 import * as profileService from '../../services/profileService'
 
-
 //components
 import ProfileCard from '../../components/Profile Card/ProfileCard'
 
@@ -34,7 +33,6 @@ const Profiles = () => {
           <ProfileCard key={profile._id} profile={profile}/>
         ))}
       </div>
-
     </main>
   )
 }

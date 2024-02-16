@@ -25,14 +25,14 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
 
   return ( 
     <div className={styles.editForumContainer}>
-      <h1> Complete your Profile </h1>
+      <h1> Update your Profile </h1>
       <div className={styles.editProfileForm}>
         <form autoComplete="off"  onSubmit={handleSubmit}>
           <div className={styles.forumRow}>    
-          <label>
+          <label className={styles.number}>
             Phone Number
             <input type="text"
-              className={styles.number}
+              className={styles.input}
               name="phoneNumber"
               onChange={handleChange}
               placeholder="Enter your phone number"
@@ -50,7 +50,7 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
               placeholder="Enter your email"
               value={user.email}
               />
-          </label><br/> 
+          </label>
           </div>
           
           <div className={styles.forumRowAboutMe}> 
@@ -63,7 +63,7 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
               placeholder="Tell us about yourself"
               value={formData.aboutMe ? formData.aboutMe : ""}
               />
-          </label><br/>      
+          </label>    
           </div>
           
           <div className={styles.forumRowSkills}> 
@@ -81,12 +81,12 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
           </div>
 
           <div className={styles.submit}>
-            <button type="submit">Submit</button>
+            <button type="submit" className={styles.submit}>Save <i className="fa-regular fa-floppy-disk"></i></button>
           </div>
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default EditProfile;
+export default EditProfile

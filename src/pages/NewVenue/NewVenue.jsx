@@ -8,7 +8,6 @@ import * as venueService from '../../services/venueService'
 // css
 import styles from './newVenue.module.css'
 
-
 const NewVenue = () => {
   const [formData, setFormData] = useState([])
   const navigate = useNavigate()
@@ -97,10 +96,10 @@ const NewVenue = () => {
             onChange={handleChange}
             placeholder="Your beautiful venue"/>
           </label>
-        <div className={styles.submit}>
-          <button type="submit">Submit</button>
-        </div>
-      </form>
+          <div className={styles.submit}>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
       </div>
     </main>
   )

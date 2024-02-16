@@ -25,7 +25,6 @@ main{
   }
   p{
     color: #66aa99;
-    /* text-shadow: #00000078 1px 1px; */
     font-size: 1.5em;
   }
 }
@@ -44,7 +43,6 @@ div.formContainer{
 }
 
 form{
-  
   padding: 20px;
   width:800px;
   display: flex;

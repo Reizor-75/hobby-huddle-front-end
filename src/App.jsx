@@ -2,8 +2,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 
-//Trust but verify
-
 // pages
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
@@ -26,7 +24,6 @@ import WorkshopDetails from './pages/WorkshopDetails/WorkshopDetails'
 import Requests from './pages/Requests/Requests'
 import NewRequest from './pages/NewRequest/NewRequest'
 import EditRequest from './pages/EditRequest/EditRequest'
-
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -136,7 +133,6 @@ function App() {
     setRequests(requests.map((request) => updatedRequest._id === request._id ? {...requests.find(request => request._id === requestId), bids: updatedRequest.bids.filter((bid) => bid._id !== bidId)} : request ))
     navigate(`/requests`)
   }
-
 
   const handleLogout = () => {
     authService.logout()

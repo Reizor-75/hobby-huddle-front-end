@@ -45,8 +45,7 @@ const ProfilePage = (props) => {
     const formatDate = (workshop) => { return new Date(workshop.date).toLocaleString()}
 
     return ( 
-    <div className={styles.container}>
-      
+    <div className={styles.container}>      
       <div className={styles.topContainer}>
         <div className={styles.profilePic}>
         <img className={styles.profileImg} src={profile.photo? profile.photo : vendorHand} /></div>
@@ -89,4 +88,4 @@ const ProfilePage = (props) => {
   )
 }
 
-export default ProfilePage;
+export default ProfilePage

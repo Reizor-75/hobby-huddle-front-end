@@ -14,7 +14,6 @@ main{
 .formBanner{
   height:200px;
   padding: 1em 2em;
-  /* background-image: url(https://img.freepik.com/free-vector/background-wave-minimalist-modern-style_483537-5220.jpg?w=2000&t=st=1707943771~exp=1707944371~hmac=f7c89d0df28d30d76758e44fb0ee3d8a2b709e2cdb4afa978eb70929b96700f5); */
   background-image: linear-gradient(to bottom right, #febb88,var(--cream)) ;
   background-size: cover;
   background-position: bottom;
@@ -25,13 +24,11 @@ main{
   }
   p{
     color: #66aa99;
-    /* text-shadow: #00000078 1px 1px; */
     font-size: 1.5em;
   }
 }
 
 div.formContainer{
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +42,6 @@ div.formContainer{
 }
 
 form{
-  
   padding: 20px;
   width:800px;
   display: flex;

@@ -9,9 +9,10 @@
 }
 
 .newRequestContainer{
-  background-color: var(--vendor-color);
+  background-color: #ffffffaa;
   padding: 40px;
   border-radius: 20px;
+  color: black;
 }
 
 h1{

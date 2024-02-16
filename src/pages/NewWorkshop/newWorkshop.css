@@ -4,10 +4,11 @@
   justify-content: center;
   align-items: center;
   width: 550px;  
-  background-color: var(--vendor-color);
+  background-color: #ffffffaa;
   height: fit-content;
   padding: 40px;
   border-radius: 20px;
+  color: black;
 }
 
 .label{

@@ -21,24 +21,26 @@ const Requests = ({user, requests, handleDeleteRequest, handleAddBid, handleDele
   
   return (  
     <main className='container'>
-      <div className='titleBar'>
-        <h1 className='title'>Student Requests</h1> 
-        {user.role === 200 ?
-          <NavLink to="/newRequest"><button>Create New Request</button></NavLink>
-          : <></>
-        }
-      </div>
-      <div className='cardContainer'>
-        {requests.map(request =>(
-          <PostCard 
-            key={request._id} 
-            content={request} 
-            user={user} 
-            handleDeleteRequest={handleDeleteRequest}
-            handleAddBid={handleAddBid}
-            handleDeleteBid={handleDeleteBid}
-          />
-        ))}
+      <div className='requestContainer'>
+        <div className='titleBar'>
+          <h1 className='title'>Student Requests</h1> 
+          {user.role === 200 ?
+            <NavLink to="/newRequest"><button>Create New Request</button></NavLink>
+            : <></>
+          }
+        </div>
+        <div className='cardContainer'>
+          {requests.map(request =>(
+            <PostCard 
+              key={request._id} 
+              content={request} 
+              user={user} 
+              handleDeleteRequest={handleDeleteRequest}
+              handleAddBid={handleAddBid}
+              handleDeleteBid={handleDeleteBid}
+            />
+          ))}
+        </div>
       </div>
     </main>
   )

@@ -87,6 +87,8 @@
 
 textarea {
   border: #40796b solid 2px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 
 .submit{

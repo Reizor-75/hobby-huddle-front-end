@@ -79,6 +79,7 @@ const Signup = ({ handleAuthEvt }) => {
 
   return (
     <main className={styles.container}>
+      <div className={styles.signUpContainer}>
       <h1>Sign Up</h1>
       <p className={styles.message}>{message}</p>
       <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
@@ -105,7 +106,7 @@ const Signup = ({ handleAuthEvt }) => {
           />
         </label>
         <label className={styles.label}>
-          Confirm Password
+          <div className={styles.comPass}>Confirm Password</div>
           <input
             type="password"
             value={passwordConf}
@@ -114,7 +115,7 @@ const Signup = ({ handleAuthEvt }) => {
           />
         </label>
         <label className={styles.label}>
-          Select Profile Type
+          Profile Type
           <select
             type="role"
             value={role}
@@ -147,6 +148,7 @@ const Signup = ({ handleAuthEvt }) => {
           </button>
         </div>
       </form>
+      </div>
     </main>
   )
 }

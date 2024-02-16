@@ -41,43 +41,45 @@ const ChangePassword = ({ handleAuthEvt }) => {
 
   return (
     <main className={styles.container}>
-      <h1>Change Password</h1>
-      <p className={styles.message}>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
-        <label className={styles.label}>
-          Current Password
-          <input
-            type="password"
-            value={password}
-            name="password"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          New Password
-          <input
-            type="password"
-            value={newPassword}
-            name="newPassword"
-            onChange={handleChange}
-          />
-        </label>
-        <label className={styles.label}>
-          Confirm New Password
-          <input
-            type="password"
-            value={newPasswordConf}
-            name="newPasswordConf"
-            onChange={handleChange}
-          />
-        </label>
-        <div>
-          <Link to="/">Cancel</Link>
-          <button className={styles.button} disabled={isFormInvalid()}>
-            Change Password
-          </button>
-        </div>
-      </form>
+      <div className={styles.changeContainer}>
+        <h1>Change Password</h1>
+        <p className={styles.message}>{message}</p>
+        <form autoComplete="off" onSubmit={handleSubmit} className={styles.form}>
+          <label className={styles.label}>
+            Current Password
+            <input
+              type="password"
+              value={password}
+              name="password"
+              onChange={handleChange}
+            />
+          </label>
+          <label className={styles.label}>
+            New Password
+            <input
+              type="password"
+              value={newPassword}
+              name="newPassword"
+              onChange={handleChange}
+            />
+          </label>
+          <label className={styles.label}>
+            Confirm New Password
+            <input
+              type="password"
+              value={newPasswordConf}
+              name="newPasswordConf"
+              onChange={handleChange}
+            />
+          </label>
+          <div>
+            <Link to="/">Cancel</Link>
+            <button className={styles.button} disabled={isFormInvalid()}>
+              Change Password
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   )
 }

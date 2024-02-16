@@ -14,7 +14,10 @@ When combined with the back end found [here](https://github.com/Reizor-75/hobby-
 ![Image](https://i.imgur.com/wnjTwGS.png)
 ![Image](https://i.imgur.com/501iqQI.png)
 
-## Contributors 👩‍💻👩‍💻👩‍💻
+## Planning Materials ✅
+[Our Trello Board](https://trello.com/b/taYRWoy7/hobby-huddle)
+
+### Contributors 👩‍💻👩‍💻👩‍💻
 
 Krystina Bradley - [GitHub profile](https://github.com/kscott2016)
 Michelle Linares - [GitHub profile](https://github.com/Reizor-75)

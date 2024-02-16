@@ -1,3 +1,9 @@
+![Image](https://hobbyhuddle.netlify.app/assets/HobbyHuddleLogo-5d970ca0.svg)
+![Image](https://i.imgur.com/AnuN3lq.png)
+![Image](https://i.imgur.com/wnjTwGS.png)
+![Image](https://i.imgur.com/501iqQI.png)
+
+
 # Hobby Huddle - Front End
 
 Hobby Huddle tackles the challenge of connecting eager learners with local mentors and teachers. This platform fills the gap by providing a centralized hub where individuals seeking to learn new skills can easily find and engage with experienced mentors who tailor to their interests. Simultaneously, it offers teachers a space to showcase their talents and host sessions, while enabling vendors to promote their venues for workshops. 
@@ -16,19 +22,27 @@ Krystina Bradley - [GitHub profile](https://github.com/kscott2016)
 Michelle Linares - [GitHub profile](https://github.com/Reizor-75)
 Soundarya Nattuva - [GitHub profile](https://github.com/SoundaryaNattuva)
 
-### Attributions and Technologies used 💻
+## Technologies used :gear:
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColorj=white)
+![Express.JS](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Mongoose](https://img.shields.io/badge/Mongoose-880000.svg?style=for-the-badge&logo=Mongoose&logoColor=white)
+![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![Netlify](https://img.shields.io/netlify/:projectId)
+
+
 <ul>
-<li>Decoupled MERN Stack with JWT Auth Template from General Assembly</li>
-  <ul>
-  <li>Front End -https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end</li>
-  <li>Back End-https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end</li>
-  </ul>
-<li>Mongo DB</li>
-<li>Mongoose</li>
-<li>Node.js</li>
-<li>React.js</li>
-<li>Inkspace - app used to design assets</li>
+<li>Inkscape - app used to design assets</li>
 <li>Background Patterns from [Hero Patterns](https://heropatterns.com/)</li>
+<li>Chat GPT to design character logo (Hobbiteers)</li>
+<li>Fly.io for deployment
 </ul>
 
 #### Ice Box Features 🧊

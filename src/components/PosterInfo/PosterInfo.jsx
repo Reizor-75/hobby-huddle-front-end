@@ -23,4 +23,4 @@ const PosterInfo = ({poster}) => {
   )
 }
 
-export default PosterInfo;
+export default PosterInfo

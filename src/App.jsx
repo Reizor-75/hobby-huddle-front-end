@@ -83,7 +83,6 @@ function App() {
 
   const handleUpdateProfile = async (profileFormData, user) => {
     const updatedProfile = await profileService.updateProfile(profileFormData, user)
-    console.log("this is the UPDATED PROFILE ", updatedProfile)
     setProfiles(profiles.map((profile) => updatedProfile._id === profile._id ? updatedProfile : profile))
     navigate(`/profile/${updatedProfile._id}`)
   }

@@ -33,4 +33,4 @@ const ProfileCard = ({profile}) => {
   )
 }
 
-export default ProfileCard;
+export default ProfileCard

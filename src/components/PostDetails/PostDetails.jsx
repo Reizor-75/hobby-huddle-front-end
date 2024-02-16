@@ -36,4 +36,4 @@ const PostDetails = ({content}) => {
   )
 }
 
-export default PostDetails;
+export default PostDetails

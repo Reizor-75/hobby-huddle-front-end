@@ -1,7 +1,7 @@
 // components
 import ReviewCard from '../ReviewCard/ReviewCard'
 
-//css
+// css
 import styles from './Reviews.module.css'
 
 const Reviews = (props) => {

@@ -8,8 +8,6 @@ import styles from "./EditProfile.module.css"
 const EditProfile = ({user, profile, handleUpdateProfile}) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
-  // const [value, setValue] = useState(evt.target.value)
-  // setValue(Number(evt.target.value))
   
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -18,10 +16,6 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
     evt.preventDefault()
     handleUpdateProfile(formData, user)
   }
-
-  console.log(profile)
-  console.log(state)
-  console.log(formData)
 
   return ( 
     <div className={styles.editForumContainer}>
@@ -79,7 +73,6 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
           </label>    
           </div>
           
-
           <div className={styles.submit}>
             <button type="submit" className={styles.submit}>Save <i className="fa-regular fa-floppy-disk"></i></button>
           </div>

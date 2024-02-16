@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 // services
 import * as profileService from '../../services/profileService'
 
-//components
+// components
 import ProfileCard from '../../components/Profile Card/ProfileCard'
 
 // css

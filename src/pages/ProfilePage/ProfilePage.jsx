@@ -1,8 +1,8 @@
-//npm modules
+// npm modules
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-//services
+// services
 import * as profileService from '../../services/profileService'
 
 // css
@@ -38,16 +38,10 @@ const ProfilePage = (props) => {
     if (!profile) {
       return <h1>Loading...</h1>
     }
-    
+
     const skills = profile.skills[0]
     const skillsArray = skills?.split(',').map(skill => skill.trim())
-    console.log(skillsArray)
-
-    // const workshopDate = profile.myWorkshops.date.toLocaleDateString()
-    console.log(profile.myWorkshops)
-
     const workshops = profile.myWorkshops
-
     const formatDate = (workshop) => { return new Date(workshop.date).toLocaleString()}
 
     return ( 

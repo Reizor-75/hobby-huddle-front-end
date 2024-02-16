@@ -33,7 +33,7 @@ const Workshops = ({user , workshops}) => {
       </div>
       <div className='cardContainer'>
         {workshops.map(workshop =>(
-          <PostCard key={workshop._id} content={workshop}/>
+          <PostCard key={workshop._id} content={workshop} />
         ))}
       </div>
     </main>

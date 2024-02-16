@@ -11,7 +11,6 @@ import hhLogo from '../../assets/HobbyHuddleLogo.png'
 
 // css
 import './PostCard.css'
-
 const PostCard = ({user, content, handleDeleteRequest, handleAddBid, handleDeleteBid}) => {  
   const [formData, setFormData] = useState({
     fee: '',

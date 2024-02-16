@@ -1,5 +1,48 @@
 .container {
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.landingContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffffbb;
+  padding: 40px;
+  width: 60vw;
+  height: fit-content;
+  border-radius: 20px;
+}
+
+.welcome{
+  color: var(--mentor-color);
+  margin-bottom: 16px;
+}
+
+.landingContent{
+  display: flex;
+  width: 100%
+}
+
+div.videoContainer, div.tripContainer{
+  background-color: var(--cream);
+  overflow: hidden;
+  width: 40%;
+  border-radius: 20px;
+  img{    
+    height: auto;
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.landingDescription{
+  font-size: 1.25em;
+  font-weight: 600;
+  color: black;
+  width: 60%;
+  padding: 20px;
 }

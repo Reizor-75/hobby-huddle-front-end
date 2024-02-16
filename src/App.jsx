@@ -102,7 +102,7 @@ function App() {
 
   const handdleAddWorkshop = async (workshopFormData) => {
     const newWorkshop = await  workshopService.createWorkshop(workshopFormData)
-    setWorkshops({ ...workshops,  newWorkshop })
+    setWorkshops([newWorkshop, ...workshops])
     navigate('/workshops')
   }
   

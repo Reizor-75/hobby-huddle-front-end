@@ -7,12 +7,29 @@ input {
 
 input[type="file"] {
   padding: 0;
+  border-radius: 0;
 }
 
 .container {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.signUpContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  border-radius: 20px;
+  background-color:  #ffffffaa;
+  color: black;
+  font-weight: 700;
+}
+
+.comPass{
+  text-align: right;
 }
 
 .message {

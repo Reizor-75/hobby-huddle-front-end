@@ -13,7 +13,7 @@ const ProfileCard = ({profile}) => {
   return ( 
     <div className={styles.profileCard}>
       <Link to={`/profile/${profile._id}`}>
-        <div>
+        <div className={styles.centerImg}>
         <img className={styles.profilePicture} src={profile.photo? profile.photo : vendorHand} />
         </div>
       
@@ -21,9 +21,9 @@ const ProfileCard = ({profile}) => {
           {profile.name}
         </div>
 
-        <div className={styles.profileAboutMe}>
+        {/* <div className={styles.profileAboutMe}>
           <p> {profile.aboutMe} </p>
-        </div>
+        </div> */}
 
         <div className={styles.tagsBar}>
           {skillsArray?.length ? skillsArray.map((skill) => <tags key={skill}>#{skill} </tags>) : <></> }

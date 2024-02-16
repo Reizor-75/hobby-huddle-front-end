@@ -53,23 +53,10 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
           </label>
           </div>
           
-          <div className={styles.forumRowAboutMe}> 
-          <label className={styles.aboutMe}>
-            About Me
-            <input type="text"
-              className={styles.input}
-              name="aboutMe"
-              onChange={handleChange}
-              placeholder="Tell us about yourself"
-              value={formData.aboutMe ? formData.aboutMe : ""}
-              />
-          </label>    
-          </div>
-          
           <div className={styles.forumRowSkills}> 
           <label className={styles.label}>
             Skills
-            <input type="text"
+            <textarea type="text"
               className={styles.input}
               name="skills"
               onChange={handleChange}
@@ -79,6 +66,21 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
               />
           </label>
           </div>
+          
+          <div className={styles.forumRowAboutMe}> 
+          <label className={styles.aboutMe}>
+            About Me
+            <textarea type="text"
+              className={styles.input}
+              name="aboutMe"
+              onChange={handleChange}
+              placeholder="Tell us about yourself"
+              value={formData.aboutMe ? formData.aboutMe : ""}
+              cols="30"
+            />
+          </label>    
+          </div>
+          
 
           <div className={styles.submit}>
             <button type="submit" className={styles.submit}>Save <i className="fa-regular fa-floppy-disk"></i></button>

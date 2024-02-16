@@ -7,11 +7,15 @@
 
 .title{
   height: 40px;
+  width: 500px;
   border: solid rgb(0, 128, 124) 1.5px;
+  margin: 5px;
 }
 
 .content{
   height: 80px;
+  width: 500px;
   border: solid rgb(0, 128, 124) 1.5px;
+  margin-bottom: 5px;
 }
 

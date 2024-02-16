@@ -82,12 +82,12 @@ const ProfilePage = (props) => {
         </div>
         <div className={styles.bottomRight}>
           <div className={styles.bottomLeft}>
-            <h2>Workshops</h2>
+            <h2>My Workshops</h2>
           </div>
           <div className={styles.workshopList}>
             {workshops?.length ? 
-              workshops.map((workshop) => <list key={workshop}><Link to={`/workshops/${workshop._id}`} className={styles.list}>{workshop.title} is taking place on {formatDate(workshop)} <br/> </Link></list>)
-              : <>{<h3>No workshops to show</h3>}</>}
+              workshops.map((workshop) => <list key={workshop} className={styles.eachItem}><Link to={`/workshops/${workshop._id}`} > ◎ {workshop.title} - {formatDate(workshop)} <br/> </Link></list>)
+              : <>{<h3 style={{ color: 'brown' }}>No workshops to show</h3>}</>}
           </div>
         </div>
       </div>

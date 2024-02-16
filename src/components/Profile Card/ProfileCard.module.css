@@ -1,5 +1,5 @@
 .profileCard{
-  border: #df6d29 solid 3px;
+  border: #76bdab solid 3px;
   width: 300px;
   height: 350px;
   border-radius: 40px;
@@ -7,11 +7,12 @@
   flex-direction: column;
   align-items: center;
   margin: 20px;
-  background-color: #c5d0ae;
+  /* background-image: url("https://i.imgur.com/WtCYhHE.png"); */
+  background-color: rgb(247, 179, 115);
 }
 
 .profilePicture{
-  border: white solid 2px;
+  border: #df6d29 solid 2px;
   width: 150px;
   height: 150px;
   border-radius: 100px;
@@ -32,18 +33,26 @@ img{
   background-color: azure;
 }
 
+.centerImg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: solid black 1px; */
+  height: 150px;
+}
 
 .profileName{
   text-align: center;
   font-family: fredoka;
-  color: teal;
+  color: rgb(5, 206, 206);
   font-size: 36px;
-  border: red 1px solid;
   width: 100%;
   height: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 5px;
+  text-shadow: 1px 1px 2px rgb(76, 55, 58);
 }
 
 .name{
@@ -52,15 +61,9 @@ img{
   border: solid green 1px
 }
 
-.socials{
-  font-size: 16px;
-  color: rgb(170, 0, 255);
-  border: solid green 1px
-}
-
-.profileAboutMe{
-  /* border: pink 1px solid; */
+/* .profileAboutMe{
   width: 100%;
+  max-width: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,11 +72,14 @@ img{
   padding-top: 0px;
   text-overflow: ellipsis;
   overflow: hidden;
-}
+  white-space: nowrap;
+  text-overflow: ellipsis;
+} */
 
 .tagsBar{
-  color: black;
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 5px;
+  color: rgb(108, 49, 17);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }

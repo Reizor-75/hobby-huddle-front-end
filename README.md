@@ -1,9 +1,3 @@
-![Image](https://hobbyhuddle.netlify.app/assets/HobbyHuddleLogo-5d970ca0.svg)
-![Image](https://i.imgur.com/AnuN3lq.png)
-![Image](https://i.imgur.com/wnjTwGS.png)
-![Image](https://i.imgur.com/501iqQI.png)
-
-
 # Hobby Huddle - Front End
 
 Hobby Huddle tackles the challenge of connecting eager learners with local mentors and teachers. This platform fills the gap by providing a centralized hub where individuals seeking to learn new skills can easily find and engage with experienced mentors who tailor to their interests. Simultaneously, it offers teachers a space to showcase their talents and host sessions, while enabling vendors to promote their venues for workshops. 
@@ -15,6 +9,10 @@ This is a MERN Stack application that includes JWT Authentication.
 When combined with the back end found [here](https://github.com/Reizor-75/hobby-huddle-back-end), you'll have all you need to access the Hobby Huddle Community !
 
 ## <a href="https://hobbyhuddle.netlify.app/">Visit the app here </a> 💫
+
+![Image](https://i.imgur.com/AnuN3lq.png)
+![Image](https://i.imgur.com/wnjTwGS.png)
+![Image](https://i.imgur.com/501iqQI.png)
 
 ## Contributors 👩‍💻👩‍💻👩‍💻
 
@@ -40,7 +38,7 @@ Soundarya Nattuva - [GitHub profile](https://github.com/SoundaryaNattuva)
 
 <ul>
 <li>Inkscape - app used to design assets</li>
-<li>Background Patterns from [Hero Patterns](https://heropatterns.com/)</li>
+<li>Background Patterns from Hero Patterns -(https://heropatterns.com/)</li>
 <li>Chat GPT to design character logo (Hobbiteers)</li>
 <li>Fly.io for deployment
 </ul>

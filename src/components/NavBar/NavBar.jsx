@@ -29,7 +29,7 @@ const NavBar = ({ user, handleLogout }) => {
               <li><NavLink className={styles.nav_link} to="/venues/new">Create a Venue</NavLink></li>
               <li><NavLink className={styles.nav_link} to="/workshops">Workshops</NavLink></li>
               <li><NavLink className={styles.nav_link} to="/profiles">All Profiles</NavLink></li>
-              <li><NavLink className={styles.nav_link} to="/requests">Requests</NavLink></li>
+              {/* <li><NavLink className={styles.nav_link} to="/requests">Requests</NavLink></li> */}
             </ul>
           </nav>
         </>

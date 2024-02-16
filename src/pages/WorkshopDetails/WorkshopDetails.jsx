@@ -31,13 +31,14 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
   }
 
   if(!workshop) return <h1>Loading...</h1>
+  const photo = workshop.photo ? workshop.photo : hhLogo
 
   return (  
     <main className='container'>
       <div className="details-container">     
         <div className="top">
             <div className="image-crop">
-              <img src={hhLogo} alt="Workshop Image" className="workshop-image"/>
+              <img src={photo} alt="Workshop Image" className="workshop-image"/>
             </div>
           <div className="workshop-title">{workshop.title}</div>
           <PostDetails content={workshop} />   
@@ -51,10 +52,13 @@ const WorkshopDetails = ({user, handleDeleteWorkshop}) => {
             ? <button className='signUpButton' onClick={()=> handleDeleteWorkshop(workshopId)}>Delete Workshop</button>
             : <></>
           }
-          {user?.roll !== 200 ? <div></div> :
-            workshop.workshopLimit - workshop.studentsAttending.length
-              ?<button className='signUpButton' onClick={handleApply} >Apply</button>
-              : <button className='signUpButton' disabled>Apply</button>
+          {user?.role !== 200 ? <div></div> :
+            <>
+              {workshop.workshopLimit - workshop.studentsAttending.length
+                ?<button className='signUpButton' onClick={handleApply} >Apply</button>
+                : <button className='signUpButton' disabled>Apply</button>
+              }
+            </>
           }  
           <PosterInfo poster={workshop.mentorInfo}/>
         </div>

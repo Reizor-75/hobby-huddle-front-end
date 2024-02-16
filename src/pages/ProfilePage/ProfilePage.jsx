@@ -60,19 +60,21 @@ const ProfilePage = (props) => {
         </div>
       </div>
       <div className={styles.bottomContainer}>
-        <div className={styles.bottomLeft}>
-          <h2>Reviews</h2>
-          {props.user.profile !== `${profileId}` ?
-            <NewReview handleAddReview={handleAddReview} />
-            : <></>
-          } 
-          <Reviews 
-            reviews={profile.reviews} 
-            user={props.user} 
-            handleDeleteReview={handleDeleteReview}
-            profileId={profileId}
-          />
-        </div>
+        {profile.role === 500 &&
+          <div className={styles.bottomLeft}>
+            <h2>Reviews</h2>
+            {props.user.profile !== `${profileId}` ?
+              <NewReview handleAddReview={handleAddReview} />
+              : <></>
+            } 
+            <Reviews 
+              reviews={profile.reviews} 
+              user={props.user} 
+              handleDeleteReview={handleDeleteReview}
+              profileId={profileId}
+            />
+          </div>         
+        }
         <div className={styles.bottomRight}>
           <div className={styles.bottomLeft}>
             <h2>My Workshops</h2>

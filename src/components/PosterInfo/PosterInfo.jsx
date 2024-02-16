@@ -17,7 +17,13 @@ const PosterInfo = ({poster}) => {
 
   return (  
     <div className="poster-container"> 
-      <div className="hosting-line">Hosted By {poster.name}</div>
+      <div className="hosting-line">
+        {poster.role === 500
+          ? <>Hosted By </>
+          : <>Requested By </>
+        } 
+        {poster.name}
+      </div>
       <img src={photo} alt="Profile Photo" className="profile-photo" />
     </div>
   )

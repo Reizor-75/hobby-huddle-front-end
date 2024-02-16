@@ -7,7 +7,8 @@ import AuthorInfo from "../AuthorInfo/AuthorInfo"
 //css
 import styles from "./ReviewCard.module.css"
 
-const ReviewCard = ({ review, profileId, handleDeleteReview }) => {
+const ReviewCard = ({ review, user, profileId, handleDeleteReview }) => {
+
   return (
     <div className={styles.reviewCard}>
       <AuthorInfo review={review} /> 
@@ -15,14 +16,18 @@ const ReviewCard = ({ review, profileId, handleDeleteReview }) => {
       <p> {review.content} </p>
 
       <div className={styles.buttons}>
-        <button className={styles.editBtn} > 
-          <Link to={`/profile/${profileId}/reviews/${review._id}`} state={review}>
-            <i className="fa-solid fa-pen-to-square"></i>
-          </Link> 
-        </button>
-        <button className={styles.deleteBtn} onClick={()=> handleDeleteReview(profileId, review._id)}>
-          <i className="fa-solid fa-trash"></i>
-        </button>
+        {user.profile === review.reviewer._id &&
+          <>
+            <button className={styles.editBtn} > 
+              <Link to={`/profile/${profileId}/reviews/${review._id}`} state={review}>
+                <i className="fa-solid fa-pen-to-square"></i>
+              </Link> 
+            </button>
+            <button className={styles.deleteBtn} onClick={()=> handleDeleteReview(profileId, review._id)}>
+              <i className="fa-solid fa-trash"></i>
+            </button>
+          </>
+        }
       </div>
     </div>
   )

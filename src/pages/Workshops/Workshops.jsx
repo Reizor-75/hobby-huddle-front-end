@@ -9,13 +9,15 @@ import './Workshops.css'
 
 const Workshops = ({user , workshops}) => {  
   if(!workshops.length) { 
-    return <div className='titleBar'>
-            <h1 className='title'>No Workshops available</h1> 
-            {user?.role === 500 ?
-              <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>
-              : <></>
-            }
-          </div>
+    return <main className="container">
+              <div className='titleBar'>
+                <h1 className='title'>No Workshops available</h1> 
+                {user?.role === 500 ?
+                  <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>
+                  : <></>
+                }
+              </div>
+            </main>
   }
 
   return (  

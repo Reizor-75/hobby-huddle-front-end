@@ -71,7 +71,8 @@ const NewWorkshop = ({user, handdleAddWorkshop}) => {
               type="text"
               className='input'
               name="photo"
-              onChange={handleChange} />
+              onChange={handleChange}
+              placeholder="Image URL" />
           </label>
           <label className='label'>
             Date

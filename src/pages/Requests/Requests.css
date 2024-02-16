@@ -1,5 +1,7 @@
 main.container{
   max-width: 80vw; /*fix me*/
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
 }

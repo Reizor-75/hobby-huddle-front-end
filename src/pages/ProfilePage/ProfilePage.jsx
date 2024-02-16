@@ -1,8 +1,8 @@
-//npm modules
+// npm modules
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
-//services
+// services
 import * as profileService from '../../services/profileService'
 
 // css
@@ -38,16 +38,10 @@ const ProfilePage = (props) => {
     if (!profile) {
       return <h1>Loading...</h1>
     }
-    
+
     const skills = profile.skills[0]
     const skillsArray = skills?.split(',').map(skill => skill.trim())
-    console.log(skillsArray)
-
-    // const workshopDate = profile.myWorkshops.date.toLocaleDateString()
-    console.log(profile.myWorkshops)
-
     const workshops = profile.myWorkshops
-
     const formatDate = (workshop) => { return new Date(workshop.date).toLocaleString()}
 
     return ( 
@@ -82,12 +76,12 @@ const ProfilePage = (props) => {
         </div>
         <div className={styles.bottomRight}>
           <div className={styles.bottomLeft}>
-            <h2>Workshops</h2>
+            <h2>My Workshops</h2>
           </div>
           <div className={styles.workshopList}>
             {workshops?.length ? 
-              workshops.map((workshop) => <list key={workshop}><Link to={`/workshops/${workshop._id}`} className={styles.list}>{workshop.title} is taking place on {formatDate(workshop)} <br/> </Link></list>)
-              : <>{<h3>No workshops to show</h3>}</>}
+              workshops.map((workshop) => <list key={workshop} className={styles.eachItem}><Link to={`/workshops/${workshop._id}`} > ◎ {workshop.title} - {formatDate(workshop)} <br/> </Link></list>)
+              : <>{<h3 style={{ color: '#99450' }}>No workshops to show</h3>}</>}
           </div>
         </div>
       </div>

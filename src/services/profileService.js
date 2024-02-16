@@ -44,7 +44,6 @@ async function show(profileId) {
 }
 
 async function updateProfile(profileFormData, user) {
-  console.log(user.profile)
   try {
     const res = await fetch(`${BASE_URL}/${user.profile}`, {
       method: 'PUT',

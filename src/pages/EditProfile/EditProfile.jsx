@@ -8,8 +8,6 @@ import styles from "./EditProfile.module.css"
 const EditProfile = ({user, profile, handleUpdateProfile}) => {
   const { state } = useLocation()
   const [formData, setFormData] = useState(state)
-  // const [value, setValue] = useState(evt.target.value)
-  // setValue(Number(evt.target.value))
   
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value })
@@ -18,10 +16,6 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
     evt.preventDefault()
     handleUpdateProfile(formData, user)
   }
-
-  console.log(profile)
-  console.log(state)
-  console.log(formData)
 
   return ( 
     <div className={styles.editForumContainer}>
@@ -53,33 +47,32 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
           </label>
           </div>
           
+          <div className={styles.forumRowSkills}> 
+          <label className={styles.label}>
+            Skills
+            <textarea type="text"
+              className={styles.input}
+              name="skills"
+              onChange={handleChange}
+              placeholder="Please list your skills using commas between each skill"
+              value={formData.skills ? formData.skills: ""}
+              />
+          </label>
+          </div>
+          
           <div className={styles.forumRowAboutMe}> 
           <label className={styles.aboutMe}>
             About Me
-            <input type="text"
+            <textarea type="text"
               className={styles.input}
               name="aboutMe"
               onChange={handleChange}
               placeholder="Tell us about yourself"
               value={formData.aboutMe ? formData.aboutMe : ""}
-              />
+            />
           </label>    
           </div>
           
-          <div className={styles.forumRowSkills}> 
-          <label className={styles.label}>
-            Skills
-            <input type="text"
-              className={styles.input}
-              name="skills"
-              onChange={handleChange}
-              placeholder="Please list your skills using commas between each skill"
-              size="20"
-              value={formData.skills ? formData.skills: ""}
-              />
-          </label>
-          </div>
-
           <div className={styles.submit}>
             <button type="submit" className={styles.submit}>Save <i className="fa-regular fa-floppy-disk"></i></button>
           </div>

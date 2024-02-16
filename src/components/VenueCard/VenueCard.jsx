@@ -32,8 +32,10 @@ const VenueCard = (props) => {
           <p className={styles.venue_contact}><i className="fa-solid fa-link"></i>{props.venue.website ? props.venue.website : <span>No website listed</span>}</p>
         </div> 
         <div className={styles.owner_info}>
-          <img src={props.venue.venueOwner.photo ? props.venue.venueOwner.photo : vendorHand} className={styles.profile_photo}/>
-          <p>Owned by: {props.venue.venueOwner.name}</p>
+          <div className={styles.ownerPhotoWrapper}>
+            <img src={props.venue.venueOwner.photo ? props.venue.venueOwner.photo : vendorHand} className={styles.profile_photo}/>
+          </div>
+          <p className={styles.ownerName}>Owned by: {props.venue.venueOwner.name}</p>
         </div>
         </div>
 

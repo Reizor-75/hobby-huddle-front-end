@@ -8,7 +8,7 @@ This is the front end of the MERN Stack app that includes JWT Authentication.
 
 When combined with the back end found [here](https://github.com/Reizor-75/hobby-huddle-back-end), you'll have all you need to access the Hobby Huddle Community !
 
-## <a href="#">Visit the app here </a> 💫
+## <a href="https://hobbyhuddle.netlify.app/">Visit the app here </a> 💫
 
 ## Contributors 👩‍💻👩‍💻👩‍💻
 
@@ -41,3 +41,4 @@ Soundarya Nattuva - [GitHub profile](https://github.com/SoundaryaNattuva)
 <li>[] Add image galleries to workshop and venue listings</li>
 <li>[] Create a class pass feature</li>
 </ul>
+

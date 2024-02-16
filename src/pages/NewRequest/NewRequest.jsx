@@ -8,6 +8,7 @@ import './NewRequest.css'
 const NewRequest = ({user, handleAddRequest}) => {
   const [formData, setFormData] = useState({
     title: '',
+    photo: '',
     category: '',
     lowestPayment: '',
     highestPayment: '',
@@ -39,7 +40,16 @@ const NewRequest = ({user, handleAddRequest}) => {
               className='input'
               name="title"
               onChange={handleChange} />
-          </label> 
+          </label>
+          <label className='label'>
+            Cover Photo
+            <input 
+              type="text"
+              className='input'
+              name="photo"
+              onChange={handleChange}
+              placeholder="Image URL" />
+          </label>
           <label className='label'>
             Category
             <select 

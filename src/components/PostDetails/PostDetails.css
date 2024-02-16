@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .workshop-title{

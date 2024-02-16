@@ -22,19 +22,21 @@ const Workshops = ({user , workshops}) => {
 
   return (  
     <main className='container'>
-      <div className='titleBar'>
-        <h1 className='title'>Workshops</h1> 
-        {user?.role === 500 ?
-          <div className='button-container'>
-            <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>
-          </div>
-          : <></>
-        }
-      </div>
-      <div className='cardContainer'>
-        {workshops.map(workshop =>(
-          <PostCard key={workshop._id} content={workshop} />
-        ))}
+      <div className='workshopsContainer'>
+        <div className='titleBar'>
+          <h1 className='title'>Workshops</h1> 
+          {user?.role === 500 ?
+            <div className='button-container'>
+              <NavLink to="/workshops/new"><button>Create New Workshop</button></NavLink>
+            </div>
+            : <></>
+          }
+        </div>
+        <div className='cardContainer'>
+          {workshops.map(workshop =>(
+            <PostCard key={workshop._id} content={workshop} />
+          ))}
+        </div>
       </div>
     </main>
   )

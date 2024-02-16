@@ -6,6 +6,12 @@ main.container{
   align-items: center;
 }
 
+.workshopsContainer{
+  background-color: #ffffffaa;
+  padding: 40px;
+  border-radius: 20px;
+}
+
 button{  
   background-color: var(--mentor-color);
   margin: 0px;

@@ -61,7 +61,6 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
               name="skills"
               onChange={handleChange}
               placeholder="Please list your skills using commas between each skill"
-              size="20"
               value={formData.skills ? formData.skills: ""}
               />
           </label>
@@ -76,7 +75,6 @@ const EditProfile = ({user, profile, handleUpdateProfile}) => {
               onChange={handleChange}
               placeholder="Tell us about yourself"
               value={formData.aboutMe ? formData.aboutMe : ""}
-              cols="30"
             />
           </label>    
           </div>

@@ -87,7 +87,7 @@ const ProfilePage = (props) => {
           <div className={styles.workshopList}>
             {workshops?.length ? 
               workshops.map((workshop) => <list key={workshop} className={styles.eachItem}><Link to={`/workshops/${workshop._id}`} > ◎ {workshop.title} - {formatDate(workshop)} <br/> </Link></list>)
-              : <>{<h3 style={{ color: 'brown' }}>No workshops to show</h3>}</>}
+              : <>{<h3 style={{ color: '#99450' }}>No workshops to show</h3>}</>}
           </div>
         </div>
       </div>

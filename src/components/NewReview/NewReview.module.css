@@ -2,7 +2,7 @@
   /* border: solid green 1px; */
   width: 550px;
   display: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .title{
@@ -10,6 +10,8 @@
   width: 500px;
   border: solid rgb(0, 128, 124) 1.5px;
   margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .content{
@@ -17,5 +19,7 @@
   width: 500px;
   border: solid rgb(0, 128, 124) 1.5px;
   margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 10px;
 }
 

@@ -95,11 +95,11 @@ const NewVenue = () => {
             name="coverPhoto"
             onChange={handleChange}
             placeholder="Your beautiful venue"/>
-          </label>
-          <div className={styles.submit}>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+        </label>
+        <div className={styles.submit}>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
       </div>
     </main>
   )

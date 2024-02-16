@@ -4,11 +4,11 @@ Hobby Huddle tackles the challenge of connecting eager learners with local mento
 
 Whether you're seeking unique skills or aiming to share your passion, Hobby Huddle is rooted in building communities and bringing learning and teaching opportunities to your neighborhood.
 
-This is the front end of the MERN Stack app that includes JWT Authentication. 
+This is a MERN Stack application that includes JWT Authentication. 
 
 When combined with the back end found [here](https://github.com/Reizor-75/hobby-huddle-back-end), you'll have all you need to access the Hobby Huddle Community !
 
-## <a href="#">Visit the app here </a> 💫
+## <a href="https://hobbyhuddle.netlify.app/">Visit the app here </a> 💫
 
 ## Contributors 👩‍💻👩‍💻👩‍💻
 
@@ -18,15 +18,16 @@ Soundarya Nattuva - [GitHub profile](https://github.com/SoundaryaNattuva)
 
 ### Attributions and Technologies used 💻
 <ul>
-<li>Decoupled MERN Stack with JWT Auth Template</li>
+<li>Decoupled MERN Stack with JWT Auth Template from General Assembly</li>
   <ul>
-  <li>[Front End](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end)</li>
-  <li>[Back End](https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end)</li>
+  <li>Front End -https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-front-end</li>
+  <li>Back End-https://github.com/SEI-Remote/decoupled-mern-jwt-auth-template-back-end</li>
   </ul>
-<li>Mongoose</li>
-<li>React.js</li>
 <li>Mongo DB</li>
-<li>Inkspace - app used to design assests</li>
+<li>Mongoose</li>
+<li>Node.js</li>
+<li>React.js</li>
+<li>Inkspace - app used to design assets</li>
 <li>Background Patterns from [Hero Patterns](https://heropatterns.com/)</li>
 </ul>
 
@@ -40,3 +41,4 @@ Soundarya Nattuva - [GitHub profile](https://github.com/SoundaryaNattuva)
 <li>[] Add image galleries to workshop and venue listings</li>
 <li>[] Create a class pass feature</li>
 </ul>
+
